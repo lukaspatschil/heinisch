@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://danielaheinisch.at/sitemap_index.xml

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "index",
+    "path": "/"
+  },
+  {
+    "id": "ueber-mich",
+    "path": "/ueber-mich/"
+  },
+  {
+    "id": "portfolio",
+    "path": "/portfolio/"
+  },
+  {
+    "id": "ablauf",
+    "path": "/ablauf/"
+  },
+  {
+    "id": "liebe-worte",
+    "path": "/liebe-worte/"
+  },
+  {
+    "id": "haeufige-fragen",
+    "path": "/haeufige-fragen/"
+  },
+  {
+    "id": "kontakt-2",
+    "path": "/kontakt-2/"
+  },
+  {
+    "id": "impressum",
+    "path": "/impressum/"
+  },
+  {
+    "id": "datenschutzerklaerung",
+    "path": "/datenschutzerklaerung/"
+  },
+  {
+    "id": "danke-seite",
+    "path": "/danke-seite/"
+  },
+  {
+    "id": "website-im-aufbau",
+    "path": "/website-im-aufbau/"
+  },
+  {
+    "id": "familienfotografin-baden",
+    "path": "/familienfotografin-baden/"
+  },
+  {
+    "id": "familienfotografin-moedling",
+    "path": "/familienfotografin-moedling/"
+  },
+  {
+    "id": "newborn-shooting-moedling",
+    "path": "/newborn-shooting-moedling/"
+  },
+  {
+    "id": "newborn-shooting-baden",
+    "path": "/newborn-shooting-baden/"
+  },
+  {
+    "id": "gallery",
+    "path": "/gallery/"
+  },
+  {
+    "id": "gallery__portrait",
+    "path": "/gallery/portrait/"
+  },
+  {
+    "id": "gallery__paare",
+    "path": "/gallery/paare/"
+  },
+  {
+    "id": "gallery__hochzeitsfotografie",
+    "path": "/gallery/hochzeitsfotografie/"
+  },
+  {
+    "id": "gallery__babybauch",
+    "path": "/gallery/babybauch/"
+  },
+  {
+    "id": "gallery__newborn",
+    "path": "/gallery/newborn/"
+  },
+  {
+    "id": "gallery__baby-kleinkind-mummy-and-me",
+    "path": "/gallery/baby-kleinkind-mummy-and-me/"
+  },
+  {
+    "id": "gallery__familien",
+    "path": "/gallery/familien/"
+  },
+  {
+    "id": "entry_form__kontaktformular",
+    "path": "/entry_form/kontaktformular/"
+  }
+]

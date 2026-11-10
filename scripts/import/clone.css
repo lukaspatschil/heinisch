@@ -1,0 +1,128 @@
+/*
+ * Styles that replace behaviour the original site implemented in jQuery
+ * (sticky header, slick slider, Masonry, Instagram tiles). Appended to the
+ * end of styles/site.css by the importer.
+ */
+
+/* Sticky header (original: jQuery "sticky" plugin, position: fixed on scroll).
+   position: sticky needs the clipping ancestors to use overflow: clip instead
+   of overflow: hidden (same clipping, but no scroll container). */
+html,
+body {
+  overflow-x: clip;
+}
+.flextheme_main_wrapper {
+  overflow: clip;
+}
+header#masthead.fgt-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 9990;
+}
+
+/* Hero slider (original: slick.js with inline widths/transforms) */
+.flo-slick-slider-block-slider.slick-slider[data-hs-slider] .slick-track {
+  display: flex;
+  width: 100%;
+  transform: translate3d(calc(var(--hs-offset, 0) * -100%), 0, 0);
+  transition: transform var(--hs-speed, 1600ms) ease;
+  will-change: transform;
+}
+.flo-slick-slider-block-slider.slick-slider[data-hs-slider] .slick-track.hs-no-transition {
+  transition: none;
+}
+[data-hs-slider] .slick-track::before,
+[data-hs-slider] .slick-track::after {
+  display: none;
+}
+[data-hs-slider] .slick-slide {
+  flex: 0 0 100%;
+  width: 100% !important;
+  min-width: 0;
+}
+[data-hs-slider] .slick-arrow {
+  cursor: pointer;
+}
+[data-hs-slider] .slick-list {
+  touch-action: pan-y;
+}
+
+/* Masonry gallery: columns are pre-computed at build time */
+.flo-gallery-grid[data-hs-masonry] {
+  align-items: flex-start;
+}
+@media (min-width: 768px) {
+  .flo-gallery-grid[data-hs-masonry] > .hs-masonry-col {
+    width: var(--img-width);
+  }
+  .flo-gallery-grid[data-hs-masonry] > .hs-masonry-col > .flo-gallery-grid__image {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .flo-gallery-grid[data-hs-masonry] > .hs-masonry-col {
+    display: contents;
+  }
+}
+
+/* Instagram feed: square tiles (original: height set inline by JS) */
+#sb_instagram .sbi_photo {
+  aspect-ratio: 1 / 1;
+}
+#sb_instagram .sbi_photo img {
+  height: 100%; /* original: height "inherit" from the JS-set tile height */
+}
+
+/* WhatsApp widget: GDPR notice fade-out */
+#wa .nta-wa-gdpr {
+  transition: opacity 0.4s;
+}
+
+/* Footer menu links are 17px tall: enlarge the click target to 25px without
+   moving anything (padding compensated by negative margin). */
+footer .flex-element-type-menu__menu-item-link {
+  padding-block: 4px;
+  margin-block: -4px;
+}
+/* The footer logo's transparent link box overlaps the top of the menu: keep the
+   menu above it so the "Impressum" link is fully clickable (no visual change). */
+footer .flex-block__element.flex-block__element-menu {
+  z-index: 8;
+}
+
+/* Device specific elements of flo-flex-builder (original: rendered by JS for
+   the current viewport, see renderDeviceTemplates in the importer). */
+@media (max-width: 767px) {
+  [data-only-device='desktop'],
+  [data-hs-hide-on~='mobile'] {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  [data-only-device='mobile'],
+  [data-hs-hide-on~='desktop'] {
+    display: none !important;
+  }
+}
+
+/* FAQ tabs (original: slick with fade, slides stacked and cross-faded) */
+.flex-element-type-tabs2__slider[data-hs-tabs] .slick-list {
+  position: relative;
+  overflow: hidden;
+}
+.flex-element-type-tabs2__slider[data-hs-tabs] .slick-track {
+  display: grid;
+}
+.flex-element-type-tabs2__slider[data-hs-tabs] .slick-slide {
+  grid-area: 1 / 1;
+  opacity: 0;
+  z-index: 998;
+  transition: opacity var(--slideSpeed, 600ms) ease;
+}
+.flex-element-type-tabs2__slider[data-hs-tabs] .slick-slide.slick-current {
+  opacity: 1;
+  z-index: 999;
+}
+.flex-element-type-tabs-switcher[data-hs-tabs-switcher] .flex-element-type-tabs-switcher__item {
+  cursor: pointer;
+}

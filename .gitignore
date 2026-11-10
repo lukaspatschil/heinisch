@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+scripts/import/.cache/
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+lighthouse-reports/*.html
+public/js/

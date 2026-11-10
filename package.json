@@ -1,0 +1,37 @@
+{
+  "name": "danielaheinisch-at",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Statischer Next.js-Nachbau von danielaheinisch.at",
+  "scripts": {
+    "dev": "npm run build:js && next dev",
+    "build": "npm run build:js && next build && cp out/404/index.html out/404.html",
+    "start": "npx serve out -l 3000",
+    "import": "node scripts/import/import.mjs",
+    "qa:screenshots": "node scripts/qa/screenshots.mjs",
+    "qa:compare": "node scripts/qa/compare.mjs",
+    "qa:lighthouse": "node scripts/qa/lighthouse.mjs",
+    "build:js": "esbuild lib/behaviors/index.ts --bundle --minify --format=esm --target=es2020 --outfile=public/js/site.js"
+  },
+  "dependencies": {
+    "next": "16.4.5",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19",
+    "cheerio": "^1.2.0",
+    "esbuild": "^0.28.2",
+    "lighthouse": "^13.6.0",
+    "pixelmatch": "^7.2.0",
+    "playwright": "^1.65.0",
+    "pngjs": "^7.0.0",
+    "serve": "^14",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9",
+    "wawoff2": "^2.0.1"
+  },
+  "type": "module"
+}

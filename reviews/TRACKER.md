@@ -2,6 +2,11 @@
 
 Bewertungsschema: [RUBRIC.md](RUBRIC.md). Ziel: alle Kriterien beider Reviewer ≥ 9,5.
 
+## Ergebnis
+
+Ziel erreicht in Runde 6: alle zwölf Kriterien beider Reviewer ≥ 9,5 (UI: 4× 9,5, 2× 10; UX: 2× 9,5, 4× 10).
+Offen sind nur low-Funde (siehe unten) und zwei Kundenpunkte („wartet auf Kundin“).
+
 ## Punkte je Runde
 
 | Runde | Reviewer | Punkte |
@@ -16,6 +21,8 @@ Bewertungsschema: [RUBRIC.md](RUBRIC.md). Ziel: alle Kriterien beider Reviewer �
 | 4 | UX | navigation 9.5, conversion 9.5, formulare 9, mobile_bedienung 9.5, barrierefreiheit 9.5, vertrauen_inhalt 9.5 |
 | 5 | UI | typografie 9, farbe_kontrast 9, layout_abstaende 9, bilder 9.5, responsive 9, komponenten 9 |
 | 5 | UX | navigation 10, conversion 10, formulare 9, mobile_bedienung 9.5, barrierefreiheit 9.5, vertrauen_inhalt 9.5 |
+| 6 | UI | typografie 9.5, farbe_kontrast 10, layout_abstaende 9.5, bilder 9.5, responsive 9.5, komponenten 10 |
+| 6 | UX | navigation 10, conversion 10, formulare 9.5, mobile_bedienung 9.5, barrierefreiheit 10, vertrauen_inhalt 10 |
 
 ## Funde
 
@@ -156,26 +163,34 @@ Bewertungsschema: [RUBRIC.md](RUBRIC.md). Ziel: alle Kriterien beider Reviewer �
 | [UX4-08](round-4/ux/annotated/UX4-08.png) | 4 | low | /kontakt-2/ / laptop-1440 | Telefonnummer und Seitentitel uneinheitlich geschrieben | teilweise in Runde 5 | Telefonnummer überall „0677 / 643 454 61“; Seitentitel mit Gedankenstrich, „Danke für deine Nachricht“ |
 | [UX4-09](round-4/ux/annotated/UX4-09.png) | 4 | low | /preise/ / mobile-390 | Preise: doppelter Anfrage-Block und verwaister Trenner nach der Telefonnummer | behoben (Runde 5 bestätigt) | Kein zweiter CTA-Block auf /preise/; Telefon/Mail mobil untereinander ohne Trenner |
 | [UX4-10](round-4/ux/annotated/UX4-10.png) | 4 | low | /danke-seite/ / laptop-1440 | Rest von UX3-13: Danke-Seite weiter für Suchmaschinen indexierbar | teilweise in Runde 5 | nicht in der Sitemap; noindex bewusst nicht gesetzt (Lighthouse-SEO ≥ 90 ist Vorgabe) |
-| [UI5-01](round-5/ui/annotated/UI5-01.png) | 5 | medium | / / mobile-390 | Rest von UI4-06: Mobil-Hero-Text schwer lesbar (Folie 1 auf Gesichtern, Folien 2 und 4 grau auf Foto) | umgesetzt (Prüfung Runde 6) | Hero-Text auf allen Folien weiß mit Schatten, mobiler Verlauf in der Textzone 55 % dunkel |
-| [UI5-02](round-5/ui/annotated/UI5-02.png) | 5 | low | / / laptop-1440 | Rest von UI4-07: Logo-Link ohne sichtbaren Tastaturfokus | umgesetzt (Prüfung Runde 6) | Fokusring als Kreis um das Logo-Zeichen (Logo ist ein Hintergrundbild) |
-| [UI5-03](round-5/ui/annotated/UI5-03.png) | 5 | low | / / mobile-390 | Rest von UI4-01: Mobil Genre-Labels und Ablauf-Nummern 11,44 px | umgesetzt (Prüfung Runde 6) | Theme-Schriftstile overline/subtitle/caption min. 12 px; Scan: kein Text < 12 px |
-| [UI5-04](round-5/ui/annotated/UI5-04.png) | 5 | low | /ablauf/ / laptop-1440 | Rest von UI4-08: Unterstrichene Überschriften "Ablauf" und "Meine Liebe zur Fotografie" | teilweise (Prüfung Runde 6) | <u>-Unterstreichung in Überschriften entfernt; Titelgrößen je Seitentyp unverändert |
-| [UI5-05](round-5/ui/annotated/UI5-05.png) | 5 | low | /haeufige-fragen/ / laptop-1440 | Rest von UI4-04: 186 px Leerfläche zwischen Antwort und Hinweis | umgesetzt (Prüfung Runde 6) | FAQ-Hinweis folgt direkt jeder Antwort (kein Leerraum mehr dazwischen) |
-| [UI5-06](round-5/ui/annotated/UI5-06.png) | 5 | low | /haeufige-fragen/ / mobile-390 | Rest von UI4-13: FAQ mobil mit vier linken Kanten | teilweise (Prüfung Runde 6) | Hinweis bündig mit der Antwort; Bild-/Titelkante (14/18 px) unverändert |
-| [UI5-07](round-5/ui/annotated/UI5-07.png) | 5 | low | /ablauf/ / laptop-1440 | Rest von UI4-15: Ablauf-Spalte 3 sitzt 5-7 px höher | umgesetzt (Prüfung Runde 6) | Ablauf: Nummern, Titel und Texte je Zeile auf gleicher Höhe (Desktop) |
-| [UI5-08](round-5/ui/annotated/UI5-08.png) | 5 | low | /liebe-worte/ / laptop-1440 | Rest von UI4-09: letztes Kundenfoto größer und 8 px nach links versetzt | umgesetzt (Prüfung Runde 6) | Liebe Worte: letztes Foto auf Breite, Höhe und linke Kante der übrigen |
-| [UI5-09](round-5/ui/annotated/UI5-09.png) | 5 | low | /ueber-mich/ / laptop-1440 | Rest von UI4-10: Bildpaar mit verschiedenen Größen und Höhen | offen | offen |
-| [UI5-10](round-5/ui/annotated/UI5-10.png) | 5 | low | /ueber-mich/ / laptop-1440 | Rest von UI4-11: Button "Jetzt anfragen" nur 7 px unter dem Text | umgesetzt (Prüfung Runde 6) | „Jetzt anfragen“ auf Über mich 20 px tiefer |
-| [UI5-11](round-5/ui/annotated/UI5-11.png) | 5 | low | / / tablet-1024 | Rest von UI4-12: Tablet 1024 mit 340-px-Textspalte, Startseite 12 133 px hoch | offen | offen |
-| [UI5-12](round-5/ui/annotated/UI5-12.png) | 5 | low | / / laptop-1440 | Zwei verschiedene Rosé-Füllungen bei sonst gleichen Buttons | umgesetzt (Prüfung Runde 6) | Builder-Button-Box ohne eigene Fläche – nur noch #EDE2DF |
-| [UI5-13](round-5/ui/annotated/UI5-13.png) | 5 | low | /ablauf/ / tablet-1024 | Ablauf Tablet/Mobil: Trennlinien versetzt, Reste am linken Rand | umgesetzt (Prüfung Runde 6) | Ablauf: Desktop-Haarlinien unter 1200 px ausgeblendet |
-| [UI5-14](round-5/ui/annotated/UI5-14.png) | 5 | low | /kontakt-2/ / mobile-390 | Kontakt mobil: Formularfelder nur 253 px breit, Select-Text abgeschnitten | umgesetzt (Prüfung Runde 6) | Kontaktformular mobil über die volle Spaltenbreite (328 px) |
-| [UX5-01](round-5/ux/annotated/UX5-01.png) | 5 | medium | /kontakt-2/ / mobile-390 | Rest von UX4-04: Fehlermeldung überlappt das Eingabefeld | umgesetzt (Prüfung Runde 6) | Fehlermeldung im Fluss unter dem Feld (statt absolut nach oben wachsend) |
-| [UX5-02](round-5/ux/annotated/UX5-02.png) | 5 | low | / / laptop-1440 | Logo-Link ohne sichtbaren Tastaturfokus | umgesetzt (Prüfung Runde 6) | Logo-Fokus sichtbar (Kreis) |
-| [UX5-03](round-5/ux/annotated/UX5-03.png) | 5 | low | /gallery/paare/ / mobile-390 | Galerie-Unternavigation und FAQ-Reiter knapp unter 44 px | umgesetzt (Prüfung Runde 6) | Galerie-Links und FAQ-Reiter min. 44 px hoch |
-| [UX5-04](round-5/ux/annotated/UX5-04.png) | 5 | low | /kontakt-2/ / mobile-390 | Rest von UX4-05: WhatsApp-Button überdeckt beim Scrollen Formularränder | offen | offen |
-| [UX5-05](round-5/ux/annotated/UX5-05.png) | 5 | low | /ueber-mich/ / mobile-390 | WhatsApp-Hinweisblase liegt über dem Fließtext | umgesetzt (Prüfung Runde 6) | WhatsApp-Blase mobil ausgeblendet, Schreibweise „WhatsApp“; Button mit Namen |
-| [UX5-06](round-5/ux/annotated/UX5-06.png) | 5 | low | /kontakt-2/ / laptop-1440 | Select ohne sichtbare Beschriftung | umgesetzt (Prüfung Runde 6) | Select mit sichtbarem Label „Wie hast du von mir erfahren?“, Platzhalter „Bitte auswählen“ |
-| [UX5-07](round-5/ux/annotated/UX5-07.png) | 5 | low | /gallery/paare/ / laptop-1440 | Zwei Navigations-Landmarks mit gleichem Namen Galerien | umgesetzt (Prüfung Runde 6) | Galerie-Navigationen unterscheidbar („Galerien“ / „Galerien (Seitenende)“), leeres Menü ohne Landmark |
-| [UX5-08](round-5/ux/annotated/UX5-08.png) | 5 | low | /ueber-mich/ / laptop-1440 | Überschriftenreihenfolge auf Über mich: H2, H3, dann H1 | umgesetzt (Prüfung Runde 6) | Über mich: H1 = sichtbarer Seitentitel, danach H2 ohne Sprünge |
-| [UX5-09](round-5/ux/annotated/UX5-09.png) | 5 | low | /preise/ / laptop-1440 | Rest von UX4-08: Seitentitel mit uneinheitlichem Trennzeichen | umgesetzt (Prüfung Runde 6) | Alle Seitentitel mit Gedankenstrich |
+| [UI5-01](round-5/ui/annotated/UI5-01.png) | 5 | medium | / / mobile-390 | Rest von UI4-06: Mobil-Hero-Text schwer lesbar (Folie 1 auf Gesichtern, Folien 2 und 4 grau auf Foto) | behoben (Runde 6 bestätigt) | Hero-Text auf allen Folien weiß mit Schatten, mobiler Verlauf in der Textzone 55 % dunkel |
+| [UI5-02](round-5/ui/annotated/UI5-02.png) | 5 | low | / / laptop-1440 | Rest von UI4-07: Logo-Link ohne sichtbaren Tastaturfokus | behoben (Runde 6 bestätigt) | Fokusring als Kreis um das Logo-Zeichen (Logo ist ein Hintergrundbild) |
+| [UI5-03](round-5/ui/annotated/UI5-03.png) | 5 | low | / / mobile-390 | Rest von UI4-01: Mobil Genre-Labels und Ablauf-Nummern 11,44 px | behoben (Runde 6 bestätigt) | Theme-Schriftstile overline/subtitle/caption min. 12 px; Scan: kein Text < 12 px |
+| [UI5-04](round-5/ui/annotated/UI5-04.png) | 5 | low | /ablauf/ / laptop-1440 | Rest von UI4-08: Unterstrichene Überschriften "Ablauf" und "Meine Liebe zur Fotografie" | teilweise in Runde 6 | <u>-Unterstreichung in Überschriften entfernt; Titelgrößen je Seitentyp unverändert |
+| [UI5-05](round-5/ui/annotated/UI5-05.png) | 5 | low | /haeufige-fragen/ / laptop-1440 | Rest von UI4-04: 186 px Leerfläche zwischen Antwort und Hinweis | behoben (Runde 6 bestätigt) | FAQ-Hinweis folgt direkt jeder Antwort (kein Leerraum mehr dazwischen) |
+| [UI5-06](round-5/ui/annotated/UI5-06.png) | 5 | low | /haeufige-fragen/ / mobile-390 | Rest von UI4-13: FAQ mobil mit vier linken Kanten | teilweise in Runde 6 | Hinweis bündig mit der Antwort; Bild-/Titelkante (14/18 px) unverändert |
+| [UI5-07](round-5/ui/annotated/UI5-07.png) | 5 | low | /ablauf/ / laptop-1440 | Rest von UI4-15: Ablauf-Spalte 3 sitzt 5-7 px höher | behoben (Runde 6 bestätigt) | Ablauf: Nummern, Titel und Texte je Zeile auf gleicher Höhe (Desktop) |
+| [UI5-08](round-5/ui/annotated/UI5-08.png) | 5 | low | /liebe-worte/ / laptop-1440 | Rest von UI4-09: letztes Kundenfoto größer und 8 px nach links versetzt | behoben (Runde 6 bestätigt) | Liebe Worte: letztes Foto auf Breite, Höhe und linke Kante der übrigen |
+| [UI5-09](round-5/ui/annotated/UI5-09.png) | 5 | low | /ueber-mich/ / laptop-1440 | Rest von UI4-10: Bildpaar mit verschiedenen Größen und Höhen | offen in Runde 6 | offen |
+| [UI5-10](round-5/ui/annotated/UI5-10.png) | 5 | low | /ueber-mich/ / laptop-1440 | Rest von UI4-11: Button "Jetzt anfragen" nur 7 px unter dem Text | behoben (Runde 6 bestätigt) | „Jetzt anfragen“ auf Über mich 20 px tiefer |
+| [UI5-11](round-5/ui/annotated/UI5-11.png) | 5 | low | / / tablet-1024 | Rest von UI4-12: Tablet 1024 mit 340-px-Textspalte, Startseite 12 133 px hoch | offen in Runde 6 | offen |
+| [UI5-12](round-5/ui/annotated/UI5-12.png) | 5 | low | / / laptop-1440 | Zwei verschiedene Rosé-Füllungen bei sonst gleichen Buttons | behoben (Runde 6 bestätigt) | Builder-Button-Box ohne eigene Fläche – nur noch #EDE2DF |
+| [UI5-13](round-5/ui/annotated/UI5-13.png) | 5 | low | /ablauf/ / tablet-1024 | Ablauf Tablet/Mobil: Trennlinien versetzt, Reste am linken Rand | behoben (Runde 6 bestätigt) | Ablauf: Desktop-Haarlinien unter 1200 px ausgeblendet |
+| [UI5-14](round-5/ui/annotated/UI5-14.png) | 5 | low | /kontakt-2/ / mobile-390 | Kontakt mobil: Formularfelder nur 253 px breit, Select-Text abgeschnitten | behoben (Runde 6 bestätigt) | Kontaktformular mobil über die volle Spaltenbreite (328 px) |
+| [UX5-01](round-5/ux/annotated/UX5-01.png) | 5 | medium | /kontakt-2/ / mobile-390 | Rest von UX4-04: Fehlermeldung überlappt das Eingabefeld | behoben (Runde 6 bestätigt) | Fehlermeldung im Fluss unter dem Feld (statt absolut nach oben wachsend) |
+| [UX5-02](round-5/ux/annotated/UX5-02.png) | 5 | low | / / laptop-1440 | Logo-Link ohne sichtbaren Tastaturfokus | behoben (Runde 6 bestätigt) | Logo-Fokus sichtbar (Kreis) |
+| [UX5-03](round-5/ux/annotated/UX5-03.png) | 5 | low | /gallery/paare/ / mobile-390 | Galerie-Unternavigation und FAQ-Reiter knapp unter 44 px | behoben (Runde 6 bestätigt) | Galerie-Links und FAQ-Reiter min. 44 px hoch |
+| [UX5-04](round-5/ux/annotated/UX5-04.png) | 5 | low | /kontakt-2/ / mobile-390 | Rest von UX4-05: WhatsApp-Button überdeckt beim Scrollen Formularränder | offen in Runde 6 | offen |
+| [UX5-05](round-5/ux/annotated/UX5-05.png) | 5 | low | /ueber-mich/ / mobile-390 | WhatsApp-Hinweisblase liegt über dem Fließtext | behoben (Runde 6 bestätigt) | WhatsApp-Blase mobil ausgeblendet, Schreibweise „WhatsApp“; Button mit Namen |
+| [UX5-06](round-5/ux/annotated/UX5-06.png) | 5 | low | /kontakt-2/ / laptop-1440 | Select ohne sichtbare Beschriftung | behoben (Runde 6 bestätigt) | Select mit sichtbarem Label „Wie hast du von mir erfahren?“, Platzhalter „Bitte auswählen“ |
+| [UX5-07](round-5/ux/annotated/UX5-07.png) | 5 | low | /gallery/paare/ / laptop-1440 | Zwei Navigations-Landmarks mit gleichem Namen Galerien | behoben (Runde 6 bestätigt) | Galerie-Navigationen unterscheidbar („Galerien“ / „Galerien (Seitenende)“), leeres Menü ohne Landmark |
+| [UX5-08](round-5/ux/annotated/UX5-08.png) | 5 | low | /ueber-mich/ / laptop-1440 | Überschriftenreihenfolge auf Über mich: H2, H3, dann H1 | behoben (Runde 6 bestätigt) | Über mich: H1 = sichtbarer Seitentitel, danach H2 ohne Sprünge |
+| [UX5-09](round-5/ux/annotated/UX5-09.png) | 5 | low | /preise/ / laptop-1440 | Rest von UX4-08: Seitentitel mit uneinheitlichem Trennzeichen | behoben (Runde 6 bestätigt) | Alle Seitentitel mit Gedankenstrich |
+| [UI6-01](round-6/ui/annotated/UI6-01.png) | 6 | low | /haeufige-fragen/ / laptop-1440 | FAQ: ca. 276 px Leerflaeche unter der Antwort vor dem Abschluss-Block | offen | offen |
+| [UI6-02](round-6/ui/annotated/UI6-02.png) | 6 | low | /ueber-mich/ / laptop-1440 | Rest von UI5-04: "Meine liebe zur Fotografie" weiter unterstrichen | umgesetzt (nach Runde 6) | Unterstreichung in Titel-Absätzen (<u> in data-font title_*) entfernt |
+| [UI6-03](round-6/ui/annotated/UI6-03.png) | 6 | low | /haeufige-fragen/ / mobile-390 | Rest von UI5-06: FAQ mobil mit vier linken Kanten | offen | offen |
+| [UI6-04](round-6/ui/annotated/UI6-04.png) | 6 | low | /ueber-mich/ / laptop-1440 | Rest von UI5-09: Bildpaar mit verschiedenen Groessen und Oberkanten | offen | offen |
+| [UI6-05](round-6/ui/annotated/UI6-05.png) | 6 | low | / / tablet-1024 | Rest von UI5-11: Tablet 1024 mit 340-px-Textspalte, Startseite 12 136 px hoch | offen | offen |
+| [UX6-01](round-6/ux/annotated/UX6-01.png) | 6 | low | /kontakt-2/ / mobile-390 | Rest von UX5-04: WhatsApp-Button überdeckt beim Scrollen Formularfelder | offen | offen |
+| [UX6-02](round-6/ux/annotated/UX6-02.png) | 6 | low | /portfolio/ / mobile-390 | Galerie-Titel-Links nur 19 px hoch, Datenschutz-Link im Formular 18 px | umgesetzt (nach Runde 6) | Genre-Titel und Datenschutz-Link mit 44-px-Trefferfläche |
+| [UX6-03](round-6/ux/annotated/UX6-03.png) | 6 | low | /kontakt-2/ / mobile-390 | Fehlerhafte Felder ohne visuelle Markierung | umgesetzt (nach Runde 6) | Fehlerfelder mit rotem Rahmen (#B3261E) |

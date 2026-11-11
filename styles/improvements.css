@@ -1120,3 +1120,20 @@ body [data-font='third_level/secondary_cta'] {
 .flex-block__element--button.hs-btn-gap {
   translate: calc((var(--el-width) - 100%) / 2) 20px;
 }
+
+/* Round 6 (UX) */
+/* fields with an error get a red frame, not only the text below (UX6-03) */
+.flo-form .form-group.error .form-control {
+  border-color: #b3261e !important;
+}
+/* small text links with a 44px touch area (UX6-02) */
+.hs-genre__title a,
+.hs-form-note a {
+  display: inline-block;
+  padding: 12px 0;
+  margin: -12px 0;
+}
+/* titles set as underlined paragraphs looked like links (UI6-02) */
+main [data-font^='title_'] u {
+  text-decoration: none !important;
+}

@@ -2,7 +2,7 @@
 
 # heinisch
 
-Statischer 1:1-Nachbau von [danielaheinisch.at](https://danielaheinisch.at) (WordPress, Theme „Flo Pronto“ mit Flo Flex Builder) in **Next.js** mit Static Export. Das Ergebnis ist reines HTML/CSS mit ca. 20 KB eigenem JavaScript (kein Framework-JS im Browser) und lässt sich auf jedem statischen Hosting betreiben (Netlify, Vercel, Cloudflare Pages, S3, nginx …).
+Statischer Nachbau von [danielaheinisch.at](https://danielaheinisch.at) (WordPress, Theme „Flo Pronto“ mit Flo Flex Builder) in **Next.js** mit Static Export. Das Ergebnis ist reines HTML/CSS mit ca. 20 KB eigenem JavaScript (kein Framework-JS im Browser) und lässt sich auf jedem statischen Hosting betreiben (Netlify, Vercel, Cloudflare Pages, S3, nginx …).
 
 ## Befehle
 
@@ -12,7 +12,18 @@ npm run build          # → ./out (statische Website inkl. 404.html)
 npm start              # ./out lokal auf http://localhost:3000 ausliefern
 npm run dev            # Entwicklungsserver
 npm run import         # Inhalte neu von danielaheinisch.at übernehmen (siehe unten)
+npm run import -- --original   # Import ohne Design-Verbesserungen (reiner 1:1-Nachbau)
 ```
+
+## Design-Verbesserungen
+
+Auf den 1:1-Import setzt eine Verbesserungsschicht auf, entstanden aus sechs Runden unabhängiger UI- und UX-Reviews (Ergebnis: alle Kriterien ≥ 9,5).
+
+- `scripts/import/improve.mjs`: Änderungen am Markup beim Import (Kontrastfarben, Überschriften, Alt-Texte, Formular, Galerie-Navigation, Portfolio-Raster, Datenschutz-Gliederung, Weiterleitungen alter Seiten, neue Seite `/preise/`, Meta-Beschreibungen).
+- `styles/improvements.css`: Gestaltung (Button-System, Fokus, Mindestschrift 12 px, Tablet-Layout bis 1199 px, Formular, Footer, Hero).
+- `reviews/`: Bewertungsschema (`RUBRIC.md`), Tracker aller Funde mit Status (`TRACKER.md`) und je Runde die Berichte, `findings.json` und markierten Screenshots (`annotated/`).
+
+Weiterleitungen: `/website-im-aufbau/` → `/`, `/entry_form/kontaktformular/` → `/kontakt-2/`, `/gallery/` → `/portfolio/`.
 
 ## Aufbau
 
@@ -40,10 +51,10 @@ npm run import         # Inhalte neu von danielaheinisch.at übernehmen (siehe u
 ## Unterschiede zum Original (bewusst)
 
 - **Kein Cookie-Banner, kein Tracking:** Google Analytics, Google Tag Manager und Matomo des Originals sind nicht eingebaut, deshalb ist auch kein Consent-Banner nötig. Das Original zeigt zusätzlich „Produktlizenz nicht für den Produktionseinsatz!“.
-- **Kontaktformular:** braucht beim statischen Hosting einen Formular-Dienst (siehe oben). Validierung und Texte entsprechen dem Original.
+- **Kontaktformular:** braucht beim statischen Hosting einen Formular-Dienst (siehe oben). Validierung und Fehlermeldungen sind deutsch; ohne Dienst erscheint ein Hinweis zum Mailprogramm.
 - **Instagram-Feed:** ist ein Schnappschuss vom Importzeitpunkt. Für neue Beiträge `npm run import -- --fresh` ausführen und neu bauen.
-- **„Preise“** im Menü führt wie im Original auf eine 404-Seite (die Original-404 ist nachgebaut; deren Theme-Demo-Bilder laden auch im Original nicht und sind leer).
-- **Barrierefreiheit leicht verbessert, ohne sichtbare Änderung:** Namen für Bild-/Icon-Links, `alt` für Platzhalterbilder, Label fürs Auswahlfeld, Slider-Pfeile/Menü/FAQ per Tastatur bedienbar, größere Klickfläche der Footer-Links.
+- **„Preise“** im Menü führt auf die neue Seite „Preise auf Anfrage“ (im Original eine 404-Seite).
+- **Gestaltung und Barrierefreiheit verbessert** (siehe „Design-Verbesserungen“); Telefonnummer im Impressum auf Wunsch der Kundin vereinheitlicht (0677 / 643 454 61).
 - **Alte Bild-URLs:** Bilder liegen jetzt unter `/images/…webp` statt `/wp-content/uploads/…jpg`. Wer alte Bild-Links (z. B. aus der Google-Bildersuche) erhalten will, richtet beim Hosting eine Weiterleitung `/wp-content/uploads/*` → `/images/*` ein (Dateiendung `.jpg`/`.png` → `.webp`).
 - **URLs ohne Schrägstrich** (`/kontakt-2`) leitet WordPress auf `/kontakt-2/` weiter; beim statischen Hosting hängt das vom Anbieter ab (Netlify/Vercel/Cloudflare tun das standardmäßig).
 
@@ -63,6 +74,9 @@ node scripts/qa/screenshots.mjs http://localhost:4321 screenshots/clone
 node scripts/qa/compare.mjs              # → screenshots/report.md + screenshots/diff/
 node scripts/qa/interactions.mjs http://localhost:4321   # → screenshots/interactions/
 node scripts/qa/lighthouse.mjs http://localhost:4321   # → lighthouse-reports/summary.md
+node scripts/qa/contrast.mjs             # WCAG-Kontrast aller Texte
+node scripts/qa/overlap.mjs              # sich überlappende Textzeilen
+node scripts/qa/annotate.mjs reviews/round-N/ui/findings.json   # markierte Screenshots zu Review-Funden
 ```
 
 Viewports: 1920×1080, 1440×900, 1024×768, 768×1024 (Tablet), 390×844 (iPhone 13).

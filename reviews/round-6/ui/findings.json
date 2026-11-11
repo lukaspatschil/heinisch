@@ -1,0 +1,166 @@
+{
+  "reviewer": "ui",
+  "round": 6,
+  "scores": {
+    "typografie": 9.5,
+    "farbe_kontrast": 10,
+    "layout_abstaende": 9.5,
+    "bilder": 9.5,
+    "responsive": 9.5,
+    "komponenten": 10
+  },
+  "round5_verification": [
+    {
+      "id": "UI5-01",
+      "status": "behoben",
+      "evidence": "Mobil-390 alle Folien: Untertitel und Titel rgb(255,255,255) (vorher #ABB8C3), dunkler Verlauf in der Textzone; Screenshots Folie 1, 2 und 4 gut lesbar."
+    },
+    {
+      "id": "UI5-02",
+      "status": "behoben",
+      "evidence": "Nach 2x Tab liegt der Fokus auf a.flex-element-type-logo, sichtbarer Kreisring um das Logo-Zeichen (Screenshot)."
+    },
+    {
+      "id": "UI5-03",
+      "status": "behoben",
+      "evidence": "Scan aller Seiten auf Laptop, 1024, 768, 390: kein sichtbarer Text unter 12 px (nur 0-px-SEO-Text unsichtbar)."
+    },
+    {
+      "id": "UI5-04",
+      "status": "teilweise",
+      "evidence": "/ablauf/: Ueberschrift text-decoration none. /ueber-mich/: \"Meine liebe zur Fotografie\" (U, 20 px) weiter underline; H1-Groessen unveraendert 30/45/56/89 px. Rest UI6-02."
+    },
+    {
+      "id": "UI5-05",
+      "status": "behoben",
+      "evidence": "FAQ Laptop: Antwort endet y = 730, Hinweis beginnt y = 756 (26 px statt 186 px). Neue Leerflaeche darunter siehe UI6-01."
+    },
+    {
+      "id": "UI5-06",
+      "status": "teilweise",
+      "evidence": "FAQ mobil-390: Hinweis und Antwort x = 31 (buendig), Bild x = 14, Titel x = 18, Fragenliste x = 31/52 - weiter vier Kanten. Rest UI6-03."
+    },
+    {
+      "id": "UI5-07",
+      "status": "behoben",
+      "evidence": "Ablauf Laptop: Nummern y = 632/631/631, Titel alle y = 747."
+    },
+    {
+      "id": "UI5-08",
+      "status": "behoben",
+      "evidence": "Liebe Worte Laptop: alle sechs Fotos x = 101, 534 px breit, Hoehen 347-357 px."
+    },
+    {
+      "id": "UI5-09",
+      "status": "offen",
+      "evidence": "Ueber mich Laptop: Foto 1 225x300 bei y = 1357, Foto 2 179x239 bei y = 1380. Unveraendert. Rest UI6-04."
+    },
+    {
+      "id": "UI5-10",
+      "status": "behoben",
+      "evidence": "Ueber mich Laptop: Button \"Jetzt Anfragen\" y = 1593, Absatzende ca. 1566 (ca. 27 px statt 7 px)."
+    },
+    {
+      "id": "UI5-11",
+      "status": "offen",
+      "evidence": "Startseite 1024 px weiter 12 136 px hoch, Fliesstext in 340-px-Spalte (x 347-684). Rest UI6-05."
+    },
+    {
+      "id": "UI5-12",
+      "status": "behoben",
+      "evidence": "Alle sekundaeren Flaechen-Buttons (Ihr wollt mehr wissen, Mehr liebe Worte, Schreib mir, Kontakt) zeigen in den Screenshots denselben Rose-Ton, keine zweite Fuellung."
+    },
+    {
+      "id": "UI5-13",
+      "status": "behoben",
+      "evidence": "Ablauf 1024/768/390: keine Haarlinien ausserhalb des Viewports (Messung ohne Treffer)."
+    },
+    {
+      "id": "UI5-14",
+      "status": "behoben",
+      "evidence": "Kontakt mobil-390: Felder x = 36-354 (318 px), Select ohne Abschneiden (\"Bitte auswaehlen\")."
+    }
+  ],
+  "findings": [
+    {
+      "id": "UI6-01",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 101,
+        "y": 776,
+        "width": 1215,
+        "height": 276
+      },
+      "title": "FAQ: ca. 276 px Leerflaeche unter der Antwort vor dem Abschluss-Block",
+      "detail": "Nach Verkuerzung des Antwort-Hinweises (UI5-05) bleibt die Seitenhoehe fest: Hinweis endet y = 776, der Abschnitt \"Lust auf euer eigenes Shooting?\" beginnt y = 1052 (276 px). Mobil-390 ca. 330 px (y 1040-1368).",
+      "recommendation": "Mindesthoehe des FAQ-Containers entfernen, 80-96 px Abstand zum Abschluss-Block."
+    },
+    {
+      "id": "UI6-02",
+      "severity": "low",
+      "criterion": "typografie",
+      "page": "/ueber-mich/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 879,
+        "y": 1118,
+        "width": 262,
+        "height": 64
+      },
+      "title": "Rest von UI5-04: \"Meine liebe zur Fotografie\" weiter unterstrichen",
+      "detail": "Ueberschrift (U-Element, 20 px) hat text-decoration underline und wirkt wie ein Link; die uebrigen Ueberschriften sind nicht unterstrichen. H1-Groessen weiter uneinheitlich (30/45/56/89 px).",
+      "recommendation": "main h2 u {text-decoration:none}."
+    },
+    {
+      "id": "UI6-03",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/haeufige-fragen/",
+      "viewport": "mobile-390",
+      "rect": {
+        "x": 14,
+        "y": 132,
+        "width": 345,
+        "height": 200
+      },
+      "title": "Rest von UI5-06: FAQ mobil mit vier linken Kanten",
+      "detail": "Hero-Bild x = 14, Titel x = 18, Antwort/Hinweis/Fragenliste-Rahmen x = 31, Fragentext x = 52.",
+      "recommendation": "Einheitlicher Rand 24 px fuer Bild, Titel, Liste und Antwort."
+    },
+    {
+      "id": "UI6-04",
+      "severity": "low",
+      "criterion": "bilder",
+      "page": "/ueber-mich/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 195,
+        "y": 1357,
+        "width": 431,
+        "height": 300
+      },
+      "title": "Rest von UI5-09: Bildpaar mit verschiedenen Groessen und Oberkanten",
+      "detail": "Foto 1 225x300 bei y = 1357, Foto 2 179x239 bei y = 1380 (23 px tiefer, 20 % kleiner), wirkt zufaellig statt bewusst versetzt.",
+      "recommendation": "Gleiche Hoehe und Oberkante oder deutlicher, bewusster Versatz."
+    },
+    {
+      "id": "UI6-05",
+      "severity": "low",
+      "criterion": "responsive",
+      "page": "/",
+      "viewport": "tablet-1024",
+      "rect": {
+        "x": 347,
+        "y": 1530,
+        "width": 340,
+        "height": 650
+      },
+      "title": "Rest von UI5-11: Tablet 1024 mit 340-px-Textspalte, Startseite 12 136 px hoch",
+      "detail": "Haupttext in 340-px-Spalte (ca. 35 Zeichen je Zeile) bei 1024 px, Seite 12 136 px hoch (Laptop 6 860 px).",
+      "recommendation": "Textspalte zwischen 768 und 1199 px auf 560-640 px verbreitern, Abschnittsabstaende begrenzen."
+    }
+  ]
+}

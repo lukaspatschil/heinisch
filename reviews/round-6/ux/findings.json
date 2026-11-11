@@ -1,0 +1,51 @@
+{
+  "reviewer": "ux",
+  "round": 6,
+  "scores": { "navigation": 10, "conversion": 10, "formulare": 9.5, "mobile_bedienung": 9.5, "barrierefreiheit": 10, "vertrauen_inhalt": 10 },
+  "round5_verification": [
+    {"id":"UX5-01","status":"behoben","evidence":"Mobil-390 /kontakt-2/: leer und mit E-Mail 'abc' abgesendet; die zweizeilige Meldung beginnt 6 px unter dem Feld (Feldunterkante -214, Meldung ab -208) und läuft nach unten, keine Überlappung. Fokus landet auf dem ersten Fehlerfeld, aria-invalid und aria-describedby gesetzt."},
+    {"id":"UX5-02","status":"behoben","evidence":"Tab-Stopp 2 auf /: Logo-Link zeigt einen Kreisring um das Logo-Zeichen (Screenshot geprüft). Alle Tab-Stopps auf /, /kontakt-2/, /gallery/paare/, /haeufige-fragen/ haben sichtbaren Fokus."},
+    {"id":"UX5-03","status":"behoben","evidence":"Mobil-390: Galerie-Unternavigation auf /gallery/paare/ durchgehend 44 px hoch, FAQ-Reiter 44 px hoch."},
+    {"id":"UX5-04","status":"offen","evidence":"Mobil-390 /kontakt-2/: der feste WhatsApp-Button (304-360 x 758-814) überdeckt beim Scrollen weiter E-Mail-Feld (1924 px²), Nachrichtenfeld (1900 px²) und Select (535 px²). Weiter als UX6-01."},
+    {"id":"UX5-05","status":"behoben","evidence":"Mobil-390 /ueber-mich/: Hinweisblase display none, Button hat den Namen 'Schreibt mir gerne per WhatsApp'."},
+    {"id":"UX5-06","status":"behoben","evidence":"Select hat sichtbares Label 'Wie hast du von mir erfahren?' (label[for] gesetzt) und Platzhalter 'Bitte auswählen'."},
+    {"id":"UX5-07","status":"behoben","evidence":"/gallery/paare/: nav-Landmarks 'Galerien' und 'Galerien (Seitenende)', kein leerer Landmark mehr."},
+    {"id":"UX5-08","status":"behoben","evidence":"Alle 21 Seiten x 3 Viewports: genau eine H1, sie steht an erster Stelle, keine Sprünge in der Überschriftenfolge (skip = 0)."},
+    {"id":"UX5-09","status":"behoben","evidence":"Alle 21 Seiten tragen 'Titel – Daniela Heinisch Photography' mit Gedankenstrich."}
+  ],
+  "findings": [
+    {
+      "id": "UX6-01",
+      "severity": "low",
+      "criterion": "mobile_bedienung",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": ".wa__btn_popup",
+      "title": "Rest von UX5-04: WhatsApp-Button überdeckt beim Scrollen Formularfelder",
+      "detail": "Der feste Button (56 x 56 px, x 304 bis 360) liegt beim Scrollen über dem rechten Rand von E-Mail- (1924 px²), Nachrichtenfeld (1900 px²) und Select (535 px²). Felder bleiben tippbar, Resize-Griff der Textarea und Select-Pfeil sind zeitweise verdeckt. Auf der Seite mit Formular ist der Button zudem redundant, da Telefon und Mail direkt sichtbar sind.",
+      "recommendation": "Auf Formularseiten den Button bei Fokus in ein Feld ausblenden oder ihn dort 12 px weiter an den Rand setzen (right: 8px)."
+    },
+    {
+      "id": "UX6-02",
+      "severity": "low",
+      "criterion": "mobile_bedienung",
+      "page": "/portfolio/",
+      "viewport": "mobile-390",
+      "selector": "a[href=\"/gallery/babybauch/\"]",
+      "title": "Galerie-Titel-Links nur 19 px hoch, Datenschutz-Link im Formular 18 px",
+      "detail": "Auf /portfolio/ sind die sechs Genre-Titel (z. B. BABYBAUCH FOTOGRAFIE, 14 px Schrift) 19 px hohe Textlinks; auf /kontakt-2/ ist der Link Datenschutzerklärung unter dem Absenden-Button 18 px hoch. Fließtext-Links auf den Ortsseiten sind 19 px hoch. Sollwert 44 px, bei eng stehenden Zielen Fehltreffer möglich (Bild darüber ist ebenfalls verlinkt, daher nur kosmetisch).",
+      "recommendation": "Titel-Links als Block mit padding 12 px 0 (min-height 44 px); Datenschutz-Link mit display inline-block und Padding 12 px."
+    },
+    {
+      "id": "UX6-03",
+      "severity": "low",
+      "criterion": "formulare",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": "input[type=email]",
+      "title": "Fehlerhafte Felder ohne visuelle Markierung",
+      "detail": "Nach dem Absenden mit leeren Pflichtfeldern oder E-Mail 'abc' zeigen die Fehlerfelder (aria-invalid true) weiter den neutralen grauen Rahmen; nur der rote Text darunter und der Fokusring des ersten Feldes weisen auf den Fehler hin. Bei mehreren Fehlern ist die Zuordnung Text zu Feld nur über die Nähe erkennbar.",
+      "recommendation": "input[aria-invalid=true], textarea[aria-invalid=true] mit 1 px Rand in #B00020 (Kontrast >= 3:1)."
+    }
+  ]
+}

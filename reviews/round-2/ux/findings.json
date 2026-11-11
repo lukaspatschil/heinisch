@@ -1,0 +1,182 @@
+{
+  "reviewer": "ux",
+  "round": 2,
+  "scores": {
+    "navigation": 9.5,
+    "conversion": 9.5,
+    "formulare": 8.5,
+    "mobile_bedienung": 8.5,
+    "barrierefreiheit": 8.5,
+    "vertrauen_inhalt": 9
+  },
+  "round1_verification": [
+    {"id":"UX-01","status":"behoben","evidence":"/preise/ liefert 200: Seite „Preise auf Anfrage“ mit Buttons „Preise anfragen“ und „Per WhatsApp fragen“, Menüpunkt aktiv markiert."},
+    {"id":"UX-02","status":"behoben","evidence":"/gibt-es-nicht/ liefert 404 mit deutscher Seite, H1 „Diese Seite gibt es leider nicht“ und drei 48-px-Buttons (Startseite, Galerie, Kontakt)."},
+    {"id":"UX-03","status":"behoben","evidence":"Leer abschicken: deutsche Meldungen „Bitte fülle dieses Feld aus.“, „Bitte gib eine gültige E-Mail-Adresse ein (z. B. name@beispiel.at).“, rot, unter jedem Feld; auch bei englischer Browsersprache (novalidate, eigene Meldungen)."},
+    {"id":"UX-04","status":"behoben","evidence":"Unter dem Formular steht „Mit dem Absenden stimmst du der Verarbeitung deiner Angaben … zu“ mit Link zur Datenschutzerklärung (Antwortzeit wird weiterhin nicht genannt, nicht kritisch)."},
+    {"id":"UX-05","status":"teilweise","evidence":"Mobil jetzt 4 runde Radios untereinander mit Fehlermeldung „Bitte wähle eine Fotorichtung aus.“ und required-Nachricht; auf Desktop (1440) stoßen die Labels der 2×2-Anordnung aber direkt an den nächsten Radiobutton (siehe UX2-02)."},
+    {"id":"UX-06","status":"behoben","evidence":"Submit-Button 231×48 px, dunkle Schrift (#4F4D49) auf Rosé, deutlich lesbar."},
+    {"id":"UX-07","status":"teilweise","evidence":"Pixelvergleich fokussiert/unfokussiert: Textfelder, Textarea und Select zeigen Fokus, Radiobuttons und der Absende-Button aber weiterhin 0 geänderte Pixel (outline none); der Fokus im Textfeld ist nur ein 1-px-Farbwechsel (siehe UX2-01)."},
+    {"id":"UX-08","status":"behoben","evidence":"Fehlerfelder haben aria-invalid=true, aria-describedby=hs-error-n, aria-required und autocomplete (given-name, family-name, email, tel); Meldungen role=alert; Fokus springt zum ersten Fehlerfeld."},
+    {"id":"UX-09","status":"teilweise","evidence":"Alle Seiten außer /impressum/ haben jetzt eine h1; offen: /impressum/ ohne h1, FAQ-h1 nur „Häufige“ (Rest „Fragen“ als h3), /ueber-mich/ mit h2 vor h1, Ablauf-Schritte im DOM weiter 03-02-01 (siehe UX2-07)."},
+    {"id":"UX-10","status":"behoben","evidence":"FAQ: tablist/tab/tabpanel mit aria-selected, Roving-Tabindex, Pfeiltasten/Home/End wechseln den Reiter; Skip-Link „Zum Inhalt springen“ ist erster Tab-Stopp und setzt den Fokus auf #primary; Slider-Pfeile, Menü, WhatsApp haben role=button + tabindex + Namen."},
+    {"id":"UX-11","status":"teilweise","evidence":"Galerien: alle 95 Bilder mit Alt „Familien: Foto n von 95“ (nicht beschreibend, aber ohne Leer-/Keyword-Ketten); Startseite hat 12 von 26 Bildern mit leerem Alt (u. a. Inhaltsbilder), /portfolio/ und Startseite weiter Keyword-Ketten, /ueber-mich/ 3/3 leer (siehe UX2-08)."},
+    {"id":"UX-12","status":"behoben","evidence":"Die Sprechblase (218×34 px) blendet nach dem ersten Scrollen aus (opacity 0), nur der 56-px-Button bleibt; beim ersten Seitenaufruf überdeckt sie noch kurz Text (Tablet FAQ), ist aber nicht mehr dauerhaft."},
+    {"id":"UX-13","status":"teilweise","evidence":"Hamburger und Schließen 48×48, Slider-Pfeile 47×44; die Menülinks im Mobilmenü sind aber nur 33–94 × 42 px groß in 97-px-Zeilen, Tipp neben den Text trifft nichts (elementFromPoint geprüft) (siehe UX2-06)."},
+    {"id":"UX-14","status":"teilweise","evidence":"Social-Icons jetzt 44×44; „Impressum“ 59×25 px und „Datenschutzerklärung“ 120×25 px bei 10,4 px Schrift, vier Orts-Links 12 px Schrift / 14 px Höhe unverändert (siehe UX2-05)."},
+    {"id":"UX-15","status":"teilweise","evidence":"Hinweis jetzt deutsch, Checkbox 22 px, Link zu ninjateam.org nicht mehr sichtbar, WhatsApp öffnet nach Zustimmung; der Kontakteintrag wirkt vor der Zustimmung aber aktiv, ist jedoch pointer-events:none, und das Fenster schließt nicht per Escape (siehe UX2-09)."},
+    {"id":"UX-16","status":"behoben","evidence":"Alle Inhalts- und Galerieseiten enden mit „Lust auf euer eigenes Shooting?“ (Jetzt anfragen, Per WhatsApp schreiben, Telefon, Mail); der FAQ-Satz „kontaktieren“ ist verlinkt; Home-Hero hat weiterhin keinen Button (siehe UX2-10)."},
+    {"id":"UX-17","status":"behoben","evidence":"Footer-Button „Schreib mir“ jetzt dunkle Schrift auf Rosé, gut lesbar; auf /kontakt-2/ verlinkt er allerdings weiter auf die Seite selbst (siehe UX2-11)."},
+    {"id":"UX-18","status":"behoben","evidence":"href=\"tel:+4367764345461\" und \"mailto:photography@danielaheinisch.at\" ohne Leerzeichen; Nummer und Mail zusätzlich im Anfrage-Abschnitt jeder Seite."},
+    {"id":"UX-19","status":"behoben","evidence":"/preise/ erklärt klar „Preise und Pakete erhaltet ihr auf Anfrage“, warum (jedes Shooting individuell) und wie es weitergeht (Angebot nach kurzer Nachricht), verlinkt Ablauf und FAQ."},
+    {"id":"UX-20","status":"behoben","evidence":"/website-im-aufbau/ leitet per meta refresh auf /, /entry_form/kontaktformular/ auf /kontakt-2/; /gallery/ ist eine deutsche Übersicht mit Vorschaubildern. Die abweichende Nummer 0660/5676671 steht aber noch im Impressum (siehe UX2-04)."},
+    {"id":"UX-21","status":"behoben","evidence":"Aktiver FAQ-Reiter ist rosé, halbfett (600) und mit 2-px-Linie markiert (Desktop), mobil/Tablet als gefüllter Balken – konsistent erkennbar."},
+    {"id":"UX-22","status":"behoben","evidence":"Galerieseiten haben oben „← Alle Galerien“ plus Chips aller Galerien (aktive markiert, 41 px hoch) und unten erneut „← Alle Galerien“; Länge (95 Bilder) unverändert, aber navigierbar."},
+    {"id":"UX-23","status":"behoben","evidence":"Mobil-Hero ca. 68 vh, dunkles Overlay, Titel lesbar, Zähler „1 / 6“, Pfeile 47×44 (kein Button im Hero, siehe UX2-10)."}
+  ],
+  "findings": [
+    {
+      "id": "UX2-01",
+      "severity": "medium",
+      "criterion": "barrierefreiheit",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "selector": "input[type=submit]",
+      "title": "Tastaturfokus bei Radiobuttons und Absende-Button weiter unsichtbar",
+      "detail": "Rest von UX-07. Pixelvergleich fokussiert/unfokussiert: Radiobuttons und der Button „Nachricht abschicken“ ändern 0 Pixel (outline: none). Bei Textfeldern ist der Fokus nur ein 1-px-Randwechsel von dunkel (#4F4D49) nach Rosé (#8E5F63), wirkt eher blasser als der Normalzustand. Tastaturnutzer sehen im Formular nicht, wo sie sind, und nicht, ob der Absende-Button fokussiert ist (WCAG 2.4.7).",
+      "recommendation": "Für input, textarea, select, Radios und Submit eine gemeinsame :focus-visible-Regel wie bei den Links: outline: 2px solid #8E5F63; outline-offset: 2px (bei Radios am Label/Kreis, bei Textfeldern zusätzlich 2 px Rand)."
+    },
+    {
+      "id": "UX2-02",
+      "severity": "medium",
+      "criterion": "formulare",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "rect": { "x": 440, "y": 895, "width": 560, "height": 90 },
+      "title": "Desktop: Radio-Labels stoßen an den nächsten Radiobutton",
+      "detail": "Rest von UX-05. In der 2×2-Anordnung endet „BABYBAUCHFOTOGRAFIE“ ohne Abstand direkt am Kreis von „NEUGEBORENENFOTOGRAFIE“ (ebenso „FAMILIENFOTOGRAFIE“ vor „ANDERE“). Der Kreis wirkt dadurch wie zum vorigen Label gehörig; die Zeilen sind nur ~20 px hoch statt 44 px. Mobil (4 Zeilen untereinander) ist es sauber.",
+      "recommendation": "Auch am Desktop Optionen als Zeilen untereinander oder als Raster mit mindestens 24 px Spaltenabstand und 44 px Zeilenhöhe; ganze Zeile (Label) klickbar."
+    },
+    {
+      "id": "UX2-03",
+      "severity": "medium",
+      "criterion": "formulare",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": "#dein-vorname",
+      "title": "Mobil: Erstes Fehlerfeld liegt nach dem Absenden unter dem Sticky-Header",
+      "detail": "Nach leerem Absenden springt der Fokus auf „Dein Vorname“ und scrollt es an den oberen Rand (Feld bei y 30–68 px, Label bei 5–22 px), der Sticky-Header deckt aber 0–65 px ab. Sichtbar bleibt nur die rote Zeile „Bitte fülle dieses Feld aus.“ ohne Feld und Label darüber; Nutzer sehen nicht, wo sie tippen sollen.",
+      "recommendation": "scroll-margin-top (≥ 90 px) bzw. scroll-padding-top auf html für Formularfelder setzen, damit das Feld samt Label unter dem Header sichtbar ankommt; zusätzlich Fehlerzusammenfassung oben im Formular."
+    },
+    {
+      "id": "UX2-04",
+      "severity": "medium",
+      "criterion": "vertrauen_inhalt",
+      "page": "/impressum/",
+      "viewport": "laptop-1440",
+      "selector": "main",
+      "title": "Impressum nennt andere Telefonnummer als Kontaktseite",
+      "detail": "Rest von UX-20. Im Impressum steht „Telefon: 06605676671“, auf Kontaktseite, Anfrage-Abschnitt und tel:-Link „0677 / 643 454 61“. Welche Nummer stimmt, ist für Besucher nicht erkennbar; im Impressum (rechtlich relevante Seite) wirkt das unseriös. Zusätzlich hat die Seite keine h1.",
+      "recommendation": "Die Kundin fragen, welche Nummer gilt, und überall einheitlich eintragen; Seitentitel „Impressum“ als h1 auszeichnen."
+    },
+    {
+      "id": "UX2-05",
+      "severity": "medium",
+      "criterion": "mobile_bedienung",
+      "page": "/",
+      "viewport": "mobile-390",
+      "selector": "footer a[href=\"/impressum/\"]",
+      "title": "Footer: Rechtslinks und Orts-Links mobil zu klein",
+      "detail": "Rest von UX-14. „Impressum“ 59×25 px und „Datenschutzerklärung“ 120×25 px bei 10,4 px Schrift in hellem Grau; die vier Orts-Links („Familienfotografin Baden …“) sind 12 px groß und nur 14 px hoch, direkt untereinander. Mit dem Daumen schwer zu treffen und schwer lesbar; die Rechtslinks sind Pflichtlinks.",
+      "recommendation": "Rechtslinks mit ≥ 14 px Schrift und ≥ 44 px Trefferfläche (padding), Orts-Links 13–14 px mit je 44 px Zeilenhöhe oder in einer Liste mit Abstand."
+    },
+    {
+      "id": "UX2-06",
+      "severity": "low",
+      "criterion": "mobile_bedienung",
+      "page": "/",
+      "viewport": "mobile-390",
+      "selector": ".flex-element-type-menu__trigger",
+      "title": "Mobilmenü: nur der Text der Einträge ist antippbar",
+      "detail": "Rest von UX-13. Hamburger/Schließen sind 48×48 (gut), im geöffneten Menü sind die Zeilen 97 px hoch, der Link aber nur so breit wie das Wort (z. B. FAQ 33×42, Preise 58×42, Kontakt 77×42). Ein Tipp neben oder über/unter das Wort löst nichts aus (elementFromPoint: kein Link).",
+      "recommendation": "Menülinks als display:block mit width:100% und min-height 56 px (padding statt Zeilenabstand), damit die ganze Zeile klickbar ist."
+    },
+    {
+      "id": "UX2-07",
+      "severity": "low",
+      "criterion": "barrierefreiheit",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "selector": "main h1",
+      "title": "Überschriften: h1 unvollständig bzw. fehlend, Reihenfolge nicht logisch",
+      "detail": "Rest von UX-09. FAQ: h1 lautet nur „Häufige“, „Fragen“ steht in einer h3 (danach h4). /impressum/ hat keine h1. /ueber-mich/ beginnt mit h2 „About me“ vor der h1. /ablauf/: Schritte im DOM 03-02-01 („Eure Bilder“, „Der grosse Tag“, „Das Kennenlernen“) bei visuell 01-02-03; Screenreader lesen sie rückwärts.",
+      "recommendation": "h1 = vollständiger Seitentitel („Häufige Fragen“) und Abschnitte h2/h3 ohne Sprünge; Impressum-Titel als h1; DOM-Reihenfolge der Ablauf-Schritte an die visuelle anpassen."
+    },
+    {
+      "id": "UX2-08",
+      "severity": "low",
+      "criterion": "barrierefreiheit",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": "main img",
+      "title": "Alternativtexte: Startseite/Portfolio mit Keyword-Ketten oder leer, Galerien nur nummeriert",
+      "detail": "Rest von UX-11. Startseite: 12 von 26 Bildern alt=\"\", sonst Dateinamen-Texte wie „Hochzeitsfotografie_Hochzeitsfotograf_Familienfotograf“; /ueber-mich/: Porträt und 2 weitere Bilder ohne Alt; /liebe-worte/ 6/6 leer. Galerien: „Familien: Foto 4 von 95“ beschreibt kein Motiv.",
+      "recommendation": "Inhaltsbilder (Porträt, Referenzfotos) mit kurzer Beschreibung („Daniela Heinisch mit Kamera im Atelier“), rein dekorative Bilder leer lassen; Keyword-Ketten entfernen; Galerie-Alts optional mit Motivkurzbeschreibung."
+    },
+    {
+      "id": "UX2-09",
+      "severity": "low",
+      "criterion": "conversion",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": ".wa__btn_popup",
+      "title": "WhatsApp: Kontakteintrag wirkt vor der Zustimmung aktiv; Escape schließt nicht",
+      "detail": "Rest von UX-15. Das Fenster ist jetzt deutsch mit 22-px-Checkbox und funktioniert nach der Zustimmung (öffnet api.whatsapp.com). Vor dem Haken sieht „danielaheinischphotography“ aber normal klickbar aus, ist jedoch pointer-events:none; ein Tipp bewirkt nichts, ohne zu erklären warum. Per Tastatur bleibt das Fenster nach Escape offen, der Hinweistext ist 11 px klein.",
+      "recommendation": "Eintrag vor Zustimmung sichtbar ausgrauen (opacity .5) und bei Tipp den Hinweis hervorheben; Escape/Klick außerhalb schließt das Fenster; Hinweistext ≥ 13 px."
+    },
+    {
+      "id": "UX2-10",
+      "severity": "low",
+      "criterion": "conversion",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "rect": { "x": 0, "y": 0, "width": 1440, "height": 900 },
+      "title": "Startseite: kein Anfrage-Button im ersten Bildschirm",
+      "detail": "Rest von UX-16. Der Hero hat weiter keinen Button; der erste Anfrage-Button „Jetzt anfragen“ steht am Seitenende (y ≈ 6290 von 6844 px). Davor gibt es nur den Menüpunkt „Kontakt“ und den WhatsApp-Button. Wer sofort anfragen will, muss suchen oder die ganze Seite scrollen.",
+      "recommendation": "Im Hero (unter der Unterzeile) einen Button „Jetzt anfragen“ → /kontakt-2/ platzieren, ggf. „Kontakt“ im Menü als Button hervorheben."
+    },
+    {
+      "id": "UX2-11",
+      "severity": "low",
+      "criterion": "conversion",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "selector": "footer a[href=\"/kontakt-2/\"]",
+      "title": "Footer-Button „Schreib mir“ verlinkt auf der Kontaktseite auf sich selbst",
+      "detail": "Rest von UX-17. Auf /kontakt-2/ führt der Footer-CTA „Schreib mir“ zurück auf dieselbe Seite und bewirkt nichts; auf der wichtigsten Anfrageseite ist das ein toter Button.",
+      "recommendation": "Auf der Kontaktseite den Button ersetzen durch „Per WhatsApp schreiben“ oder auf #formular scrollen lassen."
+    },
+    {
+      "id": "UX2-12",
+      "severity": "low",
+      "criterion": "navigation",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "selector": "[role=tab][aria-selected=true]",
+      "title": "FAQ-Fragenliste am Desktop sehr klein",
+      "detail": "Rest von UX-21. Aktiver Reiter ist jetzt erkennbar (Linie, halbfett), die Fragen selbst sind aber nur 11,25 px groß mit 1 px Sperrung und 41 px Zeilenhöhe; als einziges Navigationselement der FAQ ist das zu zart, vor allem für ältere Besucher.",
+      "recommendation": "Fragen auf 14–15 px, Zeilenabstand ≥ 48 px, Reiterfläche mit leichtem Hintergrund für Hover/aktiv."
+    },
+    {
+      "id": "UX2-13",
+      "severity": "low",
+      "criterion": "formulare",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "selector": "#deine-e-mail-adresse",
+      "title": "Eingaben werden in Großbuchstaben dargestellt",
+      "detail": "Alle Textfelder (auch E-Mail) haben text-transform: uppercase. Die eigene Adresse „anna@beispiel.at“ erscheint als „ANNA@BEISPIEL.AT“, was Kontrolle und Tippfehlersuche erschwert; gesendet wird Kleinschreibung, die Anzeige täuscht.",
+      "recommendation": "text-transform: none für input, textarea und select; Großschreibung nur für Labels/Buttons."
+    }
+  ]
+}

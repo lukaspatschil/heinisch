@@ -35,8 +35,7 @@ async function main() {
     process.exit(1);
   }
   const formFactors = ffArg && ffArg !== 'all' ? ffArg.split(',') : ['mobile', 'desktop'];
-  // Lighthouse cannot audit pages answering 404 (/preise/ is a 404 on the original too)
-  const pages = readPages(pagesArg).filter((p) => p !== '/preise/');
+  const pages = readPages(pagesArg);
   fs.mkdirSync(OUT, { recursive: true });
   const chrome = await launch({
     chromePath: chromium.executablePath(),

@@ -1,0 +1,298 @@
+{
+  "reviewer": "ui",
+  "round": 1,
+  "scores": {
+    "typografie": 8,
+    "farbe_kontrast": 5,
+    "layout_abstaende": 8,
+    "bilder": 7,
+    "responsive": 7,
+    "komponenten": 7.5
+  },
+  "findings": [
+    {
+      "id": "UI-01",
+      "severity": "high",
+      "criterion": "farbe_kontrast",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": "#flex-blockid--2760 > div > div:nth-of-type(3) > div > p:nth-of-type(1) > span > span",
+      "title": "Einleitungstext der Startseite zu hell (2,48:1)",
+      "detail": "Der Fließtext 'Du möchtest authentische, gefühlvolle Erinnerungen ...' (Open Sans 14,6 px) ist #9FA6A6 auf #FFFFFF = 2,48:1 (gemessen aus getComputedStyle), WCAG AA verlangt 4,5:1. Derselbe Grauton steckt in 'Naturliebhaberin / Mama von zwei Buben ...' (15,8 px, 2,48:1). Direkt daneben steht der Text im Block darunter in #4F4D49 (ca. 8,5:1) - der Abstand der beiden Textstufen wirkt zufällig, nicht gewollt.",
+      "recommendation": "Fließtext einheitlich auf #4F4D49 (bereits im Seitentext verwendet, ca. 8,5:1) setzen, Mindestwert #6B6862 (5,3:1). Kleine Sekundärtexte nicht heller als #767676."
+    },
+    {
+      "id": "UI-02",
+      "severity": "high",
+      "criterion": "farbe_kontrast",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": "#flex-blockid--2760 > div > div:nth-of-type(4) > div > h2 > span",
+      "title": "Rosé-Überschriften praktisch unlesbar (1,57:1)",
+      "detail": "Die Hauptüberschriften 'Echte, natürliche und liebevolle Familienfotografie' (30 px, Palash), 'Gefühlvolle, authentische Momente ...' sowie die Teaser-Titel auf /portfolio/ ('Lass' diese wunderschöne Reise beginnen' usw., 20-22 px) und der Seitentitel 'Ablauf' sind #DCCACA auf Weiß = 1,57:1 (Soll für große Schrift: 3:1). 'Ich bin Daniela, eure Familienfotografin aus Mödling' (27 px) ist #D7D7D7 = 1,44:1. Die Kernaussagen der Seite sind kaum zu erkennen.",
+      "recommendation": "Rosé der Marke abdunkeln, z. B. #A8777A (3,6:1 auf Weiß) für Überschriften >= 24 px bzw. #8E5F63 (5,3:1) für 18-22 px; 'Ich bin Daniela...' auf #4F4D49 setzen."
+    },
+    {
+      "id": "UI-03",
+      "severity": "high",
+      "criterion": "farbe_kontrast",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": "#testimonials > div > a",
+      "title": "Button-Beschriftungen auf Rosé nicht lesbar (1,57:1 / 1,94:1)",
+      "detail": "'Mehr liebe Worte', 'Schreib mir' und 'Nachricht abschicken' haben #A5A5A5 auf #DCCACA = 1,57:1; 'Jetzt anfragen' und 'Ihr wollt mehr wissen' #A5A5A5 auf #EDE2DF = 1,94:1 (13,5 px, bold). Das sind die Haupt-Handlungsaufforderungen der Seite; Soll für UI-Text 4,5:1 (bzw. 3:1 für die Fläche gegen den Hintergrund).",
+      "recommendation": "Button-Text #4F4D49 auf #EDE2DF (ca. 8:1) bzw. Weiß auf #A8777A (3,6:1, besser #8E5F63 = 5,3:1) für den gefüllten Primärbutton. Label-Größe mind. 14 px, Letter-Spacing 0.12em beibehalten."
+    },
+    {
+      "id": "UI-04",
+      "severity": "high",
+      "criterion": "farbe_kontrast",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": "#colophon > div:nth-of-type(2) > div:nth-of-type(1)",
+      "title": "Footer: Copyright, SEO-Links, Spaltentitel und Icons fast unsichtbar",
+      "detail": "Copyright-Zeile, die vier SEO-Links (Familienfotografin Baden/Mödling, Newborn Shooting ...) und 'Back to top' sind #EDE2DF auf Weiß = 1,27:1 bei nur 11,25 px (Mobile 10,4 px). Die Spaltentitel 'Mein Anspruch' / 'Kontakt' sind #D7D7D7 = 1,44:1, die Social-Icons (18 px) rosé auf Weiß ebenfalls < 2:1. Betrifft alle Seiten.",
+      "recommendation": "Footer-Kleintext #6B6862 (5,3:1) bei mind. 12 px; Spaltentitel #8E5F63 (5,3:1); Social-Icons #8E5F63 und auf 24 px (Touch-Fläche 44 px) vergrößern."
+    },
+    {
+      "id": "UI-05",
+      "severity": "high",
+      "criterion": "responsive",
+      "page": "/",
+      "viewport": "tablet-768",
+      "selector": "#flex-blockid--2760 > div > div:nth-of-type(3) > div > p:nth-of-type(1) > span > span",
+      "title": "Tablet 768: Desktop-Layout nur verkleinert, Text 6-8 px",
+      "detail": "Bei 768 px wird das Desktop-Layout über vw-basierte em-Werte linear geschrumpft: Fließtext 7,8 px (Startseite, Über mich, Portfolio), Menüeinträge ca. 9 px, Copyright 6 px, Bildunterschriften 6,6 px. Die Seite ist ohne Zoomen nicht lesbar. Bei 1024 px liegt der Fließtext noch bei 10,4 px. Smartphone (13,5 px) und Laptop (14,6 px) sind dagegen im Rahmen.",
+      "recommendation": "Zwischen 768 und 1023 px das Mobil-Layout (einspaltig, Burger-Menü, Fließtext 16 px / Zeilenhöhe 1.7) verwenden oder die Schrift mit clamp(15px, ..., 18px) nach unten begrenzen; Breakpoint der Desktop-Navigation auf >= 1024 px anheben."
+    },
+    {
+      "id": "UI-06",
+      "severity": "medium",
+      "criterion": "responsive",
+      "page": "/",
+      "viewport": "mobile-390",
+      "selector": "#post-69 h1",
+      "title": "Mobil: Hero-Titel liegt über den Gesichtern, Bild nur 236 px hoch",
+      "detail": "Der Hero ist auf 390 px nur 328 x 236 px groß. Der dreizeilige Titel 'EURE FAMILIENFOTOGRAFIN IN MÖDLING' (33 px, dünne Serif, weiß) plus dreizeiliger Untertitel füllt das Bild komplett aus, das Wort 'FAMILIENFOTOGRAFIN' liegt über dem hellen Himmel und ist kaum lesbar, die Gesichter werden verdeckt. Der Slider hat zusätzlich 31 px seitlichen Rand, das Bild wirkt wie eine Briefmarke.",
+      "recommendation": "Hero mobil randlos mit 100 % Breite und Höhe 70 vh (min. 420 px), Titel auf 24 px reduzieren und auf einen dunklen Verlauf (linear-gradient(to top, rgba(0,0,0,.45), transparent 60%)) am unteren Rand legen; Untertitel mobil ausblenden oder unter das Bild setzen."
+    },
+    {
+      "id": "UI-07",
+      "severity": "medium",
+      "criterion": "responsive",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": "#post-589 > div > div > div > div > div > div > div > div > div > div:nth-of-type(2) > div:nth-of-type(4) > div > div > form > div:nth-of-type(1) > div > div > section:nth-of-type(1) > div:nth-of-type(5) > div > div > label:nth-of-type(2)",
+      "title": "Mobil: Checkbox-Label 'NEUGEBORENENFOTOGRAFIE' bricht mitten im Wort um",
+      "detail": "In der Fotorichtung-Auswahl wird das Label bei 390 px zu 'NEUGEBORENENFOTOGRAF / IE' getrennt (Label nur 228 px breit, Großbuchstaben 14,6 px), die Checkbox sitzt zudem nicht auf der ersten Zeile. Das Auswahlfeld 'WIE BIST DU AUF MICH AUFMERKSAM GEWORDEN?' wird abgeschnitten.",
+      "recommendation": "Label auf volle Breite (width:100%, overflow-wrap:anywhere nur als Notnagel), Schrift 14 px bei letter-spacing 0.04em, Checkbox per align-items:flex-start; Select-Placeholder auf 'Wie hast du von mir erfahren?' in Normalschreibung kürzen/umbrechen."
+    },
+    {
+      "id": "UI-08",
+      "severity": "high",
+      "criterion": "bilder",
+      "page": "/gallery/",
+      "viewport": "laptop-1440",
+      "selector": "#archive img",
+      "title": "Galerie-Übersicht zeigt nur Platzhalter-Icons statt Fotos",
+      "detail": "Alle 7 Karten (Hochzeitsfotografie, Portrait, Paare, Baby/Kleinkind/Mummy and Me, Familien, Newborn, Babybauch) zeigen das graue 'no-image.jpg'-Platzhalterbild (assets/wp-content/plugins/flo-gutenberg-blocks/assets/images/no-image.jpg) statt eines Vorschaubildes; teils sogar nur ein 1x1-GIF. Auf Mobil sind die Platzhalter 328 x 312 px groß. Die zentrale Einstiegsseite zu den Arbeiten wirkt leer/kaputt. Zusätzlich zeigt ein einzelner Punkt-Spinner (':') oben im Bereich einen nie endenden Ladezustand.",
+      "recommendation": "Je Karte das erste Foto der Galerie als Vorschau (Format 3:2, object-fit:cover, min. 1200 px breit) hinterlegen; Spinner entfernen. Karten ggf. als Grid 2 x 3 mit 24 px Abstand statt Vollbreiten-Karten, damit die Seite nicht 2800 px lang wird."
+    },
+    {
+      "id": "UI-09",
+      "severity": "low",
+      "criterion": "komponenten",
+      "page": "/gallery/",
+      "viewport": "laptop-1440",
+      "selector": "#archive > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > a",
+      "title": "Galerie-Karten: englisches 'CONTINUE READING' und blasses Datum",
+      "detail": "Der Button heißt 'CONTINUE READING' (Seite ist deutsch, Galerien sind kein Lesetext). Das Datum '11/09/2023' ist #A5A5A5 auf #F2EFEB = 2,15:1 und für Galerien ohne Relevanz (alle 2022/2023).",
+      "recommendation": "Button 'Galerie ansehen' (Text #4F4D49), Datum entfernen oder #6B6862 (4,9:1)."
+    },
+    {
+      "id": "UI-10",
+      "severity": "medium",
+      "criterion": "bilder",
+      "page": "/portfolio/",
+      "viewport": "laptop-1440",
+      "selector": "#flex-blockid--94d0b6f86143 > div > div:nth-of-type(5) > div > h1 > span",
+      "title": "Portfolio: Hochzeitsfotografie-Teaser besteht nur aus einer Bildunterschrift",
+      "detail": "Alle anderen Genres (Babybauch, Neugeborene, Familien, Baby/Kleinkind, Paare, Portrait) haben Bild, Titel und Text. Bei 'HOCHZEITSFOTOGRAFIE' (y = 2084) stehen nur die #D7D7D7-Bildunterschrift (1,44:1) und etwa 250 px Leerraum darüber - Bild, Überschrift und Text fehlen. Gilt auch mobil (Label bei y 4193 ohne Bild).",
+      "recommendation": "Teaser analog aufbauen (Bild 274 x 188 px, Überschrift, 3 Zeilen Text) oder die Beschriftung samt Leerraum entfernen; Verlinkung der Teaser auf die jeweilige Galerie ergänzen."
+    },
+    {
+      "id": "UI-11",
+      "severity": "medium",
+      "criterion": "typografie",
+      "page": "/portfolio/",
+      "viewport": "laptop-1440",
+      "selector": "#flex-blockid--f834797e0d2c > div > div:nth-of-type(6) > div > p > span",
+      "title": "Portfolio-Teasertexte mit Zeilenhöhe 1,1 und schmalen Zeilen",
+      "detail": "Die Teasertexte (15,75 px) haben line-height 17,3 px = 1,1 und sitzen in 300 px breiten Spalten; die Zeilen kleben aneinander, während Fließtext auf Über mich/Startseite 1,85 hat (27 px bei 14,6 px). Überschriften (Nunito Sans 22 px, ohne Zeilenhöhe-Puffer) und Text stehen im Wechsel von Palash, Nunito Sans und Open Sans. Auf Mobil bricht 'Lass' diese wunderschöne Reise beginnen' mit 1,0 Zeilenhöhe zweizeilig und überlappt sich.",
+      "recommendation": "Fließtext überall line-height 1.7-1.8, Teaser-Titel line-height 1.25; Schriften auf zwei Familien beschränken (Serif für Titel, Open Sans für Text); Textspalte auf 360-420 px verbreitern."
+    },
+    {
+      "id": "UI-12",
+      "severity": "medium",
+      "criterion": "typografie",
+      "page": "/ueber-mich/",
+      "viewport": "laptop-1440",
+      "selector": "#flex-blockid--a7ab3ecafda1 > div > div:nth-of-type(9) > div > p:nth-of-type(1) > span > span",
+      "title": "Über mich: Zitat mit Zeilenhöhe < 1 und zu blass",
+      "detail": "Das Erwitt-Zitat (Tangerine 14,6 px, #A5A5A5 auf Weiß = 2,46:1) hat line-height 14,04 px (0,96) - die Zeilen berühren sich, die dünne Schreibschrift ist bei dieser Größe kaum lesbar. Der Block 'Meine Liebe zur Fotografie' wechselt zudem unvermittelt zu einer Times-Serife (Browser-Standard) für den Fließtext, während der Rest der Seite Open Sans nutzt.",
+      "recommendation": "Zitat in der Titelschrift mit 20 px / line-height 1.4 und #4F4D49 setzen; Fließtext des Blocks auf Open Sans 14.6 px / 1.85 vereinheitlichen."
+    },
+    {
+      "id": "UI-13",
+      "severity": "medium",
+      "criterion": "farbe_kontrast",
+      "page": "/ueber-mich/",
+      "viewport": "laptop-1440",
+      "selector": "#flex-blockid--a7ab3ecafda1 > div > div:nth-of-type(6) > div > p > span > span",
+      "title": "Über mich: rosa Einleitung und Zwischentitel nur 2,18:1",
+      "detail": "'Wenn Ihr echte, authentische, lebendige Bilder ...' (27 px, Isabel-Thin Gewicht 100, #D1A5A5) und 'Meine Liebe zur Fotografie' (20 px, #D1A5A5, unterstrichen) erreichen auf Weiß 2,18:1; wegen des Haar-Strichs der Schrift wirkt es noch schwächer. Soll für große Schrift 3:1.",
+      "recommendation": "#A8777A (3,6:1) für die 27-px-Einleitung, #8E5F63 (5,3:1) für den 20-px-Zwischentitel; Schriftschnitt Regular statt Thin (100)."
+    },
+    {
+      "id": "UI-14",
+      "severity": "medium",
+      "criterion": "farbe_kontrast",
+      "page": "/portfolio/",
+      "viewport": "laptop-1440",
+      "selector": "#flex-blockid--f834797e0d2c > div > div:nth-of-type(7) > div > h1 > span",
+      "title": "Bildunterschriften der Genres #D7D7D7 (1,44:1)",
+      "detail": "Die Beschriftungen 'BABYBAUCH FOTOGRAFIE', 'NEUGEBORENEN FOTOGRAFIE' usw. (12,4 px, Versalien, letter-spacing) stehen als #D7D7D7 auf Weiß = 1,44:1. Es sind die einzigen Genre-Labels und sollten die Teaser eindeutig zuordnen. Dasselbe Grau färbt auf /ablauf/ die Schritt-Nummern '01-03' (1,44:1) und im FAQ die aktive Frage.",
+      "recommendation": "Beschriftungen #6B6862 (5,3:1) bei 12-13 px oder als Link-Button unter dem Bild (Text #4F4D49, Unterstrich #A8777A)."
+    },
+    {
+      "id": "UI-15",
+      "severity": "medium",
+      "criterion": "komponenten",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "selector": "#flex-blockid--d088600fa1ac > div > div:nth-of-type(7) > div > div:nth-of-type(2) > span",
+      "title": "FAQ-Navigation: aktive Frage fast unsichtbar, Inhalt wirkt leer",
+      "detail": "In der Fragenliste ist die aktuell gewählte Frage ('Wo sollen wir das Shooting machen?') #D7D7D7 auf #FCFAFA = 1,38:1, alle nicht gewählten sind dunkel - der aktive Zustand ist also das schwächste Element. Der Text der Liste ist nur 11,25 px groß. Rechts/darunter bleiben je ca. 300 px leerer Raum (Antwort nur 5 Zeilen). Auch das 'FAQ'-Label (#F2EFEB, 11 px) und 'Häufige Fragen' im Hero liegen als weiße Schrift auf hellem Himmel.",
+      "recommendation": "Aktive Frage #272521 mit 2-px-Unterstrich #A8777A und Schrift 14 px, inaktive #6B6862; Hero-Titel mit dunklem Verlauf (rgba(0,0,0,.35)) hinterlegen; Antwortbereich mit festen Abständen (48 px) statt Leerflächen."
+    },
+    {
+      "id": "UI-16",
+      "severity": "medium",
+      "criterion": "komponenten",
+      "page": "/ablauf/",
+      "viewport": "laptop-1440",
+      "selector": "a.flex-element-type-menu__menu-item-link[href=\"/liebe-worte/\"]",
+      "title": "Hover-Zustand der Menüpunkte: Text wird #D7D7D7 (1,44:1)",
+      "detail": "Beim Überfahren färbt sich jeder Menüeintrag von #4F4D49 auf #D7D7D7 - der Link 'verschwindet' fast, genau das Gegenteil eines Hover-Feedbacks (gemessen: Über mich, Ablauf, Liebe Worte). Kein Fokus-Stil ausser dem Browser-Standard-Ring (rgb(0,95,204) auto 1px).",
+      "recommendation": "Hover: Farbe #8E5F63 plus 1-px-Unterstrich im Abstand 6 px (text-underline-offset), Transition 200 ms; :focus-visible mit 2 px #8E5F63 Outline, 4 px Offset."
+    },
+    {
+      "id": "UI-17",
+      "severity": "low",
+      "criterion": "komponenten",
+      "page": "/ablauf/",
+      "viewport": "laptop-1440",
+      "selector": "a.flex-element-type-menu__menu-item-link[href=\"/ablauf/\"]",
+      "title": "Menü zeigt aktive Seite nicht an",
+      "detail": "Der Eintrag 'Ablauf' trägt die Klasse current-menu-item, hat aber dieselbe Farbe (#4F4D49), Schrift und keinen Unterstrich wie alle anderen Einträge. Orientierung im Menü fehlt.",
+      "recommendation": "Aktiven Eintrag mit border-bottom 1 px #8E5F63 und Farbe #272521 markieren."
+    },
+    {
+      "id": "UI-18",
+      "severity": "medium",
+      "criterion": "komponenten",
+      "page": "/ablauf/",
+      "viewport": "laptop-1440",
+      "selector": "a.flex-block__element[href=\"/kontakt-2/\"]",
+      "title": "Button-Hover: Fläche verschwindet bzw. kippt in graue Invertierung",
+      "detail": "Der 'Kontakt'-Button (#EDE2DF, 214 x 59 px) wird beim Hover #FCFAFA auf weißem Grund - die Fläche ist nicht mehr erkennbar. Der Footer-Button 'Schreib mir' wird zu #A5A5A5 Fläche mit #DCCACA Text (1,57:1). Beide Buttons haben keinen Rahmen und keine Schatten, Zustand und Kontrast sind nicht aus einem System abgeleitet; die Buttons haben unterschiedliche Schriften (Open Sans 18 px / Nunito Sans 13,5 px bold / Times).",
+      "recommendation": "Ein Button-System: Primär = #8E5F63 Fläche, Text #FFFFFF, Hover #7A4F53; Sekundär = transparent, 1 px #8E5F63 Rahmen, Text #8E5F63, Hover Fläche #EDE2DF. Einheitlich Nunito Sans 14 px, 0.12em Letter-Spacing, Höhe 48 px."
+    },
+    {
+      "id": "UI-19",
+      "severity": "medium",
+      "criterion": "farbe_kontrast",
+      "page": "/",
+      "viewport": "mobile-390",
+      "selector": ".flex-element-type-menu__trigger",
+      "title": "Mobil: Burger-Icon #D7D7D7 (1,44:1) und nur 35 x 41 px",
+      "detail": "Das einzige Navigationselement auf dem Smartphone ist ein hellgraues Icon (#D7D7D7 auf Weiß, 1,44:1; Soll für UI-Elemente 3:1) mit nur 35 x 41 px Trefferfläche (< 44 px). Das Logo daneben (hellgrau) ist ebenfalls sehr blass. Das geöffnete Menü selbst ist dagegen klar gestaltet (13,5 px, #272521).",
+      "recommendation": "Icon #272521 (2 px Linien, 28 px) in einer 48 x 48 px Fläche; Logo auf #4F4D49 oder dunkle Logovariante."
+    },
+    {
+      "id": "UI-20",
+      "severity": "low",
+      "criterion": "komponenten",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 50,
+        "y": 20,
+        "width": 1320,
+        "height": 70
+      },
+      "title": "Kopfzeile: linke und rechte Menühälfte mit verschiedenen Schriften und 5 px Versatz",
+      "detail": "Links (Über mich, Galerie, Preise, Ablauf) Open Sans 14,6 px, Oberkante y = 34; rechts (Liebe Worte, FAQ, Kontakt) Montserrat 15 px, Oberkante y = 39. Die Abstände zwischen den Einträgen sind links 78 px, rechts ca. 155-190 px - die Zeile wirkt zusammengewürfelt.",
+      "recommendation": "Alle Einträge Montserrat 14 px, 0.04em, auf gemeinsamer Grundlinie (align-items:center), gleicher Abstand 56 px, Logo mittig."
+    },
+    {
+      "id": "UI-21",
+      "severity": "medium",
+      "criterion": "layout_abstaende",
+      "page": "/portfolio/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 0,
+        "y": 1090,
+        "width": 1440,
+        "height": 680
+      },
+      "title": "Portfolio: unregelmäßiges Raster, Bilder kleben am Rand",
+      "detail": "Teaser-Bilder starten bei x = -1, 12, 13 und 19 px (Seitenrand), teils auf, teils neben dem Raster der oberen Teaser (x = 631-635); das große Hero-Bild links ist bei x = -1 angeschnitten, das rechte Bild endet 20 px vor dem Rand, die Bildgrößen 274 x 188 px wirken klein neben 529 x 855 px. Zwischen den Teasern wechseln Abstände von 100 bis 250 px. Wirkt wie ein Zufallsraster statt einer bewussten Komposition.",
+      "recommendation": "2-Spalten-Grid mit 101 px Seitenrand (wie Header/Galerie): Teaser-Karten 2 x 3 mit Bild 4:3 (mind. 400 px breit), Abstand 48 px, Text unter dem Bild; Hero-Bild nicht als Randgrafik anschneiden."
+    },
+    {
+      "id": "UI-22",
+      "severity": "medium",
+      "criterion": "typografie",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": "#flex-blockid--2760 > div > div:nth-of-type(5) > div > h3",
+      "title": "Startseite: Intro-Block mit fünf verschiedenen Text-Stilen",
+      "detail": "Im Dreispalter stehen nebeneinander: 'Du wünscht dir ...' (Open Sans 27 px, reines #000000), Fließtext (14,6 px, #9FA6A6), 'Echte, natürliche ...' (Palash-Versalien 30 px, #DCCACA), darunter 'Naturliebhaberin ...' (Palash-Versalien 15,8 px, #9FA6A6) und 'Ich bin Daniela ...' (Open Sans 27 px, #D7D7D7). Der wichtigste Satz (schwarz) hat die einfachste Schrift, die Markenschrift ist die blasseste. Hierarchie und Schriftwahl sind nicht nachvollziehbar. Außerdem hat der Hero-H1 nur 15 px bei 900 px Bildhöhe.",
+      "recommendation": "Eine Hierarchie: H2 = Palash 32 px #8E5F63, H3 = Palash 22 px #4F4D49, Fließtext Open Sans 15-16 px #4F4D49; Hero-H1 auf 28-32 px erhöhen."
+    },
+    {
+      "id": "UI-23",
+      "severity": "low",
+      "criterion": "bilder",
+      "page": "/",
+      "viewport": "mobile-390",
+      "rect": {
+        "x": 0,
+        "y": 7548,
+        "width": 390,
+        "height": 70
+      },
+      "title": "Mobil: Instagram-Streifen mit 70 px Thumbnails",
+      "detail": "Auf dem Smartphone werden die fünf Instagram-Bilder nur 70 x 70 px groß, bündig am linken/rechten Rand ohne Abstand (x = 0, 80, 160, 240, 320) gezeigt; auf Laptop sind es 240 px. Dadurch ist nicht erkennbar, dass es Fotos sind, und es gibt keine Verlinkung/Beschriftung.",
+      "recommendation": "Mobil 2 x 3 Raster mit 160 px großen Kacheln und 8 px Abstand oder horizontal scrollbarer Streifen mit 140 px Kacheln, Überschrift 'Folgt mir auf Instagram' mit Link."
+    },
+    {
+      "id": "UI-24",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/portfolio/",
+      "viewport": "mobile-390",
+      "title": "Mobil: 'Meine Fotografie' endet 2 px vor dem Rand",
+      "detail": "Der Titel (41,6 px) reicht von x = 140 bis 388 bei 390 px Viewportbreite (die h2-Box ragt sogar bis x = 470 über den Viewport hinaus) und schließt bündig am Rand ab; der übrige Inhalt hat 31-68 px Rand.",
+      "recommendation": "Titel auf 32 px reduzieren und mit 24 px Seitenrand zentrieren/links ausrichten (padding-inline:24px).",
+      "rect": {
+        "x": 140,
+        "y": 74,
+        "width": 248,
+        "height": 41
+      }
+    }
+  ]
+}

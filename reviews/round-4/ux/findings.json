@@ -1,0 +1,201 @@
+{
+  "reviewer": "ux",
+  "round": 4,
+  "scores": {
+    "navigation": 9.5,
+    "conversion": 9.5,
+    "formulare": 9,
+    "mobile_bedienung": 9.5,
+    "barrierefreiheit": 9.5,
+    "vertrauen_inhalt": 9.5
+  },
+  "round3_verification": [
+    {
+      "id": "UX3-01",
+      "status": "behoben",
+      "evidence": "contact-form.ts: ohne meta hs-contact-endpoint zeigt der gültige Fallback showStatus() einen role=status-Hinweis mit Mail-Link (.hs-form-status, Rosé-Rand, 15 px) direkt unter dem Absenden-Button. Gültiger Versand bewusst nicht ausgelöst; per Quelltext/CSS geprüft. Endpoint = Hosting (extern)."
+    },
+    {
+      "id": "UX3-02",
+      "status": "teilweise",
+      "evidence": "Fehlerbox hat margin-top 6 px, die Box liegt aber nur 0,6 px unter dem Feld (Feld endet y 199,6, Box y 200,2; Span-Zeile y 197,2). Im 3x-Screenshot berührt die Textoberkante den 2-px-Fokusring des ersten Fehlerfelds. Rest als UX4-04."
+    },
+    {
+      "id": "UX3-03",
+      "status": "behoben",
+      "evidence": "[role=radiogroup] mit aria-labelledby=hs-radio-label-0 (Text: Für welche Fotorichtung interessierst du dich?); Select-Name = sichtbarer Text Wie hast du von mir erfahren?."
+    },
+    {
+      "id": "UX3-04",
+      "status": "behoben",
+      "evidence": "Mobil nach Tipp auf den WhatsApp-Button: .wa__popup_content_item opacity 0.5, filter grayscale(1), pointer-events none."
+    },
+    {
+      "id": "UX3-05",
+      "status": "behoben",
+      "evidence": "/ablauf/: h1, dann h2 Das Kennenlernen / Der große Tag / Eure Bilder in Leserichtung, keine Ebenensprünge auf allen 21 Seiten und 3 Viewports (Skript-Messung); /ueber-mich/ beginnt mit h1."
+    },
+    {
+      "id": "UX3-06",
+      "status": "behoben",
+      "evidence": "Mobilmenü role=dialog aria-modal, Fokus beim Öffnen auf Schließen-Button, Escape schließt und gibt Fokus an den Menü-Button zurück, geschlossen inert=true. Einziger Rest: Skip-Link wird beim Tab-Zyklus erreicht (UX4-07)."
+    },
+    {
+      "id": "UX3-07",
+      "status": "behoben",
+      "evidence": "Auf allen 7 Galerieseiten Link Galerie überspringen (#hs-gallery-end) vor dem Raster, Ziel existiert, wird beim Fokus sichtbar."
+    },
+    {
+      "id": "UX3-08",
+      "status": "behoben",
+      "evidence": "Portfolio: alle Bild-Links mit Namen (z. B. Babybauch Fotografie: Beispielfoto); keine Alt-Texte über 130 Zeichen oder mit Keyword-/Hashtag-Ketten auf 21 Seiten."
+    },
+    {
+      "id": "UX3-09",
+      "status": "teilweise",
+      "evidence": "Mobil-390: Builder-Button JETZT ANFRAGEN auf /ueber-mich/ nur 34 px hoch (139x34), MEHR LIEBE WORTE auf / 39 px; Mobilmenü-Einträge 42 px. Tel/Mail-Zeilen sind jetzt 44 px. Rest als UX4-03."
+    },
+    {
+      "id": "UX3-10",
+      "status": "behoben",
+      "evidence": "Beschriftung NACH OBEN, Trefferfläche 68x44 px."
+    },
+    {
+      "id": "UX3-11",
+      "status": "behoben",
+      "evidence": "/gallery/ leitet auf /portfolio/ weiter (noindex-Weiterleitungsseite), in Galerien trägt Galerie aria-current, Zusatznavigation Galerien vorhanden."
+    },
+    {
+      "id": "UX3-12",
+      "status": "behoben",
+      "evidence": "Desktop-Footer: Rechtslinks 13 px, Trefferhöhe 29 px, Orts-Links 36 px; mobil 44 px."
+    },
+    {
+      "id": "UX3-13",
+      "status": "teilweise",
+      "evidence": "Danke-Seite hat jetzt Buttons Zur Startseite und Instagram ansehen (Sackgasse behoben), steht nicht mehr in der Sitemap, trägt aber weiter robots index,follow. Rest als UX4-10."
+    },
+    {
+      "id": "UX3-14",
+      "status": "offen",
+      "evidence": "Impressum-Rechtsinhalt kann nur die Kundin klären (extern, wartet auf Kundin); begrenzt die Punkte nicht."
+    }
+  ],
+  "findings": [
+    {
+      "id": "UX4-01",
+      "severity": "medium",
+      "criterion": "formulare",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": "#dein-vorname",
+      "title": "Formularfelder mobil 15 px: iPhone zoomt beim Antippen in die Seite",
+      "detail": "Auf 390 px haben alle Eingabefelder (Vorname, Nachname, E-Mail, Telefon, Nachricht, Select) font-size 15 px; das Viewport-Meta lautet nur width=device-width, initial-scale=1. Safari auf iOS zoomt bei Fokus auf Felder unter 16 px automatisch heran; die Seite springt seitlich und muss wieder herausgezoomt werden. Das trifft jeden iPhone-Besucher auf dem wichtigsten Anfrageweg. (Verhalten folgt aus dem bekannten WebKit-Verhalten und der gemessenen Schriftgröße, nicht aus einem echten iOS-Gerät.)",
+      "recommendation": "Eingaben, Textarea und Select mobil auf mindestens 16 px setzen (z. B. @media (max-width: 767px) { form input, form textarea, form select { font-size: 16px } })."
+    },
+    {
+      "id": "UX4-02",
+      "severity": "low",
+      "criterion": "barrierefreiheit",
+      "page": "/ablauf/",
+      "viewport": "laptop-1440",
+      "selector": ".flex-element-type-menu",
+      "title": "Hauptmenü und Footer-Links ohne nav-Landmark",
+      "detail": "Auf allen 14 Inhaltsseiten gibt es kein <nav> und kein role=navigation; Hauptmenü und Fußzeilenlinks sind lose Divs. Screenreader-Nutzer können per Landmark-Liste nicht zum Menü springen. Nur die Galerie-Unternavigation ist ein nav.",
+      "recommendation": "Hauptmenü-Container als <nav aria-label=\"Hauptmenü\"> (bzw. role=navigation) auszeichnen, Footer-Links als nav aria-label=\"Fußzeile\"."
+    },
+    {
+      "id": "UX4-03",
+      "severity": "low",
+      "criterion": "mobile_bedienung",
+      "page": "/ueber-mich/",
+      "viewport": "mobile-390",
+      "selector": "a.flex-block__element--button[href=\"/kontakt-2/\"]",
+      "title": "Rest von UX3-09: einzelne Buttons mobil unter 44 px",
+      "detail": "Mobil-390: Builder-Button JETZT ANFRAGEN auf /ueber-mich/ misst 139x34 px, MEHR LIEBE WORTE auf der Startseite 165x39 px; Mobilmenü-Einträge sind 42 px hoch (Sollwert 44 px).",
+      "recommendation": "Builder-Buttons mobil min-height 44 px (wie .hs-btn mit 48 px) und Mobilmenü-Zeilen auf 44 px bringen."
+    },
+    {
+      "id": "UX4-04",
+      "severity": "low",
+      "criterion": "formulare",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "title": "Rest von UX3-02: Fehlertext klebt weiter am Feld",
+      "detail": "Nach leerem Absenden liegt der Fehler-Block 0,6 px unter dem Feld (Feld bis y 199,6, Block y 200,2, Textzeile ab y 197,2). Die Textoberkante der Meldung berührt die Feldkante bzw. den 2-px-Fokusring des ersten Fehlerfelds; der margin-top von 6 px wirkt nicht.",
+      "recommendation": "Fehlerzeile mit display:block; padding-top 6 px und line-height 1.4 versehen oder die Gruppe um 6 px nach unten schieben.",
+      "rect": {
+        "x": 440,
+        "y": 150,
+        "width": 290,
+        "height": 75
+      }
+    },
+    {
+      "id": "UX4-05",
+      "severity": "low",
+      "criterion": "mobile_bedienung",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": ".wa__btn_popup",
+      "title": "WhatsApp-Button liegt über Formularfeldern und über der geöffneten Lightbox",
+      "detail": "Der feste 56-px-Button (rechts unten, z-index 999999999) überdeckt beim Scrollen durch das Formular den rechten Rand von E-Mail-Feld, Nachrichtenfeld und Select (Überdeckung bis ca. 700 px² je Feld, im Screenshot den Auswahlpfeil des Selects). In der Galerie-Lightbox (z-index 99992) liegt er ebenfalls über dem Foto. Die Felder bleiben nutzbar, der Pfeil/Resize-Griff nicht.",
+      "recommendation": "Button auf Formularseiten bei Fokus in ein Feld ausblenden oder weiter an den Rand setzen; in der Lightbox z-index unter die Lightbox legen."
+    },
+    {
+      "id": "UX4-06",
+      "severity": "low",
+      "criterion": "barrierefreiheit",
+      "page": "/gallery/paare/",
+      "viewport": "laptop-1440",
+      "selector": "a.flo-gallery-grid__image",
+      "title": "Lightbox: vergrößertes Foto ohne Alternativtext",
+      "detail": "Die Galerie-Links tragen Namen (Paare: Foto 10 von 58 vergrößern), aber in der geöffneten Lightbox hat .fancybox-image alt=\"\" und es gibt keine Bildunterschrift. Screenreader-Nutzer erfahren im Dialog (Name Bildergalerie) nicht, welches Bild sie sehen (nur der Zähler 10 / 58).",
+      "recommendation": "Dem Lightbox-Bild den Alt-Text des Galerie-Links (Paare: Foto n von m) setzen."
+    },
+    {
+      "id": "UX4-07",
+      "severity": "low",
+      "criterion": "barrierefreiheit",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": ".flex-element-type-menu__trigger",
+      "title": "Rest von UX3-06: Skip-Link wird hinter dem modalen Mobilmenü erreicht",
+      "detail": "Bei geöffnetem Menü wandert Tab durch die sieben Menüeinträge und landet beim achten Tab auf Zum Inhalt springen (außerhalb des Dialogs, Seite ist nicht inert), danach wieder im Menü. Der Skip-Link wirkt hinter dem offenen Menü sinnlos.",
+      "recommendation": "Skip-Link beim Öffnen des Menüs ebenfalls inert setzen oder in den Dialog verlegen."
+    },
+    {
+      "id": "UX4-08",
+      "severity": "low",
+      "criterion": "vertrauen_inhalt",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "selector": "a[href^=\"tel:\"]",
+      "title": "Telefonnummer und Seitentitel uneinheitlich geschrieben",
+      "detail": "Kontaktseite zeigt Tel: 0677/64345461, alle anderen Seiten 0677 / 643 454 61. Titel: Startseite Daniela Heinisch Photography- Familienfotografin (Bindestrich ohne Leerzeichen), Preise mit Gedankenstrich, Danke-Seite Danke Seite. Gleiche Nummer, aber unterschiedliches Erscheinungsbild wirkt unsauber.",
+      "recommendation": "Eine Schreibweise verwenden (0677 / 643 454 61) und Titel vereinheitlichen (Name – Seite)."
+    },
+    {
+      "id": "UX4-09",
+      "severity": "low",
+      "criterion": "conversion",
+      "page": "/preise/",
+      "viewport": "mobile-390",
+      "selector": ".hs-simple__actions",
+      "title": "Preise: doppelter Anfrage-Block und verwaister Trenner nach der Telefonnummer",
+      "detail": "Auf /preise/ folgen auf Preise anfragen / Per WhatsApp fragen direkt Lust auf euer eigenes Shooting? mit Jetzt anfragen / Per WhatsApp schreiben: vier Buttons für dieselben zwei Wege. Mobil steht hinter 0677 / 643 454 61 ein einzelner Mittelpunkt in der Zeile, die E-Mail bricht darunter um.",
+      "recommendation": "Auf Preise-Seite den zweiten Anfrage-Abschnitt weglassen oder nur einen CTA-Block behalten; Trenner mobil ausblenden."
+    },
+    {
+      "id": "UX4-10",
+      "severity": "low",
+      "criterion": "navigation",
+      "page": "/danke-seite/",
+      "viewport": "laptop-1440",
+      "selector": "main",
+      "title": "Rest von UX3-13: Danke-Seite weiter für Suchmaschinen indexierbar",
+      "detail": "Die Seite hat robots index, follow und Titel Danke Seite. Sie steht nicht mehr in der Sitemap, kann aber über Suche gefunden werden; Besucher landen dann ohne Anfrage auf einer Bestätigung. (Entwickler: noindex senkte Lighthouse-SEO.)",
+      "recommendation": "noindex,follow setzen oder per robots.txt ausschließen; die Lighthouse-Bewertung ist dafür kein Grund."
+    }
+  ]
+}

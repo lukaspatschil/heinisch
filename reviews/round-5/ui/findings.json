@@ -1,0 +1,310 @@
+{
+  "reviewer": "ui",
+  "round": 5,
+  "scores": {
+    "typografie": 9,
+    "farbe_kontrast": 9,
+    "layout_abstaende": 9,
+    "bilder": 9.5,
+    "responsive": 9,
+    "komponenten": 9
+  },
+  "round4_verification": [
+    {
+      "id": "UI4-01",
+      "status": "teilweise",
+      "evidence": "Hero-Zähler jetzt 13 px (Laptop) und kein Text mehr unter 12 px auf Laptop und Tablet (Scan aller 21 Seiten). Mobil-390 bleiben Genre-Labels der Startseite (\"Babybauch Fotografie\" usw.) und Ablauf-Nummern 01-03 bei 11,44 px."
+    },
+    {
+      "id": "UI4-02",
+      "status": "behoben",
+      "evidence": "Alle Builder-Buttons (Ihr wollt mehr wissen, Mehr liebe Worte, Schreib mir, Jetzt Anfragen, Kontakt) sind auf Laptop, 1024 und 390 genau 48 px hoch, Nunito Sans 13 px/600 mit 1,56 px Laufweite, Innenabstand 28 px (Text 199 in Box 255). Breiten 196-255 px je nach Text. Restunterschied Füllfarbe siehe UI5-12."
+    },
+    {
+      "id": "UI4-03",
+      "status": "behoben",
+      "evidence": "FAQ-Hinweis \"Für weitere Fragen\" ist rgb(79,77,73) = #4F4D49 (Laptop und mobil), kein #324B58 mehr."
+    },
+    {
+      "id": "UI4-04",
+      "status": "offen",
+      "evidence": "FAQ Laptop: Antwort 1 endet y = 730, Hinweis beginnt y = 916 (186 px Leerfläche, bei längeren Antworten 145 px); mobil ca. 200 px. Unverändert zu Runde 4."
+    },
+    {
+      "id": "UI4-05",
+      "status": "behoben",
+      "evidence": "\"Nach oben\" jetzt Open Sans 13 px (Höhe 16 px) statt Cormorant; Rechtslinks bei 1920 px 15 px (Nunito Sans) neben 18-px-Spaltentext, Hierarchie nicht mehr umgekehrt."
+    },
+    {
+      "id": "UI4-06",
+      "status": "teilweise",
+      "evidence": "Mobil-Hero jetzt randlos (x = 0, 390 x 560 px). Titel (y 223-265) und Untertitel liegen aber weiter auf Kopf und Gesichtern von Vater und Kind; Kontrast Weiß gegen Hintergrund gemessen ca. 2,2:1. Rest als UI5-01."
+    },
+    {
+      "id": "UI4-07",
+      "status": "offen",
+      "evidence": "Der alte 389 x 133 px Rahmen ist weg, aber es gibt jetzt gar keinen Fokusrahmen mehr: a.flex-element-type-logo:focus-visible hat outline none, die Regel für img/svg greift nicht, weil das Logo ein span mit background-image ist (Screenshot nach 2. Tab: kein Ring). Rest als UI5-02."
+    },
+    {
+      "id": "UI4-08",
+      "status": "offen",
+      "evidence": "Unterstreichung weiter vorhanden: \"Ablauf\" (SPAN/U text-decoration underline, #8E5F63, 30 px) und \"Meine liebe zur Fotografie\" (20 px, underline) auf Laptop und mobil; H1-Größen unverändert (18/30/56/89 px). Rest als UI5-04."
+    },
+    {
+      "id": "UI4-09",
+      "status": "offen",
+      "evidence": "Liebe Worte Laptop: sechstes Foto x = 93, 542 x 417 px, die fünf ersten x = 101, 534 x 347-357 px. Unverändert."
+    },
+    {
+      "id": "UI4-10",
+      "status": "offen",
+      "evidence": "Über mich Laptop: Foto 1 225 x 300 px bei y = 1357, Foto 2 179 x 239 px bei y = 1380. Unverändert."
+    },
+    {
+      "id": "UI4-11",
+      "status": "offen",
+      "evidence": "Über mich Laptop: Absatzende y = 1566, Button-Oberkante y = 1573 (7 px). Unverändert."
+    },
+    {
+      "id": "UI4-12",
+      "status": "offen",
+      "evidence": "Startseite bei 1024 px weiter 12 133 px hoch, Haupttext in 340-px-Spalte (x 347-687). Unverändert."
+    },
+    {
+      "id": "UI4-13",
+      "status": "offen",
+      "evidence": "FAQ mobil-390: Hero-Bild x = 14, Titel x = 18, Hinweis x = 17, Antwort und Fragenliste x = 31/52. Unverändert."
+    },
+    {
+      "id": "UI4-14",
+      "status": "behoben",
+      "evidence": "Galerie Familien Laptop: \"← Alle Galerien\" bei x = 101, erstes Foto bei x = 101 (Navigation im Raster-Container)."
+    },
+    {
+      "id": "UI4-15",
+      "status": "offen",
+      "evidence": "Ablauf Laptop: Nummern y = 638 / 636 / 631, Titel 752 / 752 / 747, Texte 827 / 826 / 821. Spalte 3 weiter 5-7 px höher."
+    }
+  ],
+  "findings": [
+    {
+      "id": "UI5-01",
+      "severity": "medium",
+      "criterion": "farbe_kontrast",
+      "page": "/",
+      "viewport": "mobile-390",
+      "rect": {
+        "x": 29,
+        "y": 223,
+        "width": 332,
+        "height": 114
+      },
+      "title": "Rest von UI4-06: Mobil-Hero-Text schwer lesbar (Folie 1 auf Gesichtern, Folien 2 und 4 grau auf Foto)",
+      "detail": "Mobil-390: Hero-Titel und Untertitel (Folie 1, y 223-337) liegen auf Kopf und Gesichtern von Vater und Kind, weißer Text gegen helles Hemd/Himmel nur ca. 2,2:1. Auf Folie 2 (Schwangere vor grauem Vorhang) und Folie 4 ist der Untertitel (\"Ein bisschen Ich, ein bisschen Du und ganz viel Liebe\", \"Emotionen, Gefühle und Liebe ...\") per mark-Element in #ABB8C3 gesetzt, 13 px: gemessener Kontrast auf Folie 2 ca. 1,5:1, praktisch nicht lesbar (auch auf 1024 px 13 px und auf Laptop bei Folie 4 ca. 3:1). Der erste Eindruck der Startseite auf dem Handy ist betroffen.",
+      "recommendation": "Untertitel in allen Folien #FFFFFF, mobil unteres Verlaufsband rgba(0,0,0,.45) hinter Titel und Untertitel oder Textblock ins untere Drittel setzen; #ABB8C3 per CSS überschreiben (.flo-slick-slider-block mark {color:#fff})."
+    },
+    {
+      "id": "UI5-02",
+      "severity": "low",
+      "criterion": "komponenten",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": ".flex-element-type-logo",
+      "title": "Rest von UI4-07: Logo-Link ohne sichtbaren Tastaturfokus",
+      "detail": "Nach dem Skip-Link (2. Tab) bekommt der Logo-Link outline: none und keinen box-shadow; im Screenshot ist keine Markierung zu sehen. Die Korrektur setzt den Ring auf img/svg, das Logo ist aber ein span mit background-image. Alle Menüpunkte zeigen einen sauberen 2-px-Rahmen. Gleicher Link im Footer.",
+      "recommendation": "Ring an .flex-element-type-logo__image oder per outline-offset am a selbst, 2 px #8E5F63, Breite des Logos begrenzen."
+    },
+    {
+      "id": "UI5-03",
+      "severity": "low",
+      "criterion": "typografie",
+      "page": "/",
+      "viewport": "mobile-390",
+      "rect": {
+        "x": 86,
+        "y": 3765,
+        "width": 215,
+        "height": 45
+      },
+      "title": "Rest von UI4-01: Mobil Genre-Labels und Ablauf-Nummern 11,44 px",
+      "detail": "Auf Mobil-390 stehen \"Babybauch Fotografie\", \"Neugeborenen fotografie\", \"familien fotografie\" (Startseite) und die Ablauf-Nummern 01-03 bei 11,44 px in Versalien mit Laufweite; die Mindestschrift 12 px greift nur auf Laptop und Tablet. Alle anderen Texte sind mindestens 12 px.",
+      "recommendation": "Mindestschrift 12,5 px auch mobil (max(12.5px, ...)) für diese Labels."
+    },
+    {
+      "id": "UI5-04",
+      "severity": "low",
+      "criterion": "typografie",
+      "page": "/ablauf/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 630,
+        "y": 152,
+        "width": 190,
+        "height": 50
+      },
+      "title": "Rest von UI4-08: Unterstrichene Überschriften \"Ablauf\" und \"Meine Liebe zur Fotografie\"",
+      "detail": "Die Überschrift \"Ablauf\" (30 px, #8E5F63) ist weiter unterstrichen (text-decoration an SPAN und U), ebenso \"Meine liebe zur Fotografie\" auf /ueber-mich/ (20 px). Unterstrichene Titel wirken wie Links. H1-Größen reichen weiter von 18 px (Impressum) über 30/56 px bis 89 px (FAQ).",
+      "recommendation": "text-decoration und u-Element bei Überschriften zurücksetzen (main h1 u, main h2 u {text-decoration:none}); Titelgrößen auf zwei Stufen vereinheitlichen."
+    },
+    {
+      "id": "UI5-05",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 101,
+        "y": 730,
+        "width": 1215,
+        "height": 186
+      },
+      "title": "Rest von UI4-04: 186 px Leerfläche zwischen Antwort und Hinweis",
+      "detail": "Antwort endet bei y = 730, der Hinweis \"Für weitere Fragen\" beginnt bei y = 916 (186 px; mobil ca. 200 px). Seit Runde 2 unverändert.",
+      "recommendation": "Feste Mindesthöhe des Antwortbereichs durch 48 px Abstand ersetzen."
+    },
+    {
+      "id": "UI5-06",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/haeufige-fragen/",
+      "viewport": "mobile-390",
+      "rect": {
+        "x": 14,
+        "y": 1209,
+        "width": 318,
+        "height": 44
+      },
+      "title": "Rest von UI4-13: FAQ mobil mit vier linken Kanten",
+      "detail": "Hero-Bild x = 14, Titel x = 18, Hinweis x = 17, Antwort x = 31, Fragen x = 31/52. Unverändert.",
+      "recommendation": "Einheitlicher Seitenrand (24 px) für Titel, Antwort, Hinweis und Fragenliste."
+    },
+    {
+      "id": "UI5-07",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/ablauf/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 127,
+        "y": 620,
+        "width": 1180,
+        "height": 200
+      },
+      "title": "Rest von UI4-15: Ablauf-Spalte 3 sitzt 5-7 px höher",
+      "detail": "Nummern y = 638 / 636 / 631, Titel 752 / 752 / 747, Texte 827 / 826 / 821.",
+      "recommendation": "Gleiches top für alle drei Spalten (gleiche Paddings)."
+    },
+    {
+      "id": "UI5-08",
+      "severity": "low",
+      "criterion": "bilder",
+      "page": "/liebe-worte/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 93,
+        "y": 2745,
+        "width": 542,
+        "height": 417
+      },
+      "title": "Rest von UI4-09: letztes Kundenfoto größer und 8 px nach links versetzt",
+      "detail": "Foto 6 (C&T) x = 93, 542 x 417 px; Fotos 1-5 x = 101, 534 x 347-357 px.",
+      "recommendation": "Alle Fotos 534 x 356 px (object-fit: cover), x = 101."
+    },
+    {
+      "id": "UI5-09",
+      "severity": "low",
+      "criterion": "bilder",
+      "page": "/ueber-mich/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 195,
+        "y": 1357,
+        "width": 431,
+        "height": 300
+      },
+      "title": "Rest von UI4-10: Bildpaar mit verschiedenen Größen und Höhen",
+      "detail": "Foto 1: 225 x 300 px bei y = 1357; Foto 2: 179 x 239 px bei y = 1380 (23 px tiefer, 20 % kleiner). Unverändert.",
+      "recommendation": "Gleiche Höhe und Oberkante oder bewusster, größerer Versatz."
+    },
+    {
+      "id": "UI5-10",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/ueber-mich/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 870,
+        "y": 1540,
+        "width": 300,
+        "height": 90
+      },
+      "title": "Rest von UI4-11: Button \"Jetzt anfragen\" nur 7 px unter dem Text",
+      "detail": "Absatz endet y = 1566, Button beginnt y = 1573 (7 px). Absätze haben 27 px Zeilenabstand. Mobil ebenfalls ca. 8 px unter dem Zitat.",
+      "recommendation": "margin-top 32-48 px."
+    },
+    {
+      "id": "UI5-11",
+      "severity": "low",
+      "criterion": "responsive",
+      "page": "/",
+      "viewport": "tablet-1024",
+      "rect": {
+        "x": 347,
+        "y": 1530,
+        "width": 340,
+        "height": 650
+      },
+      "title": "Rest von UI4-12: Tablet 1024 mit 340-px-Textspalte, Startseite 12 133 px hoch",
+      "detail": "Haupttext in 340-px-Spalte (x 347-687, ca. 35 Zeichen je Zeile) bei 1024 px Breite, Seite 12 133 px hoch (Laptop 6 860 px). Unverändert seit Runde 3.",
+      "recommendation": "Textspalte zwischen 768 und 1199 px auf 560-640 px verbreitern, Abschnittsabstände begrenzen."
+    },
+    {
+      "id": "UI5-12",
+      "severity": "low",
+      "criterion": "komponenten",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 727,
+        "y": 5647,
+        "width": 209,
+        "height": 48
+      },
+      "title": "Zwei verschiedene Rosé-Füllungen bei sonst gleichen Buttons",
+      "detail": "\"Ihr wollt mehr wissen\", \"Jetzt Anfragen\" und \"Kontakt\" sind #EDE2DF, \"Mehr liebe Worte\" und \"Schreib mir\" (Footer) #DCCACA. Gleiche Größe und Schrift, aber zwei Fülltöne; auf /ueber-mich/ stehen beide Töne unter 400 px Abstand untereinander.",
+      "recommendation": "Eine Füllung (#EDE2DF) für alle sekundären Flächen-Buttons."
+    },
+    {
+      "id": "UI5-13",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/ablauf/",
+      "viewport": "tablet-1024",
+      "rect": {
+        "x": 0,
+        "y": 1255,
+        "width": 90,
+        "height": 32
+      },
+      "title": "Ablauf Tablet/Mobil: Trennlinien versetzt, Reste am linken Rand",
+      "detail": "Bei 1024 px liegen zwei Haarlinien bei x = -345 bis 80 (sichtbarer 80-px-Stummel am linken Rand, y = 1271 und 1942), die obere Trennlinie über dem Foto x = 458-974 statt zentriert (Seitenmitte 512, Linienmitte 716). Bei 768 px läuft sie von x = 330 aus dem Bild (846 > 768); mobil-390 von x = 154 bis zum Rand. Foto mobil x = 21-380 (Rand 21 / 10 px).",
+      "recommendation": "Trennlinien im Mobil-/Tablet-Layout auf Spaltenbreite zentrieren (left:50%; translateX(-50%)), Stummel ausblenden."
+    },
+    {
+      "id": "UI5-14",
+      "severity": "low",
+      "criterion": "responsive",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "rect": {
+        "x": 68,
+        "y": 1501,
+        "width": 253,
+        "height": 46
+      },
+      "title": "Kontakt mobil: Formularfelder nur 253 px breit, Select-Text abgeschnitten",
+      "detail": "Alle Felder x = 68-321 (65 % der Breite, 68 px Rand links und rechts) bei 390 px; Überschrift x = 63, Einleitung x = 62, Label x = 68. Der Select zeigt \"Wie hast du von mir erfah...\" mit Auslassung. Bei 768 px 590 px, bei 1024 px 790 px breit.",
+      "recommendation": "Formularspalte mobil auf 100 % minus 24-px-Rand (342 px) und gemeinsame linke Kante."
+    }
+  ]
+}

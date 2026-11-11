@@ -1,0 +1,184 @@
+{
+  "reviewer": "ux",
+  "round": 3,
+  "scores": {
+    "navigation": 9.5,
+    "conversion": 9.5,
+    "formulare": 9,
+    "mobile_bedienung": 9.5,
+    "barrierefreiheit": 9,
+    "vertrauen_inhalt": 9.5
+  },
+  "round2_verification": [
+    {"id":"UX2-01","status":"behoben","evidence":"Tab-Durchlauf /kontakt-2/ (1440): Vorname, Nachname, E-Mail, Telefon, Radio, Nachricht, Select und Absenden-Button haben alle outline: solid 2px rgb(142,95,99); Screenshot zeigt deutlichen Rahmen am Radiokreis und am Button."},
+    {"id":"UX2-02","status":"behoben","evidence":"Desktop 1440: vier Radios untereinander, Label-Zeilen je 539×44 px, Abstand 46 px, ganze Zeile klickbar; nichts stößt mehr an."},
+    {"id":"UX2-03","status":"behoben","evidence":"Mobil 390: nach leerem Absenden steht das Label „Dein Vorname“ bei y 86–103, das Feld bei 111–156, der Sticky-Header endet bei 65 px; auch Tablet 1024 sauber (Label 107, Header 86)."},
+    {"id":"UX2-04","status":"offen","evidence":"Impressum nennt weiter „Telefon: 06605676671“, Kontaktseite und tel:-Link 0677/64345461. Wartet auf Kundin (extern); h1 „Impressum“ ist jetzt vorhanden."},
+    {"id":"UX2-05","status":"behoben","evidence":"Mobil 390: Impressum 86×44 px und Datenschutzerklärung 162×44 px bei 13 px, Orts-Links 14 px mit 44–48 px Höhe. Am Desktop bleiben die Links klein (siehe UX3-12)."},
+    {"id":"UX2-06","status":"behoben","evidence":"Mobilmenü: Links 328×42 px über die ganze Zeilenbreite (x 31–359); elementFromPoint links/rechts der Zeile trifft den Link. Escape schließt das Menü."},
+    {"id":"UX2-07","status":"teilweise","evidence":"Behoben: jede Seite hat genau eine sichtbare h1, FAQ-h1 „Häufige Fragen“ vollständig, Impressum-h1. Offen: /ueber-mich/ h2 (y 240) und h3 vor der h1 (y 539); h1→h3-Sprung auf 9 Seiten (Ablauf, Liebe Worte, 4 Orts-Seiten, Danke); /ablauf/ Schritte im DOM weiter 03-02-01 (siehe UX3-05)."},
+    {"id":"UX2-08","status":"teilweise","evidence":"Startseite 0 leere Alts (vorher 12), Über mich 3/3 beschrieben, Liebe Worte 0 leer, Galerien „Familien: Foto n von 95“. Rest: Startseite Instagram-Bilder mit 208–471 Zeichen langen Alts samt Hashtags, /portfolio/ zwei Bild-Links ohne Namen (siehe UX3-08)."},
+    {"id":"UX2-09","status":"teilweise","evidence":"Escape schließt das Fenster und gibt den Fokus an den Button zurück, Hinweistext 13 px. Der Eintrag „danielaheinischphotography“ hat bei geöffnetem Fenster aber opacity 1 (Regel opacity .5 greift nur im geschlossenen Zustand), pointer-events: none bleibt; er wirkt aktiv (siehe UX3-04)."},
+    {"id":"UX2-10","status":"behoben","evidence":"Startseite 1440×900: Button „Jetzt anfragen“ im Hero bei y 799–847 (innerhalb des ersten Bildschirms), mobil 390 bei y 461–509."},
+    {"id":"UX2-11","status":"behoben","evidence":"Footer-Button auf /kontakt-2/ verlinkt auf #formular; Klick springt (hash #formular), Ziel liegt nicht unter dem Header (top −0,5 px, Seitenstart bei 107 px)."},
+    {"id":"UX2-12","status":"behoben","evidence":"FAQ-Reiter 18 px, Zeilenhöhe 42 px, aktiver Reiter als rosé Fläche; Tablet 1024 gleiche Darstellung."},
+    {"id":"UX2-13","status":"behoben","evidence":"text-transform: none für alle Textfelder, E-Mail, Textarea und Select; nur Radio-Labels und Button bleiben Versalien."}
+  ],
+  "findings": [
+    {
+      "id": "UX3-01",
+      "severity": "medium",
+      "criterion": "formulare",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "selector": "input[type=submit]",
+      "title": "Formular ohne Versandziel: gültige Anfrage öffnet nur das Mailprogramm, ohne Rückmeldung",
+      "detail": "Im ausgelieferten Build fehlt <meta name=\"hs-contact-endpoint\"> (NEXT_PUBLIC_CONTACT_ENDPOINT nicht gesetzt, laut README beabsichtigter Fallback). Dann führt contact-form.ts nach gültiger Eingabe nur window.location.href = mailto:… aus: kein Hinweis „Dein Mailprogramm öffnet sich“, keine Danke-Seite, keine Versandbestätigung. Wer kein Mailprogramm eingerichtet hat (typisch: Webmail am Desktop, Gmail-App ohne mailto-Handler), sieht nach dem Klick nichts und hält die Anfrage für gesendet oder defekt. Ein gültiger Versand wurde absichtlich nicht ausgelöst; die Aussage folgt aus Quelltext und fehlender Meta-Angabe. Der wichtigste Anfrageweg ist damit nicht verlässlich.",
+      "recommendation": "Vor Livegang einen Formular-Endpoint (z. B. Formspree) eintragen und den Build damit erzeugen. Bis dahin im Fallback sichtbar erklären („Dein Mailprogramm sollte sich öffnen. Falls nicht, schreib an photography@danielaheinisch.at“) und die Adresse als Link einblenden."
+    },
+    {
+      "id": "UX3-02",
+      "severity": "low",
+      "criterion": "formulare",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "selector": "#dein-vorname",
+      "title": "Fehlermeldung klebt am Feld: Textoberkante liegt unter dem Rahmen",
+      "detail": "Nach leerem Absenden (Desktop wie Mobil) liegt die Fehlerzeile („Bitte fülle dieses Feld aus.“, 14 px) 2,4 px innerhalb des Feldrahmens (Feld endet bei y 199,6, Zeilenbox beginnt bei 197,2, Zeilenhöhe 14,4 px bei 19 px Box). Beim Fokus-Rahmen (2 px, Offset) überdeckt der Rahmen die Oberkante der Buchstaben im ersten Fehlerfeld (siehe Screenshot nach leerem Absenden). Zwischen den Feldern bleiben dagegen über 40 px Leerraum. Nur im Fehlerzustand sichtbar, deshalb zeigt der Screenshot das Feld.",
+      "recommendation": "margin-top: 6px und line-height: 1.4 für .errors.help-block, der Leerraum zwischen den Gruppen dafür etwas verkleinern."
+    },
+    {
+      "id": "UX3-03",
+      "severity": "low",
+      "criterion": "barrierefreiheit",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "selector": ".radio-list",
+      "title": "Radiogruppe ohne Gruppenname; Select-Name weicht vom sichtbaren Text ab",
+      "detail": "Die vier Radios stehen in einem div ohne fieldset/legend oder role=radiogroup; das sichtbare „Für welche Fotorichtung interessierst du dich?“ ist ein <label for> auf eine nicht vorhandene id, die Frage gehört also zu keinem Eingabeelement. Screenreader lesen nur „Babybauchfotografie, Radiobutton“. Das Select hat aria-label „Wie bist du auf mich aufmerksam geworden?“, sichtbar steht aber „Wie hast du von mir erfahren?“ (WCAG 2.5.3, Label in Name).",
+      "recommendation": "Radios in fieldset mit legend (sichtbarer Frage) bzw. role=radiogroup mit aria-labelledby; aria-label des Selects auf den sichtbaren Text („Wie hast du von mir erfahren?“) setzen."
+    },
+    {
+      "id": "UX3-04",
+      "severity": "low",
+      "criterion": "conversion",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": ".wa__btn_popup",
+      "title": "WhatsApp: Chat-Eintrag wirkt bei geöffnetem Fenster weiter aktiv (Rest von UX2-09)",
+      "detail": "Nach Tipp auf den WhatsApp-Button (Fenster offen, Zustimmung noch nicht erteilt) hat .wa__popup_content_item opacity 1 und pointer-events: none; die CSS-Regel opacity .5 wirkt nur im geschlossenen Zustand, die Öffnungs-Animation überschreibt sie. Der Eintrag „danielaheinischphotography“ mit Avatar und WhatsApp-Symbol sieht normal klickbar aus, ein Tipp bewirkt nichts und hebt den Hinweis nicht hervor. Der Screenshot zeigt den geschlossenen Button, der Zustand entsteht nach dem Antippen.",
+      "recommendation": "opacity .5 und filter: grayscale(1) mit !important auf .pointer-disable setzen (auch im Zustand .wa__lauch) und bei Tipp darauf die Checkbox-Zeile kurz hervorheben."
+    },
+    {
+      "id": "UX3-05",
+      "severity": "low",
+      "criterion": "barrierefreiheit",
+      "page": "/ablauf/",
+      "viewport": "laptop-1440",
+      "rect": { "x": 120, "y": 620, "width": 1210, "height": 180 },
+      "title": "Überschriftenstruktur: Ablauf-Schritte rückwärts, h1→h3-Sprünge, Über mich beginnt mit h2 (Rest von UX2-07)",
+      "detail": "Auf /ablauf/ stehen die Schritte im DOM als 03, 02, 01 („Eure Bilder“, „Der große Tag“, „Das Kennenlernen“), visuell von links 01 nach rechts 03; Screenreader lesen sie rückwärts. h1 folgt direkt auf h3 (Sprung h1→h3) auf /ablauf/, /liebe-worte/, /danke-seite/ und den vier Orts-Seiten. /ueber-mich/ beginnt mit h2 „Über mich“ (y 240) und h3 vor der h1 (y 539).",
+      "recommendation": "DOM-Reihenfolge 01-02-03 (flex-direction/order statt Umkehr im Markup), Schritte als h2, auf /ueber-mich/ die h1 an den Anfang."
+    },
+    {
+      "id": "UX3-06",
+      "severity": "low",
+      "criterion": "barrierefreiheit",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": ".flex-element-type-menu__trigger",
+      "title": "Mobilmenü ist nicht modal: Tab wandert hinter das offene Menü",
+      "detail": "Nach dem Öffnen (Fokus auf „Menü schließen“) läuft Tab durch die sieben Links, dann zu WhatsApp, dann zu Elementen der Seite hinter dem Overlay („Zum Inhalt springen“, Logo, „Tel: …“, „Mail: …“); das Overlay hat weder role=dialog noch aria-modal oder Fokusfalle. Tastaturnutzer (Tablet mit Tastatur, Switch) verlieren den sichtbaren Fokus. Escape schließt das Menü korrekt.",
+      "recommendation": "Overlay als role=dialog aria-modal=true mit Fokusfalle (Tab am Ende zurück zum Schließen-Button) oder die Seite dahinter inert setzen."
+    },
+    {
+      "id": "UX3-07",
+      "severity": "low",
+      "criterion": "barrierefreiheit",
+      "page": "/gallery/hochzeitsfotografie/",
+      "viewport": "laptop-1440",
+      "selector": ".flo-gallery-grid__image",
+      "title": "Galerie: bis zu 97 Tab-Stopps vor dem Seitenende, kein Sprung hinter die Galerie",
+      "detail": "Jedes Galeriebild ist ein Link (aria-label „… vergrößern“); Hochzeit 97, Familien 95, Baby/Kleinkind 88 Tab-Stopps zwischen den Galerie-Chips und der Anfrage/dem Footer. Der Skip-Link springt nur zum Inhaltsanfang. Tastaturnutzer müssen entweder 90+ Mal Tab drücken oder die Seite scrollen. Die Lightbox selbst funktioniert gut (Pfeiltasten, Escape gibt den Fokus zurück, 44-px-Buttons).",
+      "recommendation": "Vor dem Raster einen Link „Zur Anfrage / zum Seitenende springen“ (visible on focus) oder Roving-Tabindex im Raster (ein Tab-Stopp, Pfeiltasten wechseln das Bild)."
+    },
+    {
+      "id": "UX3-08",
+      "severity": "low",
+      "criterion": "barrierefreiheit",
+      "page": "/portfolio/",
+      "viewport": "laptop-1440",
+      "selector": "a[href=\"/gallery/newborn/\"]",
+      "title": "Alt-Texte: Bild-Links ohne Namen, Instagram-Bilder mit Hashtag-Romanen (Rest von UX2-08)",
+      "detail": "Auf /portfolio/ haben die Bild-Links zu /gallery/newborn/ und /gallery/portrait/ nur ein Bild mit alt=\"\" und keinen Text (Link ohne zugänglichen Namen; daneben steht jeweils ein Text-Link, der Bild-Link ist doppelt). Auf der Startseite tragen die fünf Instagram-Bilder als Alt die kompletten Post-Texte mit 208–471 Zeichen und Hashtag-Ketten („#familyphotographer#mummyandme#…“), die Screenreader vorlesen; die Bilder darunter wiederholen 20-mal dieselben sechs Standard-Alts.",
+      "recommendation": "Bild-Link mit aria-label (Galeriename) oder alt=\"Neugeborenenshooting\"; Instagram-Alts auf einen kurzen Satz kürzen, Hashtags entfernen."
+    },
+    {
+      "id": "UX3-09",
+      "severity": "low",
+      "criterion": "mobile_bedienung",
+      "page": "/ueber-mich/",
+      "viewport": "mobile-390",
+      "rect": { "x": 126, "y": 2606, "width": 139, "height": 34 },
+      "title": "Mobil: einzelne Buttons und Kontaktzeilen unter 44 px Höhe",
+      "detail": "„Jetzt anfragen“ auf /ueber-mich/ misst 139×34 px, „Mehr Liebe Worte“ auf der Startseite 165×39 px; auf /kontakt-2/ sind „Tel: 0677/64345461“ und „Mail: …“ die wichtigsten Kontaktlinks, aber nur 25 px hoch und direkt untereinander (Zeilenabstand 25 px), Fehltipps wahrscheinlich. Alle anderen Buttons (Hero, Anfrage-Abschnitt, Footer) sind 43–48 px.",
+      "recommendation": "min-height 48 px für alle Buttons (padding), Tel-/Mail-Links auf /kontakt-2/ mit padding 10 px und display:inline-block bzw. als Buttons gestalten."
+    },
+    {
+      "id": "UX3-10",
+      "severity": "low",
+      "criterion": "mobile_bedienung",
+      "page": "/ablauf/",
+      "viewport": "mobile-390",
+      "selector": "footer [role=button]",
+      "title": "„BACK TO TOP“: englische Beschriftung, nur 66×19 px",
+      "detail": "Der Zurück-nach-oben-Link am Seitenende ist als einziger Bedienknopf englisch („Back to Top“ bzw. Accessible Name „Back to Top“) auf der deutschsprachigen Seite und mobil nur 66×19 px groß (Desktop 109×41). Auf allen 23 Seiten vorhanden; auf dem Handy ist er schwer zu treffen.",
+      "recommendation": "Beschriftung „Nach oben“ (auch aria-label), mobil min. 44×44 px Trefferfläche."
+    },
+    {
+      "id": "UX3-11",
+      "severity": "low",
+      "criterion": "navigation",
+      "page": "/gallery/familien/",
+      "viewport": "laptop-1440",
+      "selector": "a[href=\"/gallery/\"]",
+      "title": "Zwei Galerie-Übersichten; in den Galerien ist kein Menüpunkt aktiv",
+      "detail": "Der Menüpunkt „Galerie“ führt zu /portfolio/ (Genre-Teaser), „← Alle Galerien“ in jeder Galerie aber zu /gallery/ (Karten mit Foto-Anzahl) – zwei verschiedene Seiten mit gleichem Titel „Galerie“. Auf /gallery/ und /gallery/familien/ trägt kein Menüpunkt aria-current; bei „Galerie“ fehlt die Markierung, Orientierung geht verloren (Orts-Seiten ebenfalls ohne aktiven Punkt, dort aber ohne Zuordnung nötig).",
+      "recommendation": "Eine Übersicht als Ziel für Menü und „Alle Galerien“ (z. B. Menü → /gallery/ oder /portfolio/ umleiten) und „Galerie“ im Menü auf allen /gallery/*-Seiten als aktiv markieren."
+    },
+    {
+      "id": "UX3-12",
+      "severity": "low",
+      "criterion": "vertrauen_inhalt",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": "footer a[href=\"/impressum/\"]",
+      "title": "Desktop-Footer: Rechtslinks 11 px, Orts-Links 12 px/14 px hoch (Rest von UX2-05)",
+      "detail": "Mobil behoben, am Desktop (1440) sind „Impressum“ und „Datenschutzerklärung“ 11,25 px groß, 26 px hoch mit weiter Sperrung; die vier Orts-Links 12 px bei 14 px Trefferhöhe, in einer Zeile mit Trennstrichen. Pflichtlinks sind schwer zu entdecken und für ältere Besucher kaum lesbar.",
+      "recommendation": "Rechtslinks 13–14 px, Orts-Links 13 px mit 8 px Abstand zwischen den Links."
+    },
+    {
+      "id": "UX3-13",
+      "severity": "low",
+      "criterion": "vertrauen_inhalt",
+      "page": "/danke-seite/",
+      "viewport": "laptop-1440",
+      "selector": "main",
+      "title": "Danke-Seite: Sackgasse, Instagram nicht verlinkt, für Suchmaschinen indexierbar",
+      "detail": "Im Inhalt steht „Aktuelles findet Ihr auch auf meiner Instagram-Seite“, aber ohne Link und ohne Button (main enthält 0 Links); weiter geht es nur über Menü/Footer. Die Seite ist per URL ohne Absenden erreichbar (Titel „Danke Seite“), hat robots „index, follow“ und steht in sitemap.xml; Besucher könnten sie über Google als Seite „Danke für deine Nachricht“ finden.",
+      "recommendation": "Button „Zur Startseite“ und „Instagram ansehen“ ergänzen, Seitentitel „Danke für deine Nachricht“, robots noindex und aus der Sitemap entfernen."
+    },
+    {
+      "id": "UX3-14",
+      "severity": "medium",
+      "extern": true,
+      "criterion": "vertrauen_inhalt",
+      "page": "/impressum/",
+      "viewport": "laptop-1440",
+      "selector": "main",
+      "title": "Impressum: deutsche Rechtsgrundlage (§ 5 TMG), Angaben für Österreich unvollständig",
+      "detail": "Das Impressum nennt „Angaben gemäß § 5 TMG“ (deutsches Telemediengesetz, seit 2024 DDG), obwohl die Betreiberin in Mödling (Österreich) sitzt. Für österreichische Gewerbetreibende verlangt § 5 ECG u. a. Unternehmensgegenstand, ggf. UID-Nummer, Gewerbebehörde/Kammer und Berufsrecht. Diese Angaben fehlen. Keine Rechtsberatung: bitte prüfen lassen; nur die Kundin bzw. ihr Steuerberater kann die Daten liefern.",
+      "recommendation": "Impressum nach § 5 ECG / § 63 GewO ergänzen (Unternehmensgegenstand, UID, Gewerbebehörde, Kammer); Überschrift „Angaben gemäß § 5 ECG“."
+    }
+  ]
+}

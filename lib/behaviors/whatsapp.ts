@@ -47,6 +47,24 @@ export function initWhatsapp(): Cleanup {
     }
   };
   cleanups.push(onActivate(button, toggle));
+  // Escape closes the open chat and returns focus to the button (UX2-09)
+  cleanups.push(
+    on(document, 'keydown', (e: KeyboardEvent) => {
+      if (e.key !== 'Escape' || !box.classList.contains('wa__active')) return;
+      toggle();
+      button.focus();
+    }),
+  );
+
+  // Improved design: the text bubble next to the button hides once the visitor
+  // scrolls, so it no longer covers content (UX-12).
+  if (root.hasAttribute('data-hs-compact')) {
+    const compact = () => {
+      if (window.scrollY > 120) root.classList.add('hs-wa-compact');
+    };
+    compact();
+    cleanups.push(on(window, 'scroll', compact, { passive: true }));
+  }
 
   // GDPR checkbox: the chat link is enabled once the privacy notice is accepted.
   const gdpr = root.querySelector<HTMLElement>('.nta-wa-gdpr');

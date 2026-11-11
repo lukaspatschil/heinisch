@@ -18,6 +18,15 @@ import { ImageStore, isUploadUrl } from './lib/images.mjs';
 import { AssetStore } from './lib/assets.mjs';
 import { getSnapshots } from './lib/snapshots.mjs';
 import { assignColumns } from '../../lib/masonry-core.js';
+import {
+  framePage,
+  improveCss,
+  improvePage,
+  describePage,
+  notFoundMain,
+  preiseMain,
+  REDIRECTS,
+} from './improve.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const ORIGIN = 'https://danielaheinisch.at';
@@ -58,6 +67,9 @@ const NOT_FOUND_SOURCE = '/preise/';
 // Masonry reference geometry measured on the original at 1440px viewport.
 // The browser re-checks the assignment at runtime for other widths.
 const MASONRY_REF = { colWidth: 426, gap: 20 };
+
+// Design improvements from the UI/UX reviews (reviews/); --original keeps the pure 1:1 copy.
+const IMPROVE = !process.argv.includes('--original');
 
 if (process.argv.includes('--fresh')) fs.rmSync(CACHE_DIR, { recursive: true, force: true });
 
@@ -204,7 +216,7 @@ function deferOffscreenImages($) {
   if (keep.size) $([...keep][0]).attr('loading', 'eager').attr('fetchpriority', 'high');
   $('img[src]').each((_, el) => {
     const img = $(el);
-    if (img.is('[data-hs-deferred]') || img.closest('.flo-slick-slide-container').length || keep.has(el)) return;
+    if (img.is('[data-hs-deferred], [fetchpriority="high"]') || img.closest('.flo-slick-slide-container').length || keep.has(el)) return;
     img.attr('data-src', img.attr('src'));
     if (img.attr('srcset')) img.attr('data-srcset', img.attr('srcset'));
     img.attr('src', PLACEHOLDER).removeAttr('srcset').removeAttr('loading').attr('data-hs-lazy', '');
@@ -462,6 +474,8 @@ function extractMeta($, pagePath) {
 function writeSitemap(routes) {
   const today = new Date().toISOString().slice(0, 10);
   const urls = routes
+    // the thank-you page is reached only after sending the form (UX3-13)
+    .filter((r) => !r.redirect && r.path !== '/danke-seite/')
     .map((r) => `  <url><loc>${ORIGIN}${r.path}</loc><lastmod>${today}</lastmod></url>`)
     .join('\n');
   fs.writeFileSync(
@@ -503,7 +517,8 @@ async function main() {
   }
   globalCss.push(`/* clone: extra widget styles */\n${fs.readFileSync(path.join(import.meta.dirname, 'clone.css'), 'utf8')}`);
   fs.mkdirSync(path.join(ROOT, 'styles'), { recursive: true });
-  fs.writeFileSync(path.join(ROOT, 'styles', 'site.css'), globalCss.join('\n\n') + '\n');
+  const siteCss = globalCss.join('\n\n') + '\n';
+  fs.writeFileSync(path.join(ROOT, 'styles', 'site.css'), IMPROVE ? improveCss(siteCss) : siteCss);
 
   // Page titles without the site name, used as accessible names for image links.
   const titles = Object.fromEntries(
@@ -514,7 +529,16 @@ async function main() {
   fs.rmSync(path.join(CONTENT, 'pages'), { recursive: true, force: true });
   fs.mkdirSync(path.join(CONTENT, 'pages'), { recursive: true });
   const routes = [];
+  let frameHtml = null; // a converted page whose header/footer frame the new pages
   for (const p of [...PAGES, NOT_FOUND_SOURCE]) {
+    if (IMPROVE && REDIRECTS[p]) {
+      const to = REDIRECTS[p];
+      const out = { id: pageId(p), path: p, redirect: to, meta: { title: 'Weiterleitung', canonical: ORIGIN + to }, css: '', html: '' };
+      fs.writeFileSync(path.join(CONTENT, 'pages', out.id + '.json'), JSON.stringify(out));
+      routes.push({ id: out.id, path: p, redirect: to });
+      log(`  ${p.padEnd(42)} → redirect to ${to}`);
+      continue;
+    }
     const $ = cheerio.load(raw[p]);
     const id = p === NOT_FOUND_SOURCE ? '404' : pageId(p);
 
@@ -524,7 +548,8 @@ async function main() {
       const key = cssKey($, el);
       const hash = md5(el.tagName === 'link' ? key : $(el).html() || '');
       if (globalKeys.get(key) === hash) continue;
-      pageCss.push(await cssText($, el));
+      const text = await cssText($, el);
+      pageCss.push(IMPROVE ? improveCss(text) : text);
     }
 
     const meta = extractMeta($, p);
@@ -566,13 +591,46 @@ async function main() {
     $doc('.flex-element-type-menu__trigger').attr('data-hs-menu-trigger', '').attr('role', 'button').attr('aria-label', 'Menü öffnen').attr('tabindex', '0');
     $doc('.flex-element-type-menu-mobile-popup__header-close-button').attr('data-hs-menu-close', '').attr('role', 'button').attr('aria-label', 'Menü schließen').attr('tabindex', '0');
     $doc('.fgt-copyright__scroll-to-top').attr('data-hs-scroll-top', '').attr('role', 'button').attr('tabindex', '0');
-    // First image in the header logo is above the fold everywhere.
+    if (IMPROVE) {
+      improvePage($doc, { path: p === NOT_FOUND_SOURCE ? null : p });
+      if (!meta.description) meta.description = describePage($doc, p);
+      // consistent page titles (UX4-08)
+      meta.title = meta.title.replace(/(\S)- /g, '$1 – ').replace(/ - /g, ' – ').replace(/^Danke Seite\b/, 'Danke für deine Nachricht');
+      if (p === NOT_FOUND_SOURCE) {
+        framePage($doc, null, notFoundMain(), { cta: false });
+        meta.title = 'Seite nicht gefunden – Daniela Heinisch Photography';
+      }
+      if (p === '/impressum/') frameHtml = $doc('#hs-root').html();
+    }
     const html = $doc('#hs-root').html().replace(/\n\s*\n+/g, '\n');
 
     const out = { id, path: p === NOT_FOUND_SOURCE ? null : p, meta, bodyClass, css: pageCss.join('\n'), html };
     fs.writeFileSync(path.join(CONTENT, 'pages', id + '.json'), JSON.stringify(out));
     if (out.path) routes.push({ id, path: p });
     log(`  ${p.padEnd(42)} → content/pages/${id}.json (${(html.length / 1024).toFixed(0)} KB)`);
+  }
+  if (IMPROVE) {
+    const newPage = (p, title, description, main) => {
+      const $doc = cheerio.load(`<div id="hs-root">${frameHtml}</div>`, null, false);
+      framePage($doc, p, main, { cta: false });
+      deferOffscreenImages($doc);
+      const meta = {
+        title: `${title} – Daniela Heinisch Photography`,
+        description,
+        robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+        canonical: ORIGIN + p,
+        og: { 'og:locale': 'de_DE', 'og:type': 'website', 'og:title': `${title} – Daniela Heinisch Photography`, 'og:description': description, 'og:url': ORIGIN + p, 'og:site_name': 'Daniela Heinisch Photography' },
+        twitter: { 'twitter:card': 'summary_large_image' },
+        jsonLd: [],
+        path: p,
+      };
+      const out = { id: pageId(p), path: p, meta, bodyClass: '', css: '', html: $doc('#hs-root').html() };
+      fs.writeFileSync(path.join(CONTENT, 'pages', out.id + '.json'), JSON.stringify(out));
+      if (!routes.some((r) => r.path === p)) routes.push({ id: out.id, path: p });
+      log(`  ${p.padEnd(42)} → content/pages/${out.id}.json (new)`);
+    };
+    // the page has its own inquiry buttons, no second CTA block (UX4-09)
+    newPage('/preise/', 'Preise', 'Preise und Pakete für Babybauch-, Neugeborenen-, Familien- und Paarshootings in Mödling erhaltet ihr auf Anfrage.', preiseMain());
   }
   fs.writeFileSync(path.join(CONTENT, 'routes.json'), JSON.stringify(routes, null, 2) + '\n');
   writeSitemap(routes);

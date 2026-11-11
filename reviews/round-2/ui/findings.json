@@ -1,0 +1,397 @@
+{
+  "reviewer": "ui",
+  "round": 2,
+  "scores": {
+    "typografie": 8.5,
+    "farbe_kontrast": 8.5,
+    "layout_abstaende": 8.5,
+    "bilder": 8.5,
+    "responsive": 8.5,
+    "komponenten": 8
+  },
+  "findings": [
+    {
+      "id": "UI2-01",
+      "severity": "medium",
+      "criterion": "responsive",
+      "page": "/",
+      "viewport": "tablet-1024",
+      "selector": "div#flex-blockid--2760 > div > div:nth-of-type(3) > div > p:nth-of-type(1) > span > span",
+      "title": "Tablet 1024 (Querformat): Desktop-Layout nur verkleinert, Text 7-11 px",
+      "detail": "Rest von UI-05: Die Umstellung auf das Mobil-Layout greift nur bis 1023 px. Bei 1024 px (iPad quer) bleibt das Desktop-Layout linear geschrumpft: Fließtext Startseite 10,4 px, Menü 10,7 px, Portfolio-Teaser 11,2 px, Hero-Untertitel/Zähler 7-9 px, kleinster Text 7,2 px (gemessen per getComputedStyle; 44 von 75 Textelementen < 11 px). Bei 1440 px sind es 14,6 / 15 px. Der Dreispalter mit 273 px breiten Textzeilen wirkt dadurch winzig.",
+      "recommendation": "Breakpoint für das zentrierte Layout auf <= 1199 px anheben oder die Schriftgrößen per clamp(14px, 1.0vw + 4px, 16px) nach unten begrenzen; Menü bei 1024 px mind. 14 px."
+    },
+    {
+      "id": "UI2-02",
+      "severity": "medium",
+      "criterion": "farbe_kontrast",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "selector": "div#flex-blockid--d088600fa1ac > div > div:nth-of-type(4) > div > h1 > span > span",
+      "title": "FAQ-Hero: Titel „Häufige Fragen“ hell auf hellem Himmel (ca. 1,4:1), Kicker „FAQ“ unsichtbar",
+      "detail": "Rest von UI-15: Der H1 (89 px, Isabel-Thin, #F2EFEB) liegt über dem hellen oberen Bildbereich; Kontrast gegen die Bildpixel hinter „Häufige“ im Mittel 1,37:1, mobil 1,19:1 (Bild ohne Text neu gerendert und Luminanz gemessen; der Textschatten rgba(0,0,0,.45) hilft kaum). „Fragen“ liegt über dunklerem Bild (4,1:1). Das Kicker-Label „FAQ“ (11 px, #F2EFEB) ist praktisch nicht zu erkennen. Die gewählte Frage und die Liste sind dagegen behoben (8,1:1).",
+      "recommendation": "Dunklen Verlauf (linear-gradient(to bottom, rgba(0,0,0,.35), transparent 70%)) über das Hero-Bild legen oder den Titel unterhalb des Bildes in #8E5F63 (5,3:1) setzen; Kicker entfernen oder 14 px / #4F4D49 auf Fläche."
+    },
+    {
+      "id": "UI2-03",
+      "severity": "medium",
+      "criterion": "bilder",
+      "page": "/portfolio/",
+      "viewport": "laptop-1440",
+      "selector": "div#flex-blockid--94d0b6f86143 > div > div:nth-of-type(5) > div > a > h2 > span",
+      "title": "Portfolio: Teaser „Hochzeitsfotografie“ besteht weiter nur aus einem Link-Label",
+      "detail": "Rest von UI-10: Das Label ist jetzt lesbar (5,5:1) und verlinkt, aber alle anderen sechs Genres haben Bild, Titel und Text, Hochzeit nur eine unterstrichene Zeile mit ca. 250 px Leerraum darüber (y 1900-2084). Auf /gallery/ gibt es dagegen eine Hochzeit-Kachel mit Bild (97 Fotos), die Daten sind also vorhanden. Mobil dasselbe (Label bei y 4193 ohne Bild).",
+      "recommendation": "Teaser analog zu den anderen aufbauen: Bild aus /gallery/hochzeitsfotografie/ (4:3), Titel und 2 Zeilen Text, Label als Link darunter; sonst Label samt Leerraum entfernen."
+    },
+    {
+      "id": "UI2-04",
+      "severity": "medium",
+      "criterion": "layout_abstaende",
+      "page": "/portfolio/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 0,
+        "y": 107,
+        "width": 1440,
+        "height": 1850
+      },
+      "title": "Portfolio: Raster weiter unregelmäßig, Bilder kleben am Rand",
+      "detail": "Rest von UI-21: Teaser-Bilder starten bei x = 12, 13 und 19 px bzw. 629-635 px, die Textspalten bei 310 und 928-931 px; das Hero-Bild links ist randlos (x = 0, 527 px breit), das große Bild rechts unten endet bei x = 1420 (20 px vor dem Rand) und ist 529 px breit. Zwischen den Teasern wechseln Abstände von 100 bis 250 px, die Unterstrich-Labels sind unterschiedlich breit und leicht versetzt (x 629/631/635). Die Seite wirkt wie ein Zufallsraster neben dem sonst sauberen 101-px-Raster der Galerie.",
+      "recommendation": "2-Spalten-Grid mit 101 px Seitenrand wie Header/Galerie: Karten 2 x 3 mit Bild 4:3 (mind. 400 px), Abstand 48 px, Text unter dem Bild; Hero-Bild nicht anschneiden."
+    },
+    {
+      "id": "UI2-05",
+      "severity": "medium",
+      "criterion": "komponenten",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": "div#testimonials > div > a",
+      "title": "Zwei Button-Systeme: alte rosa Flächen-Buttons mit verschwindendem Hover neben dem neuen CTA-System",
+      "detail": "Rest von UI-18: Die neuen CTA-Buttons (Jetzt anfragen / Per WhatsApp schreiben, 14 px Nunito Sans, #8E5F63, Hover #7A4F53) sind sauber. Daneben gibt es weiter die alten Builder-Buttons (Startseite „Ihr wollt mehr wissen“ in Palash 20 px, „Mehr liebe Worte“ / „Schreib mir“ in Nunito 13,5 px fett, Ablauf „Kontakt“, Über mich „Jetzt anfragen“, Kontakt „Nachricht abschicken“ in Open Sans 18 px): flache #EDE2DF-Fläche ohne Rahmen, Hover wird #FAF6F6/#FBF9F8 (Fläche verschwindet auf Weiß, gemessen) bzw. kippt bei „Ihr wollt mehr wissen“ in dunkles Grau #585652. Drei Schriften, zwei Farbsysteme, zwei Höhen (42-64 px).",
+      "recommendation": "Alle Buttons auf das CTA-System umstellen (Primär #8E5F63/weiß, Sekundär Outline #8E5F63) bzw. die rosa Fläche als dritte Stufe mit Hover #DCCACA und Text #4F4D49 definieren; einheitlich Nunito Sans 14 px, 0,12em, Höhe 48 px."
+    },
+    {
+      "id": "UI2-06",
+      "severity": "medium",
+      "criterion": "komponenten",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 446,
+        "y": 896,
+        "width": 550,
+        "height": 90
+      },
+      "title": "Kontaktformular: Radio-Buttons kleben am Nachbar-Label, Formular in Standardserife",
+      "detail": "Die Fotorichtung-Auswahl steht in zwei Spalten ohne Abstand: das Label „BABYBAUCHFOTOGRAFIE“ endet bei x = 692, der Radio-Kreis der nächsten Option sitzt bei x = 694 (ebenso „FAMILIENFOTOGRAFIE“ / „ANDERE“) - der Kreis wirkt wie zum linken Label gehörig. Labels, Radios und die Select-Box sind in Times-artiger Browserserife (Rest der Seite Open Sans/Nunito), die Eingabefelder haben 1-px-schwarze Eckrahmen und passen nicht zum zarten Stil; der Submit-Button ist ein alter Flächen-Button (siehe UI2-05).",
+      "recommendation": "Spalten mit 24 px Abstand (grid-template-columns:1fr 1fr; gap:12px 32px), Labels Open Sans 14-15 px #4F4D49, Felder Rahmen 1 px #DCCACA, Radius 2 px, Fokus 2 px #8E5F63; Select in derselben Schrift."
+    },
+    {
+      "id": "UI2-07",
+      "severity": "medium",
+      "criterion": "typografie",
+      "page": "/datenschutzerklaerung/",
+      "viewport": "laptop-1440",
+      "selector": "article#post-274 > div > div:nth-of-type(2) > div > h3",
+      "title": "Datenschutz: 11-px-Fließtext mit 1 px Laufweite über 1238 px Zeilenlänge, keine Überschriftenhierarchie",
+      "detail": "Der gesamte Rechtstext (3366 px hoch) steht in Nunito Sans 11,25 px, letter-spacing 1 px, 18 px Zeilenhöhe, ca. 200 Zeichen pro Zeile (Textbreite 1238 px); Abschnittstitel („WARUM GIBT ES DIESE DATENSCHUTZERKLÄRUNG“) haben dieselbe Größe wie der Text und sind nur durch Großbuchstaben getrennt. Mobil 10,4 px. Die Seite ist schwer lesbar und nicht scanbar.",
+      "recommendation": "Text Open Sans 15 px, letter-spacing 0, line-height 1.7, max-width 720 px zentriert; Abschnittstitel 20 px #8E5F63 mit 40 px Abstand darüber."
+    },
+    {
+      "id": "UI2-08",
+      "severity": "low",
+      "criterion": "komponenten",
+      "page": "/datenschutzerklaerung/",
+      "viewport": "laptop-1440",
+      "selector": "button#rcb-sc-link-change",
+      "title": "Datenschutz: ungestylte Browser-Buttons der Cookie-Verwaltung",
+      "detail": "Oberhalb der Überschrift stehen drei graue Standard-Buttons (#EFEFEF, 2-px-Rahmen, Systemlook, 23 px hoch: „Privatsphäre-Einstellungen ändern“, „Einwilligungen widerrufen“, „Historie ...“) ohne Bezug zum Button-System der Seite und ohne Abstand zur Navigation.",
+      "recommendation": "Als Sekundär-Buttons (Outline #8E5F63, 14 px Nunito Sans, Höhe 44 px, 12 px Abstand) stylen und unter die Überschrift setzen."
+    },
+    {
+      "id": "UI2-09",
+      "severity": "medium",
+      "criterion": "typografie",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": "article#post-69 h1",
+      "title": "Startseite: Hero-H1 nur 15 px und Untertitel 10 px über 900 px hohem Bild",
+      "detail": "Rest von UI-22: Der Seitentitel „EURE FAMILIENFOTOGRAFIN IN MÖDLING“ erscheint als 15,2-px-Zeile (Palash, Versalien) in der unteren Bildhälfte, der Untertitel „Mein Anspruch ist es ...“ als 10,1 px, die Folienzählung „1 / 6“ ebenfalls 10 px. Die wichtigste Aussage der Seite ist damit kleiner als der Fließtext (14,6 px). Mobil 16,5 px / 9,8 px. Außerdem steht im Intro-Dreispalter der H3 „Du wünscht dir, dich und deine Familie so zu sehen, wie ihr seid?“ weiter in reinem #000000 27 px Open Sans neben der rosé Palash-Überschrift und dem #6B6862-Fließtext (auch /ablauf/: Fließtext und Überschriften #000).",
+      "recommendation": "Hero-H1 auf clamp(24px, 3vw, 44px) mit 0,12em Laufweite, Untertitel mind. 14 px; reines Schwarz überall durch #4F4D49 (Text) bzw. #272521 (Titel) ersetzen."
+    },
+    {
+      "id": "UI2-10",
+      "severity": "medium",
+      "criterion": "komponenten",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "selector": "div#hs-tab-1-0 > span",
+      "title": "FAQ: Fragenliste in 11-px-Light mit weiter Laufweite",
+      "detail": "Rest von UI-15: Die Fragenliste (Hauptbedienelement der Seite) steht in Nunito Sans Gewicht 300, 11,25 px, letter-spacing ca. 1 px, #4F4D49 auf #FCFAFA (Kontrast 8,1:1 ist ok) - die Schrift ist aber so klein und dünn, dass sie neben der 89-px-Überschrift und dem 15-px-Antworttext verschwindet. Die aktive Frage ist jetzt rosé unterstrichen (behoben). Unter der Antwort bleiben ca. 200 px Leerfläche bis zum Hinweis.",
+      "recommendation": "Fragen 14-15 px, Gewicht 400, Laufweite 0,04em, Zeilenabstand 16 px; Antwort- und Hinweisbereich mit festem 48-px-Abstand."
+    },
+    {
+      "id": "UI2-11",
+      "severity": "low",
+      "criterion": "typografie",
+      "page": "/ueber-mich/",
+      "viewport": "mobile-390",
+      "selector": "div#flex-blockid--a7ab3ecafda1 > div > div:nth-of-type(5) > div > h3 > span > span",
+      "title": "Über mich mobil: Kicker nur 8,3 px, Kleinstschrift im Footer 10,4 px",
+      "detail": "„Die Person hinter der Kamera“ ist mobil 8,3 px groß (Laufweite 2-3 px, #6B6862 - Kontrast ok, Größe nicht), auf 768 px 11 px. Ähnlich klein: Footer-Links Impressum/Datenschutzerklärung 10,4 px (mobil, Zeilenhöhe nur 25 px Trefferfläche), Genre-Beschriftungen auf /portfolio/ 11,4 px, Hero-Zähler „1 / 6“ 9,4 px.",
+      "recommendation": "Kicker/Labels mindestens 12 px (mobil 12,5 px) bei 0,1em Laufweite; Footer-Links 13 px mit 44 px Trefferfläche."
+    },
+    {
+      "id": "UI2-12",
+      "severity": "low",
+      "criterion": "typografie",
+      "page": "/ueber-mich/",
+      "viewport": "laptop-1440",
+      "selector": "div#flex-blockid--a7ab3ecafda1 > div > div:nth-of-type(1) > div > h2 > span",
+      "title": "Über mich: Titel „About me“ englisch (Desktop) bzw. „Hallo, ich bin Daniela“ (Mobil); „Der grosse Tag“",
+      "detail": "Die Seitenüberschrift lautet auf 1440 px „About me“ (Rest der Seite deutsch), auf 390 px dagegen kursiv „Hallo, ich bin Daniela“ - zwei verschiedene Titel für dieselbe Seite. Tippfehler: auf /ablauf/ „Der grosse Tag“ statt „Der große Tag“ (österreichische Rechtschreibung).",
+      "recommendation": "Einheitlich deutscher Titel („Über mich“ / „Hallo, ich bin Daniela“), „Der große Tag“."
+    },
+    {
+      "id": "UI2-13",
+      "severity": "low",
+      "criterion": "typografie",
+      "page": "/",
+      "viewport": "mobile-390",
+      "selector": "div#flex-blockid--f9ad > div > div:nth-of-type(5) > div > h3 > span",
+      "title": "Startseite mobil/Tablet: zweizeilige Teaser-Titel mit Zeilenhöhe ca. 1,0 berühren sich",
+      "detail": "Rest von UI-11: Die Teaser-Titel „Lass diese wunderschöne Reise beginnen“ und „Diese zarten Momente im Herzen bewahren“ (Palash 18-22 px) brechen bei 390 und 768 px zweizeilig um, die Zeilenhöhe ist 1,0-1,1: Unterlänge „g“ von „beginnen“ und die Oberlänge der zweiten Zeile berühren sich. Fließtexte sind jetzt bei 1,6-1,7 (behoben).",
+      "recommendation": "line-height 1.3 für alle Überschriften unter 32 px."
+    },
+    {
+      "id": "UI2-14",
+      "severity": "low",
+      "criterion": "bilder",
+      "page": "/",
+      "viewport": "tablet-768",
+      "selector": "img[src*=\"Babybauch-10-scaled\"]",
+      "title": "Tablet 768: Kollagen- und Teaserbilder als 200-px-Thumbnail auf 336 px gezogen (weich)",
+      "detail": "Das srcset wählt bei 768 px für mehrere Bilder die kleinste Variante: Startseite „Portrait-12-200x300“, „Babybauch-10-200x300“, „Newborn-21-200x300“ und „Newborn-2-300x200“ werden mit 200-300 px Dateibreite auf 336 CSS-Pixel gezogen (Faktor 1,1-1,7; auf 2x-Tablets Faktor 2,2-3,4), im Screenshot sichtbar weich. Die größeren Bilder (683x1024 auf 433-516 px, Galerie) sind unauffällig; auf 1440 px und 390 px (1x) ist nichts hochskaliert.",
+      "recommendation": "sizes-Attribut der Kollage/Teaser korrigieren (z. B. sizes=\"(max-width: 1023px) 336px, 274px\") bzw. die 683-px-Variante ausliefern; mind. 2 x Anzeigebreite."
+    },
+    {
+      "id": "UI2-15",
+      "severity": "low",
+      "criterion": "bilder",
+      "page": "/",
+      "viewport": "mobile-390",
+      "rect": {
+        "x": 16,
+        "y": 7860,
+        "width": 358,
+        "height": 65
+      },
+      "title": "Mobil: Instagram-Streifen weiter nur 65 x 65 px",
+      "detail": "Rest von UI-23: Die fünf Instagram-Bilder sind mobil unverändert 65 x 65 px (x = 16, 89, 162, 236, 309), auf Laptop 240 px; Motive nicht erkennbar, keine Beschriftung oder Verlinkung sichtbar.",
+      "recommendation": "Mobil 3 + 2 Raster mit 112 px Kacheln oder horizontal scrollbar (140 px Kacheln, 8 px Abstand); Überschrift „Folgt mir auf Instagram“ mit Link."
+    },
+    {
+      "id": "UI2-16",
+      "severity": "low",
+      "criterion": "komponenten",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 101,
+        "y": 6640,
+        "width": 300,
+        "height": 110
+      },
+      "title": "Footer: dritte Social-Ikone bricht in zweite Zeile (alle Seiten)",
+      "detail": "Instagram (x 187) und Facebook (x 240) stehen nebeneinander, Pinterest (x 187, y +44) rutscht linksbündig in eine zweite Zeile; der Block ist weder zentriert noch bündig mit der Spaltenüberschrift. Mobil identisch (Instagram/Facebook x 125/178, Pinterest x 125 darunter). Trefferflächen sind mit 44 x 44 px ok.",
+      "recommendation": "Icons in einer Flex-Reihe (justify-content:center; gap:8px; flex-wrap:nowrap) zeigen."
+    },
+    {
+      "id": "UI2-17",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 50,
+        "y": 20,
+        "width": 1320,
+        "height": 70
+      },
+      "title": "Kopfzeile: rechte Menühälfte sitzt weiter 6 px tiefer als die linke",
+      "detail": "Rest von UI-20: Beide Hälften nutzen jetzt Montserrat 15 px, aber Über mich/Galerie/Preise/Ablauf haben die Oberkante y = 33, Liebe Worte/FAQ/Kontakt y = 39. Abstände links 77 px, rechts 129-130 px.",
+      "recommendation": "Beide Menügruppen im selben Flex-Container mit align-items:center und identischem gap (z. B. 72 px)."
+    },
+    {
+      "id": "UI2-18",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/",
+      "viewport": "mobile-390",
+      "rect": {
+        "x": 140,
+        "y": 3155,
+        "width": 248,
+        "height": 45
+      },
+      "title": "Startseite mobil: „Meine Fotografie“ endet 2 px vor dem Rand",
+      "detail": "Rest von UI-24 (auf /portfolio/ behoben, dort 24 px Rand): Auf der Startseite reicht der Titel (37 px) weiter von x = 140 bis 388 bei 390 px Breite.",
+      "recommendation": "Gleiche Regel wie auf /portfolio/: padding-inline 24 px bzw. Titel 32 px."
+    },
+    {
+      "id": "UI2-19",
+      "severity": "low",
+      "criterion": "responsive",
+      "page": "/",
+      "viewport": "mobile-390",
+      "selector": "article#post-69 h1",
+      "title": "Mobil-Hero: Titel weiter über den Personen, 31 px Seitenrand, Kontrast ca. 4:1",
+      "detail": "Rest von UI-06: Das Hero ist jetzt 328 x 560 px (behoben), der Titel liegt aber (16,5 px, weiß) auf Kopf-/Hemdhöhe der Familie; gemessener Kontrast gegen die Bildpixel im Mittel 3,95:1, hellster Bereich 2,0:1; der Untertitel ist 9,8 px. Das Bild hat weiter 31 px Rand links/rechts statt randlos.",
+      "recommendation": "Titel in das untere Drittel mit Verlauf rgba(0,0,0,.45) legen, Hero randlos (100 % Breite), Untertitel 12 px."
+    },
+    {
+      "id": "UI2-20",
+      "severity": "low",
+      "criterion": "farbe_kontrast",
+      "page": "/preise/",
+      "viewport": "laptop-1440",
+      "selector": "main#primary > article > div > a:nth-of-type(2)",
+      "title": "Sekundär-Button: Hover #8E5F63 auf #EDE2DF nur 4,2:1 bei 14 px",
+      "detail": "Beim Überfahren des Outline-Buttons („Per WhatsApp fragen/schreiben“) wird die Fläche #EDE2DF bei Text #8E5F63: 4,17:1 (14 px, Gewicht 600) und liegt damit unter 4,5:1; im Ruhezustand ca. 4,8:1 auf #F9F4F1.",
+      "recommendation": "Hover-Text #6F454A (6,6:1) oder Hover-Fläche #F3E9E6."
+    },
+    {
+      "id": "UI2-21",
+      "severity": "low",
+      "criterion": "komponenten",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": "form select",
+      "title": "Kontakt mobil: Select-Platzhalter wird abgeschnitten",
+      "detail": "Rest von UI-07: Die Radio-Zeilen brechen nicht mehr mitten im Wort (behoben), aber der Platzhalter „WIE HAST DU VON MIR ERFAHREN?“ im Select ist bei 390 px am Ende abgeschnitten (Fragezeichen halb sichtbar, Pfeil überlappt), Schrift Times-artig in Versalien.",
+      "recommendation": "Platzhalter in Normalschreibung („Wie hast du von mir erfahren?“), font-size 15 px, padding-right 40 px, Schrift wie die übrigen Felder."
+    }
+  ],
+  "round1_verification": [
+    {
+      "id": "UI-01",
+      "status": "behoben",
+      "evidence": "Intro-Fließtext und „Naturliebhaberin…“ jetzt #6B6862 auf Weiß = 5,55:1 (vorher 2,48:1)."
+    },
+    {
+      "id": "UI-02",
+      "status": "behoben",
+      "evidence": "Rosé-Überschriften #8E5F63 = 5,29:1 (Startseite, Portfolio-Teaser, Ablauf), „Ich bin Daniela…“ #6B6862 = 5,55:1."
+    },
+    {
+      "id": "UI-03",
+      "status": "behoben",
+      "evidence": "Buttons #4F4D49 auf #EDE2DF = 6,64:1; CTA-Primär Weiß auf #8E5F63 = 5,29:1."
+    },
+    {
+      "id": "UI-04",
+      "status": "behoben",
+      "evidence": "Footer-Kleintext/SEO-Links #6B6862 = 5,55:1 bei 12 px, Icons #8E5F63 in 44-px-Fläche (Restproblem Größe/Umbruch siehe UI2-11, UI2-16)."
+    },
+    {
+      "id": "UI-05",
+      "status": "teilweise",
+      "evidence": "768 px nutzt zentriertes Mobil-Layout (kein Text < 12 px außer Hero-Untertitel), bei 1024 px aber weiter Fließtext 10,4 px, Menü 10,7 px, kleinster Text 7,2 px (UI2-01)."
+    },
+    {
+      "id": "UI-06",
+      "status": "teilweise",
+      "evidence": "Hero mobil 328 x 560 px statt 236 px, Titel 16,5 px lesbarer; aber 31 px Rand, Titel über den Personen, Kontrast zum Bild im Mittel 3,95:1 (UI2-19)."
+    },
+    {
+      "id": "UI-07",
+      "status": "teilweise",
+      "evidence": "Radio-Labels brechen nicht mehr im Wort, Zeilen 44 px; Select-Platzhalter bei 390 px weiter abgeschnitten (UI2-21)."
+    },
+    {
+      "id": "UI-08",
+      "status": "behoben",
+      "evidence": "/gallery/ zeigt 7 Karten mit echten Vorschaubildern (4er-Raster, Titel, Fotozahl), kein Spinner, kein Platzhalter."
+    },
+    {
+      "id": "UI-09",
+      "status": "behoben",
+      "evidence": "Karten deutsch („58 Fotos · Galerie ansehen“), kein Datum; Text #6B6862."
+    },
+    {
+      "id": "UI-10",
+      "status": "teilweise",
+      "evidence": "Label „Hochzeitsfotografie“ jetzt 5,5:1 und verlinkt, aber weiter ohne Bild/Titel/Text, ca. 250 px Leerraum (UI2-03)."
+    },
+    {
+      "id": "UI-11",
+      "status": "teilweise",
+      "evidence": "Fließtext-Zeilenhöhe jetzt 1,6-1,7 (vorher 1,1), Schriften auf Nunito/Open Sans reduziert; zweizeilige Teaser-Titel mobil/Tablet weiter bei ca. 1,0-1,1 (UI2-13)."
+    },
+    {
+      "id": "UI-12",
+      "status": "behoben",
+      "evidence": "Zitat Isabel-Light-Italic 16,9 px / Zeilenhöhe 25,3 px (1,5), #6B6862 = 5,55:1; Times-Block ersetzt."
+    },
+    {
+      "id": "UI-13",
+      "status": "behoben",
+      "evidence": "Einleitung #8E5F63 = 5,29:1 bei 27 px; Zwischentitel ebenfalls #8E5F63 (Isabel-Thin 100 bleibt, aber lesbar)."
+    },
+    {
+      "id": "UI-14",
+      "status": "behoben",
+      "evidence": "Genre-Beschriftungen und Ablauf-Nummern #6B6862 = 5,55:1, jetzt als Link mit 1-px-Unterstrich."
+    },
+    {
+      "id": "UI-15",
+      "status": "teilweise",
+      "evidence": "Aktive Frage rosé mit 2-px-Linie (8,1:1 Liste), aber Hero-Titel „Häufige“ gegen Bild nur 1,37:1 (mobil 1,19:1), Kicker „FAQ“ unsichtbar, Liste 11,25 px Light (UI2-02, UI2-10)."
+    },
+    {
+      "id": "UI-16",
+      "status": "behoben",
+      "evidence": "Menü-Hover #8E5F63 + Unterstrich (gemessen), Fokus 2 px solid #8E5F63, Offset 3 px."
+    },
+    {
+      "id": "UI-17",
+      "status": "behoben",
+      "evidence": "Aktive Seite: aria-current=page, #8E5F63 und Unterstrich (Über mich, Galerie, Preise, Ablauf, FAQ, Kontakt geprüft)."
+    },
+    {
+      "id": "UI-18",
+      "status": "teilweise",
+      "evidence": "Neues CTA-System (Primär #8E5F63, Outline, Hover #7A4F53, 48 px) vorhanden; alte rosa Buttons bleiben in 3 Schriften, Hover blendet Fläche aus (#FAF6F6) (UI2-05, UI2-20)."
+    },
+    {
+      "id": "UI-19",
+      "status": "behoben",
+      "evidence": "Burger 48 x 48 px, Farbe #4F4D49 (8,4:1)."
+    },
+    {
+      "id": "UI-20",
+      "status": "teilweise",
+      "evidence": "Beide Hälften Montserrat 15 px, aber rechte Hälfte weiter 6 px tiefer (y 39 vs. 33) (UI2-17)."
+    },
+    {
+      "id": "UI-21",
+      "status": "offen",
+      "evidence": "Portfolio unverändert unregelmäßig: Bilder bei x = 0/12/13/19/629-635/891, Abstände 100-250 px (UI2-04)."
+    },
+    {
+      "id": "UI-22",
+      "status": "teilweise",
+      "evidence": "Farben vereinheitlicht (#6B6862/#8E5F63); Hero-H1 weiter 15 px, H3 „Du wünscht dir…“ weiter #000000 (UI2-09)."
+    },
+    {
+      "id": "UI-23",
+      "status": "offen",
+      "evidence": "Mobil weiter 5 Thumbnails à 65 x 65 px (x = 16, 89, 162, 236, 309) (UI2-15)."
+    },
+    {
+      "id": "UI-24",
+      "status": "teilweise",
+      "evidence": "/portfolio/ mobil mit 24 px Rand behoben; auf der Startseite endet „Meine Fotografie“ bei x = 388 von 390 (UI2-18)."
+    }
+  ]
+}

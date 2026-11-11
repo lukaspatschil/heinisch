@@ -12,14 +12,22 @@ export function initMobileMenu(): Cleanup {
       `[data-hs-menu-popup][data-element-id="${id}"]`,
     );
     if (!popup) return;
+    // open popup is modal: the page behind it leaves the tab order (UX3-06)
+    const background = () =>
+      Array.from(popup.parentElement?.children ?? []).filter((el): el is HTMLElement => el !== popup) as HTMLElement[];
+    popup.setAttribute('role', 'dialog');
+    popup.setAttribute('aria-modal', 'true');
+    popup.setAttribute('aria-label', 'Menü');
     // closed popup: keep its links out of the tab order
     const close = () => {
       popup.classList.remove(OPEN);
       document.body.classList.remove(BODY_OPEN);
       trigger.setAttribute('aria-expanded', 'false');
       popup.inert = true;
+      background().forEach((el) => (el.inert = false));
     };
     const open = () => {
+      background().forEach((el) => (el.inert = true));
       popup.inert = false;
       popup.classList.add(OPEN);
       document.body.classList.add(BODY_OPEN);

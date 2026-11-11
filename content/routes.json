@@ -41,7 +41,8 @@
   },
   {
     "id": "website-im-aufbau",
-    "path": "/website-im-aufbau/"
+    "path": "/website-im-aufbau/",
+    "redirect": "/"
   },
   {
     "id": "familienfotografin-baden",
@@ -61,7 +62,8 @@
   },
   {
     "id": "gallery",
-    "path": "/gallery/"
+    "path": "/gallery/",
+    "redirect": "/portfolio/"
   },
   {
     "id": "gallery__portrait",
@@ -93,6 +95,11 @@
   },
   {
     "id": "entry_form__kontaktformular",
-    "path": "/entry_form/kontaktformular/"
+    "path": "/entry_form/kontaktformular/",
+    "redirect": "/kontakt-2/"
+  },
+  {
+    "id": "preise",
+    "path": "/preise/"
   }
 ]

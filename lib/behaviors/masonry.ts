@@ -10,12 +10,11 @@ import { on, type Cleanup } from './dom.js';
 export function initMasonry(): Cleanup {
   const grids = Array.from(document.querySelectorAll<HTMLElement>('[data-hs-masonry]'));
   if (!grids.length) return () => {};
-  const mq = window.matchMedia('(min-width: 768px)');
-
   const layout = () => {
-    if (!mq.matches) return; // mobile: single column in DOM order (CSS order)
     grids.forEach((grid) => {
       const cols = Array.from(grid.querySelectorAll<HTMLElement>(':scope > .hs-masonry-col'));
+      // mobile layout: columns are display: contents, single column in DOM order (CSS order)
+      if (!cols.length || getComputedStyle(cols[0]).display === 'contents') return;
       const items = Array.from(grid.querySelectorAll<HTMLElement>('.flo-gallery-grid__image')).sort(
         (a, b) => Number(a.dataset.hsIndex) - Number(b.dataset.hsIndex),
       );

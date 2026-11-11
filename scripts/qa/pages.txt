@@ -8,12 +8,10 @@
 /impressum/
 /datenschutzerklaerung/
 /danke-seite/
-/website-im-aufbau/
 /familienfotografin-baden/
 /familienfotografin-moedling/
 /newborn-shooting-moedling/
 /newborn-shooting-baden/
-/gallery/
 /gallery/portrait/
 /gallery/paare/
 /gallery/hochzeitsfotografie/
@@ -21,5 +19,4 @@
 /gallery/newborn/
 /gallery/baby-kleinkind-mummy-and-me/
 /gallery/familien/
-/entry_form/kontaktformular/
 /preise/

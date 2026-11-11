@@ -7,10 +7,25 @@ const CONTACT_ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || '';
 /**
  * Renders an imported page: the original SEO tags, page specific CSS,
  * structured data and the original markup (header, content, footer, mobile
- * menu, WhatsApp widget). Interactivity comes from /js/behaviors/index.js.
+ * menu, WhatsApp widget). Interactivity comes from /js/site.js (lib/behaviors).
  */
 export default function PageView({ page }: { page: PageContent }) {
   const { meta } = page;
+  if (page.redirect) {
+    return (
+      <>
+        <Head>
+          <title>Weiterleitung – Daniela Heinisch Photography</title>
+          <meta name="robots" content="noindex, follow" />
+          <meta httpEquiv="refresh" content={`0; url=${page.redirect}`} />
+          <link rel="canonical" href={siteUrl(page.redirect)} />
+        </Head>
+        <p style={{ padding: 24, fontFamily: 'sans-serif' }}>
+          Diese Seite ist umgezogen: <a href={page.redirect}>weiter</a>
+        </p>
+      </>
+    );
+  }
   return (
     <>
       <Head>

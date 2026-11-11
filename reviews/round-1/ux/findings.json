@@ -1,0 +1,272 @@
+{
+  "reviewer": "ux",
+  "round": 1,
+  "scores": {
+    "navigation": 7,
+    "conversion": 7.5,
+    "formulare": 7,
+    "mobile_bedienung": 7.5,
+    "barrierefreiheit": 6.5,
+    "vertrauen_inhalt": 8
+  },
+  "findings": [
+    {
+      "id": "UX-01",
+      "severity": "high",
+      "criterion": "navigation",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": "header a[href=\"/preise/\"]",
+      "title": "Hauptmenüpunkt „Preise“ führt auf eine 404-Seite",
+      "detail": "„Preise“ steht in Desktop- und Mobilmenü (auch Link in „Über mich“) und ist die einzige Seite, die das Menü ohne Inhalt lässt: /preise/ liefert HTTP 404. Besucher, die genau nach Kosten suchen, landen in einer Sackgasse – an der Stelle, an der Vertrauen entstehen soll.",
+      "recommendation": "Entweder eine echte Seite /preise/ (Pakete/„ab“-Preise, Ablauf, CTA zur Anfrage) anlegen oder den Menüpunkt in allen Menüs entfernen bzw. auf einen vorhandenen Abschnitt (z. B. /ablauf/ oder FAQ „Was kostet ein Shooting?“) umleiten."
+    },
+    {
+      "id": "UX-02",
+      "severity": "high",
+      "criterion": "navigation",
+      "page": "/preise/",
+      "viewport": "laptop-1440",
+      "selector": "main",
+      "title": "404-Seite ist englisch, leer und ohne Navigation zurück",
+      "detail": "Die Fehlerseite zeigt „Page Not Found“, „Why not check out one of these?“ und Kacheln „Homepage, Featured Galleries, Last Story, Contact, About Mono“ (Theme-Reste). Die 5 Bilder sind 1×1-Platzhalter, die Kacheln sind keine Links (0 Links im main). Außer dem Menü gibt es keinen Weg weiter; Sprache und Markenname passen nicht zur Seite.",
+      "recommendation": "404-Seite auf Deutsch gestalten („Diese Seite gibt es nicht“), mit klaren Buttons „Zur Startseite“, „Galerie“, „Kontakt“ und ohne leere Bildkacheln."
+    },
+    {
+      "id": "UX-03",
+      "severity": "high",
+      "criterion": "formulare",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": "input[type=submit]",
+      "title": "Fehlermeldungen im Kontaktformular sind englisch",
+      "detail": "Leer abschicken: unter Vorname, Nachname, E-Mail und Nachricht erscheint rot „This field is required!“, bei ungültiger E-Mail „Invalid email“ (rote Standardschrift, nicht im Markenstil). Zusätzlich nennen die Browser-Validierungstexte bei englischer Browsersprache „Please fill out this field“. Die Seite ist komplett deutsch, Zielgruppe deutschsprachig – Nutzer verstehen den Fehler schlechter und das Vertrauen leidet.",
+      "recommendation": "Alle Meldungen eindeutschen: „Bitte gib deinen Vornamen ein.“, „Bitte gib eine gültige E-Mail-Adresse ein (z. B. name@beispiel.at).“. Meldungen im Markenstil (dunkles Rot mit ≥ 4,5:1, Icon) und mit Link/Fokus auf das erste Fehlerfeld."
+    },
+    {
+      "id": "UX-04",
+      "severity": "medium",
+      "criterion": "formulare",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "selector": "form.flo-form",
+      "title": "Kein Hinweis auf Datenschutz/Einwilligung im Formular",
+      "detail": "Im Formular gibt es weder Checkbox noch Satz „Mit dem Absenden stimmst du der Datenschutzerklärung zu“ mit Link. Die Datenschutzerklärung ist nur über den Footer erreichbar. Außerdem fehlt eine Angabe, wann man eine Antwort erwartet.",
+      "recommendation": "Unter dem Nachrichtenfeld einen Satz mit Link zu /datenschutzerklaerung/ (oder Pflicht-Checkbox) und „Ich melde mich innerhalb von 1–2 Werktagen“ ergänzen."
+    },
+    {
+      "id": "UX-05",
+      "severity": "medium",
+      "criterion": "formulare",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": "input[type=radio]",
+      "title": "„Für welche Fotorichtung …“ ist Pflicht, aber unvollständig umgesetzt",
+      "detail": "Das Feld ist mit rotem * als Pflicht markiert, beim leeren Absenden erscheint dort aber keine Meldung. Die Optionen sehen wie Checkboxen aus (quadratisch), sind aber Radiobuttons (Auswahl eines zweiten Eintrags entfernt den ersten). Die Auswahlkästchen sind nur ~12 px groß, auf 390 px bricht „NEUGEBORENENFOTOGRAFIE“ mitten im Wort („…FOTOGRAF / IE“). „Deine Nachricht“ ist als Pflicht markiert, aber im Markup nicht required.",
+      "recommendation": "Entscheiden, ob Einfach- oder Mehrfachauswahl; passende Form (rund/eckig) verwenden und Pflicht mit Fehlermeldung prüfen. Optionen als ≥ 44 px hohe, ganz klickbare Zeilen untereinander setzen, Silbentrennung/Umbruch im Wort verhindern."
+    },
+    {
+      "id": "UX-06",
+      "severity": "low",
+      "criterion": "formulare",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "selector": "input[type=submit]",
+      "title": "Absende-Button: schwacher Kontrast und kleine Schrift",
+      "detail": "Button „NACHRICHT ABSCHICKEN“ ist #887F7F auf #DCCACA bei 12,5 px: Kontrast ca. 2,5:1 (WCAG-UI-Minimum 3:1, Text 4,5:1). Die wichtigste Aktion der Seite ist optisch schwächer als die Eingabefelder. Ein Erfolgs-/Ladefeedback habe ich nicht prüfen können (kein gültiger Versand erlaubt).",
+      "recommendation": "Dunklere Schrift (z. B. #4F4D49, ≈ 6:1) oder dunkleren Rosé-Hintergrund, Schrift ≥ 14 px; Hover-/Fokus-/Ladezustand („Wird gesendet …“) ergänzen."
+    },
+    {
+      "id": "UX-07",
+      "severity": "high",
+      "criterion": "barrierefreiheit",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "selector": "#dein-vorname",
+      "title": "Tastaturfokus in allen Formularfeldern unsichtbar",
+      "detail": "Beim Tabben durch das Formular haben Eingabefelder, Radiobuttons, Textarea, Select und Absende-Button „outline: none“, keinen Schatten und keine Randänderung (Pixelvergleich fokussiert/unfokussiert: identisch). Tastaturnutzer wissen im wichtigsten Formular der Seite nicht, wo sie sind (WCAG 2.4.7). Links und Menü haben dagegen den Browser-Fokusring.",
+      "recommendation": "Globale :focus-visible-Regel: z. B. outline: 2px solid #4F4D49; outline-offset: 2px für input, textarea, select, button, [role=button]; Eingabefelder zusätzlich mit dickerem/dunklerem Rand."
+    },
+    {
+      "id": "UX-08",
+      "severity": "medium",
+      "criterion": "barrierefreiheit",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "selector": "#deine-e-mail-adresse",
+      "title": "Fehlermeldungen sind für Screenreader nicht verknüpft",
+      "detail": "Nach fehlerhaftem Absenden haben Felder weder aria-invalid noch aria-describedby; die roten Meldungen sind ohne role=alert/aria-live. Fokus springt zwar auf das erste Fehlerfeld, die Fehlermeldung wird aber nicht vorgelesen. Pflichtfelder nur über rotes *, kein aria-required, keine autocomplete-Attribute (given-name, family-name, email, tel).",
+      "recommendation": "Meldungen mit id versehen, per aria-describedby und aria-invalid verknüpfen, Container role=alert; autocomplete-Attribute und aria-required ergänzen."
+    },
+    {
+      "id": "UX-09",
+      "severity": "medium",
+      "criterion": "barrierefreiheit",
+      "page": "/ablauf/",
+      "viewport": "laptop-1440",
+      "selector": "main h2",
+      "title": "Überschriftenstruktur: h1 fehlt oder ist mehrfach vorhanden",
+      "detail": "Auf /ablauf/, /liebe-worte/, /haeufige-fragen/, /kontakt-2/, /impressum/, /datenschutzerklaerung/, /danke-seite/ und allen Galerieseiten gibt es keine h1 (Seitentitel „ABLAUF“, „ANFRAGE“ … sind h2). Die Startseite hat sechs h1, /ueber-mich/ zwei identische h1, die Reihenfolge der Ablauf-Schritte im DOM ist 03-02-01. Screenreader-Nutzer können Seiten nicht per Überschriften navigieren.",
+      "recommendation": "Pro Seite genau eine h1 (Seitentitel), Abschnitte h2, Unterpunkte h3 ohne Ebenen zu überspringen; Reihenfolge im DOM = visuelle Reihenfolge (01, 02, 03)."
+    },
+    {
+      "id": "UX-10",
+      "severity": "medium",
+      "criterion": "barrierefreiheit",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "selector": ".flex-element-type-tabs-switcher__item--active",
+      "title": "FAQ-Tabs und andere Bedienelemente ohne Tastatur-/Screenreader-Semantik; kein Skip-Link",
+      "detail": "Die FAQ-Reiter sind <div role=button> ohne tablist/tab/tabpanel/aria-selected: der aktive Reiter wird nicht angesagt, Pfeiltasten funktionieren nicht. Menü-Button, Slider-Pfeile, „Back to top“ und WhatsApp-Button sind ebenfalls divs. Es gibt keinen „Zum Inhalt springen“-Link; Tab durchläuft zuerst 8 Menüpunkte auf jeder Seite.",
+      "recommendation": "FAQ als Accordion mit <button aria-expanded> oder korrekt ARIA-Tabs bauen; interaktive divs durch <button> ersetzen; Skip-Link „Zum Inhalt springen“ als ersten Fokuspunkt."
+    },
+    {
+      "id": "UX-11",
+      "severity": "low",
+      "criterion": "barrierefreiheit",
+      "page": "/gallery/familien/",
+      "viewport": "laptop-1440",
+      "selector": "main img",
+      "title": "Alternativtexte der Galeriebilder: Keyword-Ketten bzw. leer",
+      "detail": "Von 95 Bildern haben 34 alt=\"\" (dekorativ), der Rest nur dieselben Dateinamen-/SEO-Texte („Familienshooting_Familienfotografin_Mödling“, wiederholt). Blinde Nutzer erfahren nichts über die Motive, Wiederholungen nerven.",
+      "recommendation": "Pro Bild eine kurze Beschreibung („Mutter hebt zwei Kleinkinder im hellen Studio hoch“) oder Galerie als Ganzes mit einem beschreibenden Text; keine Keyword-Wiederholung."
+    },
+    {
+      "id": "UX-12",
+      "severity": "medium",
+      "criterion": "mobile_bedienung",
+      "page": "/haeufige-fragen/",
+      "viewport": "mobile-390",
+      "selector": ".wa__btn_popup_txt",
+      "title": "WhatsApp-Sprechblase überdeckt dauerhaft Inhalt",
+      "detail": "Die Blase „Schreibt mir gerne per Whatsapp“ (218×34 px) steht immer fix unten rechts und verdeckt Fließtext (FAQ-Antwort, Ablauf-Schritt 3 auf Desktop, Textstellen auf Startseite/Portfolio/Liebe Worte), auf /kontakt-2/ das E-Mail-Feld und in der Galerie-Lightbox das Bild. Sie lässt sich nicht schließen; Text ist nicht lesbar, ohne zu scrollen.",
+      "recommendation": "Blase nach wenigen Sekunden oder beim ersten Scrollen ausblenden (nur runder Button, 56 px, mit sicherem Abstand zu Inhalt/Formularfeldern) oder per „×“ schließbar machen; unten Innenabstand der Inhalte erhöhen."
+    },
+    {
+      "id": "UX-13",
+      "severity": "medium",
+      "criterion": "mobile_bedienung",
+      "page": "/",
+      "viewport": "mobile-390",
+      "selector": ".flex-element-type-menu__trigger",
+      "title": "Menü-Schaltfläche und Menüeinträge mobil zu klein",
+      "detail": "Hamburger-Button 35×41 px, Schließen-„×“ im Menü 14×16 px, Menülinks sind nur 14 px hoch (Zeilen ~69 px hoch, aber nur der Text ist klickbar: Tipp neben/zwischen den Text trifft nichts). Slider-Pfeile auf der Startseite 47×24 px. Empfohlen sind ≥ 44×44 px.",
+      "recommendation": "Menüzeilen als ganze Zeile klickbar (a mit display:block; padding ≥ 15 px), Hamburger/Schließen auf ≥ 44×44 px Trefferfläche vergrößern, Slider-Pfeile ≥ 44 px hoch."
+    },
+    {
+      "id": "UX-14",
+      "severity": "medium",
+      "criterion": "mobile_bedienung",
+      "page": "/",
+      "viewport": "mobile-390",
+      "selector": ".flex-element-type-socialLinks__link",
+      "title": "Footer: Social-Icons und Rechtslinks sehr klein",
+      "detail": "Instagram/Facebook/Pinterest-Icons sind 17×17 px mit wenig Abstand, „Impressum“ 59×25 px (10 px Schrift), „Datenschutzerklärung“ 120×25 px, die vier Orts-Links („Familienfotografin Baden …“) nur 13 px hoch in Fließtext-Zeilen. Mit dem Daumen schwer zu treffen; Rechtstexte sind schwer lesbar (Copyright-Zeile hat Kontrast 1,3:1).",
+      "recommendation": "Icons auf ≥ 44×44 px Trefferfläche (Padding), Rechtslinks mit ≥ 44 px Zeilenhöhe und ≥ 13–14 px Schrift, Orts-Links untereinander mit Abstand; Copyright-Zeile dunkler."
+    },
+    {
+      "id": "UX-15",
+      "severity": "medium",
+      "criterion": "conversion",
+      "page": "/kontakt-2/",
+      "viewport": "mobile-390",
+      "selector": ".wa__btn_popup",
+      "title": "WhatsApp-Weg: englischer Consent-Schritt blockiert Link",
+      "detail": "Tipp auf den Button öffnet ein Fenster mit „Please accept our privacy policy first to start a conversation.“ und einer 13×13-px-Checkbox; der Kontakt „danielaheinischphotography“ ist bis dahin inaktiv (pointer-events: none), es passiert nichts beim Tippen. Das Fenster überdeckt das halbe Formular, im Footer steht ein Link zu ninjateam.org (Dritt-Anbieter). Sprache, Schriftfarbe (hellgrün auf Rosé, „Ich freue mich auf eure Nachrichten“) und Größe passen nicht.",
+      "recommendation": "Fenster auf Deutsch („Bitte stimme der Datenschutzerklärung zu, um den Chat zu starten“) mit größerer Checkbox (≥ 24 px, ganze Zeile klickbar) und sichtbar deaktiviertem Zustand, oder direkt wa.me-Link mit Hinweis; Ninja-Footer ausblenden; Kontrast der Überschrift/Subzeile ≥ 4,5:1."
+    },
+    {
+      "id": "UX-16",
+      "severity": "medium",
+      "criterion": "conversion",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 101,
+        "y": 910,
+        "width": 440,
+        "height": 32
+      },
+      "title": "Inhaltsseiten ohne klaren Anfrage-CTA; FAQ-Satz „kontaktieren“ ist kein Link",
+      "detail": "Home (Hero hat keinen Button), Galerie, Liebe Worte, FAQ und alle Galerieseiten (95 Bilder, ~40.000 px lang mobil) enden ohne Button zur Anfrage. Auf der FAQ-Seite steht „Für weitere Fragen, könnt ihr mich gerne jederzeit kontaktieren.“ als Fließtext ohne Link. Einziger Weg ist der blasse Footer-Button, das Menü oder WhatsApp.",
+      "recommendation": "Am Ende jeder Inhaltsseite (und im Home-Hero) einen Button „Jetzt anfragen“ → /kontakt-2/; den FAQ-Satz verlinken (Kontakt/WhatsApp); „Kontakt“ im Menü als Button hervorheben."
+    },
+    {
+      "id": "UX-17",
+      "severity": "medium",
+      "criterion": "conversion",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": "footer a[href=\"/kontakt-2/\"]",
+      "title": "Footer-CTA „Schreib mir“ kaum sichtbar",
+      "detail": "Der Button ist grau (#A5A5A5) auf Rosé (#DCCACA): Kontrast 1,6:1. Auf /kontakt-2/ verlinkt er außerdem auf die Seite selbst. Der Call-to-Action ist auf Mobile am Seitenende der einzige Kontaktbutton (neben WhatsApp).",
+      "recommendation": "Button-Beschriftung dunkel (#4F4D49 auf #DCCACA ≈ 5:1) oder gefüllter dunkler Rosé; auf der Kontaktseite den Button durch Tel/WhatsApp ersetzen."
+    },
+    {
+      "id": "UX-18",
+      "severity": "low",
+      "criterion": "conversion",
+      "page": "/kontakt-2/",
+      "viewport": "laptop-1440",
+      "selector": "a[href^=\"tel\"]",
+      "title": "Telefon- und Mail-Link fehlerhaft formatiert",
+      "detail": "href=\"tel: 0677/64345461\" enthält Leerzeichen, Schrägstrich und keine Landesvorwahl; href=\"mailto: photography@…\" beginnt mit Leerzeichen. Je nach Gerät funktioniert Tap-to-call nicht oder nur aus Österreich. Außerdem ist die Telefonnummer nirgends im Header/Footer, nur auf der Kontaktseite.",
+      "recommendation": "href=\"tel:+436776434546 1\" ohne Leerzeichen/Slash (z. B. tel:+43677 64345461 → tel:+4367764345461), mailto:photography@danielaheinisch.at; Nummer zusätzlich als Link im Footer."
+    },
+    {
+      "id": "UX-19",
+      "severity": "medium",
+      "criterion": "vertrauen_inhalt",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "selector": ".flex-element-type-tabs-switcher__item--active",
+      "title": "Keine Information zu Kosten/Paketen auf der gesamten Website",
+      "detail": "Weder eine Preisseite (siehe UX-01) noch die FAQ (6 Fragen: Ort, Bilder, Kleidung, Regen, Kleidungsangebot, Hund) nennen Preise, Dauer, Bildanzahl oder „Preise auf Anfrage“. Für Familien ist das die wichtigste Entscheidungsfrage; ohne Einordnung steigt die Hemmschwelle zur Anfrage.",
+      "recommendation": "FAQ um „Was kostet ein Shooting?“ / „Wie lange dauert es?“ ergänzen oder Preisseite mit „ab“-Preisen und Leistungsumfang anlegen (Inhalt von der Kundin)."
+    },
+    {
+      "id": "UX-20",
+      "severity": "medium",
+      "criterion": "vertrauen_inhalt",
+      "page": "/website-im-aufbau/",
+      "viewport": "laptop-1440",
+      "selector": "main",
+      "title": "Verwaiste Altseiten mit abweichender Telefonnummer und englischen Resten",
+      "detail": "/website-im-aufbau/ nennt „Telefonnummer: 0660/5676671“ (Kontaktseite: 0677/64345461) und „Website befindet sich im Aufbau“. /entry_form/kontaktformular/ („Forms: Kontaktformular – Not Found. We couldn’t find …“) und /gallery/ („Galleries Archiv“, „CONTINUE READING“, h1 „:“) sind englisch/leer. Keine Seite verlinkt darauf, sie sind aber erreichbar (Sitemap/Suchmaschine) und widersprechen der Professionalität; /danke-seite/ hat keinen Eingang außer nach Formularversand (Erfolgsweg nicht testbar).",
+      "recommendation": "Altseiten entfernen/umleiten (301 auf Kontakt bzw. Galerie) und aus Sitemap nehmen; falls Nummer 0660 aktuell ist, überall vereinheitlichen."
+    },
+    {
+      "id": "UX-21",
+      "severity": "medium",
+      "criterion": "navigation",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "selector": ".flex-element-type-tabs-switcher__item--active",
+      "title": "Aktiver FAQ-Reiter ist am Desktop fast unsichtbar",
+      "detail": "Die aktive Frage ist #D7D7D7 auf Beige (~1,3:1) mit hauchdünner Unterlinie; die inaktiven Fragen sind dunkler. Orientierung („welche Antwort sehe ich?“) geht verloren, die Überschrift links stimmt nur über Text überein. Auf Mobil ist der aktive Eintrag dagegen dunkel hinterlegt (inkonsistent).",
+      "recommendation": "Aktiven Reiter dunkel (#4F4D49), halbfett und mit klarer Linie/Markierung; auf Desktop und Mobil gleiches Muster."
+    },
+    {
+      "id": "UX-22",
+      "severity": "low",
+      "criterion": "navigation",
+      "page": "/gallery/familien/",
+      "viewport": "mobile-390",
+      "selector": "main h2",
+      "title": "Galerieseiten: keine Navigation zu anderen Galerien, extrem lang",
+      "detail": "Eine Galerie hat 95 Bilder in einer Spalte (~40.000 px Scrollhöhe mobil, ~17.000 px Desktop) ohne Zwischenüberschriften, ohne Link zu den anderen Galerien, ohne „Zurück zur Übersicht“ und ohne „nach oben“ außer im Footer. Nutzer müssen über das Menü „Galerie“ zurück.",
+      "recommendation": "Oben/unten Navigation „← Alle Galerien | Babybauch | Newborn | Familien …“, Back-to-top-Button, Bilder paginieren oder auf 24–30 begrenzen mit „Mehr laden“."
+    },
+    {
+      "id": "UX-23",
+      "severity": "medium",
+      "criterion": "mobile_bedienung",
+      "page": "/",
+      "viewport": "mobile-390",
+      "selector": ".slick-current",
+      "title": "Hero mobil: Text auf hellem Foto schwer lesbar, Hero sehr niedrig",
+      "detail": "Der Slider ist mobil nur ~237 px hoch, weiße, dünne, gesperrte Schrift („EURE FAMILIENFOTOGRAFIN IN MÖDLING“, Untertitel in 10 px) liegt direkt auf Gesichtern/hellem Himmel mit geringem Kontrast, ohne Overlay, und wird beschnitten. Es gibt keine Punkte/Anzeige, wie viele Slides existieren (6) und kein Button.",
+      "recommendation": "Dunkles Overlay (≈ 30–40 %) oder Textbox unter dem Bild; Hero mobil höher (z. B. 70 vh) mit zentriertem Motiv; Untertitel ≥ 14 px; Button „Jetzt anfragen“ und Slide-Indikator ergänzen."
+    }
+  ]
+}

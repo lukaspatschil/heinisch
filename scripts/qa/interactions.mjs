@@ -137,8 +137,13 @@ async function run(base, label, isClone) {
       await page.locator('form.flo-form input[type=submit]').click();
       await page.waitForTimeout(1000);
       await page.locator('.flo-form-block__form').screenshot({ path: path.join(out, 'form-errors.png') });
-      assert.equal(await page.locator('.form-group.error').count(), 4);
-      assert.equal((await page.locator('.errors.help-block').first().textContent()).trim(), 'This field is required!');
+      // the improved clone also requires the photo type and speaks German
+      const improved = isClone && (await page.locator('form[data-hs-improved]').count()) > 0;
+      assert.equal(await page.locator('.form-group.error').count(), improved ? 5 : 4);
+      assert.equal(
+        (await page.locator('.errors.help-block').first().textContent()).trim(),
+        improved ? 'Bitte fülle dieses Feld aus.' : 'This field is required!',
+      );
     });
     if (isClone) {
       await check('errors clear once fields are filled', async () => {
@@ -146,6 +151,7 @@ async function run(base, label, isClone) {
         await page.fill('#dein-nachname', 'Person');
         await page.fill('#deine-e-mail-adresse', 'test@example.com');
         await page.fill('#deine-nachricht', 'Hallo');
+        if (await page.locator('form[data-hs-improved]').count()) await page.locator('.radio-list label').first().click();
         assert.equal(await page.locator('.form-group.error').count(), 0);
       });
     }

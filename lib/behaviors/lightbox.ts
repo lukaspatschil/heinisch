@@ -6,7 +6,7 @@ import { combine, on, onSwipe, prefersReducedMotion, type Cleanup } from './dom.
  * toolbar (zoom, slideshow, thumbnails, close), arrows, keyboard and swipe.
  */
 
-type Item = { src: string; thumb: string; width: number; height: number };
+type Item = { src: string; thumb: string; width: number; height: number; alt: string };
 
 const ICONS = {
   zoom: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.7 17.3l-3-3a5.9 5.9 0 0 0-.6-7.6 5.9 5.9 0 0 0-8.4 0 5.9 5.9 0 0 0 0 8.4 5.9 5.9 0 0 0 7.7.7l3 3a1 1 0 0 0 1.3 0c.4-.5.4-1 0-1.5zM8.1 13.8a4 4 0 0 1 0-5.7 4 4 0 0 1 5.7 0 4 4 0 0 1 0 5.7 4 4 0 0 1-5.7 0z"></path></svg>',
@@ -40,6 +40,7 @@ export function initLightbox(): Cleanup {
             thumb: a.dataset.thumb || img?.getAttribute('src') || '',
             width: Number(img?.getAttribute('width')) || 1600,
             height: Number(img?.getAttribute('height')) || 1067,
+            alt: img?.getAttribute('alt') || '',
           };
         });
         cleanups.push(open(items, links.indexOf(link), link));
@@ -141,6 +142,7 @@ function open(items: Item[], start: number, opener: HTMLElement): Cleanup {
       image.style.opacity = '1';
     };
     image.src = items[index].src;
+    image.alt = items[index].alt; // UX4-06
     if (image.complete) image.style.opacity = '1';
     fit();
     // preload neighbours

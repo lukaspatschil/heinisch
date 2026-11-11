@@ -15,6 +15,8 @@ export type PageContent = {
     jsonLd: string[];
   };
   bodyClass: string;
+  /** Old URL that now redirects (static hosting: meta refresh). */
+  redirect?: string;
   css: string;
   html: string;
 };

@@ -1,0 +1,321 @@
+{
+  "reviewer": "ui",
+  "round": 4,
+  "scores": {
+    "typografie": 9,
+    "farbe_kontrast": 9.5,
+    "layout_abstaende": 9,
+    "bilder": 9.5,
+    "responsive": 9,
+    "komponenten": 9
+  },
+  "findings": [
+    {
+      "id": "UI4-01",
+      "severity": "low",
+      "criterion": "typografie",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 1185,
+        "y": 715,
+        "width": 60,
+        "height": 30
+      },
+      "title": "Rest von UI3-08: Hero-Zähler und Kleinlabels unter 12 px",
+      "detail": "Rest von UI3-08 (Kicker und FAQ-Liste sind behoben). Hero-Zähler \"1 / 6\" 10,1 px (Laptop) bzw. 9,4 px (mobil, bei 768 px dagegen 20 px), Genre-Labels der Startseite mobil \"Babybauch Fotografie\" usw. 11,4 px in Versalien mit Laufweite, Ablauf-Nummern \"01-03\" mobil 11,4 px. Alle anderen Texte der Seiten liegen bei mindestens 12 px.",
+      "recommendation": "Zähler 13 px (wie bei 768 px skalierbar), Labels und Ablauf-Nummern mobil mindestens 12,5 px."
+    },
+    {
+      "id": "UI4-02",
+      "severity": "low",
+      "criterion": "komponenten",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 964,
+        "y": 2322,
+        "width": 205,
+        "height": 64
+      },
+      "title": "Rest von UI3-09: Flächen-Buttons der Seitenabschnitte uneinheitlich (Höhe 42-64 px, Innenabstand 3-49 px)",
+      "detail": "Die Buttons aus den Seiteninhalten haben weiter verschiedene Maße: \"Ihr wollt mehr wissen\" 205 x 64 px (bei 1024 px 231 x 72), \"Mehr liebe Worte\" 178 x 42 px, \"Schreib mir\" 197 x 47 px, Ablauf \"Kontakt\" 214 x 59 px, während CTA-Block und Formular-Button 48 px hoch sind (Nunito Sans 14 px, Padding 28 px). Bei \"Ihr wollt mehr wissen\" füllt der Text die Box auf 1440 px fast randlos (Text x 966-1165 in Box 964-1169, ca. 3 px Innenabstand), bei \"Mehr liebe Worte\" 13 px, bei \"Schreib mir\" 49 px. Behoben ist nur der Formular-Button (jetzt Nunito Sans).",
+      "recommendation": "Alle Flächen-Buttons auf min-height 48 px, Padding 0 28 px, gleiche Schrift (Nunito Sans 13-14 px/600) setzen."
+    },
+    {
+      "id": "UI4-03",
+      "severity": "low",
+      "criterion": "farbe_kontrast",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 96,
+        "y": 910,
+        "width": 445,
+        "height": 32
+      },
+      "title": "Rest von UI3-11: Hinweistext \"Für weitere Fragen\" weiter in kaltem Blau",
+      "detail": "Die Antworttexte sind jetzt #4F4D49, der Hinweis \"Für weitere Fragen, könnt ihr mich gerne jederzeit kontaktieren.\" steht aber weiter in rgb(50,75,88) = #324B58, ein Blaugrau neben dem warmen Grau der übrigen Texte (Desktop und mobil, dort bei x = 17).",
+      "recommendation": "Hinweistext #4F4D49."
+    },
+    {
+      "id": "UI4-04",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/haeufige-fragen/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 101,
+        "y": 730,
+        "width": 1215,
+        "height": 186
+      },
+      "title": "Rest von UI3-15: 186 px Leerfläche zwischen Antwort und Hinweis",
+      "detail": "Antwort endet bei y = 730, der Hinweis \"Für weitere Fragen\" beginnt bei y = 916 (186 px, Runde 3: 190 px); mobil bleiben etwa 200 px frei. Rechts neben dem Hero-Bild (y 145-427) bleibt der Spaltenbereich bis zur Fragenliste (beginnt y = 358) leer. Der Block wirkt unausgewogen.",
+      "recommendation": "Mindesthöhe des Antwortbereichs durch feste Abstände (48 px) ersetzen."
+    },
+    {
+      "id": "UI4-05",
+      "severity": "low",
+      "criterion": "komponenten",
+      "page": "/preise/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 1225,
+        "y": 1355,
+        "width": 120,
+        "height": 34
+      },
+      "title": "Rest von UI3-13: \"Nach oben\" weiter in Cormorant 12 px Versalien; bei 1920 px Footer-Links kleiner als Fließtext",
+      "detail": "Die Fußzeile ist auf Open Sans umgestellt und die Orts-Links haben 36 px Trefferfläche. Übrig: \"Nach oben\" in Cormorant 12 px Versalien (Höhe 14 px, optisch ca. 9 px) als einziges Serifen-Element; bei 1920 px stehen \"Impressum\" und \"Datenschutzerklärung\" mit 13 px unter einem 18-px-Fließtext derselben Spalte (Hierarchie umgekehrt).",
+      "recommendation": "\"Nach oben\" in Nunito Sans 12-13 px mit Laufweite; Footer-Links skalieren wie der Spaltentext."
+    },
+    {
+      "id": "UI4-06",
+      "severity": "low",
+      "criterion": "responsive",
+      "page": "/",
+      "viewport": "mobile-390",
+      "rect": {
+        "x": 31,
+        "y": 65,
+        "width": 328,
+        "height": 560
+      },
+      "title": "Rest von UI3-14: Mobil-Hero weiter mit 31 px Rand, Titel auf dem Gesicht",
+      "detail": "Hero 328 px breit (x = 31-359), Folgeabschnitte beginnen bei 31 px, Header-Burger bei 340-388; der 3-zeilige Titel (16,4 px, y 215-281) und der Untertitel liegen auf Kopf und Gesicht des Vaters, Zähler 9,4 px. Unverändert zu Runde 3.",
+      "recommendation": "Titel und Untertitel ins untere Drittel mit Verlauf rgba(0,0,0,.45) setzen oder Hero randlos."
+    },
+    {
+      "id": "UI4-07",
+      "severity": "low",
+      "criterion": "komponenten",
+      "page": "/",
+      "viewport": "laptop-1440",
+      "selector": ".flex-element-type-logo",
+      "title": "Tastatur-Fokus: Logo-Link mit 389 x 133 px großem Fokusrahmen",
+      "detail": "Mit Tab (2. Stopp) bekommt der Logo-Link einen 2-px-Rahmen in x = 525-914, y = -13 bis 119: ein 389 px breites Rechteck für ein 80 px breites Logo, dessen Kanten die Menüwörter \"Ablauf\" (endet x = 525) und \"Liebe Worte\" (beginnt x = 914) berühren. Die Menüpunkte selbst haben saubere 28-px-Rahmen.",
+      "recommendation": "Logo-Link auf Logobreite begrenzen (width: fit-content) oder Fokusrahmen am Bild statt am Container."
+    },
+    {
+      "id": "UI4-08",
+      "severity": "low",
+      "criterion": "typografie",
+      "page": "/ablauf/",
+      "viewport": "laptop-1440",
+      "selector": "h1",
+      "title": "Seitentitel uneinheitlich: \"Ablauf\" rosé und unterstrichen, andere Titel dunkel ohne Linie",
+      "detail": "H1-Größen reichen von 18 px (Impressum, Open Sans) über 30 px (Anfrage, Datenschutz, SEO-Seiten) und 56 px (Portfolio, Preise) bis 89 px (FAQ); \"Ablauf\" (30 px) ist als einzige rosé (#8E5F63) und unterstrichen, ohne Link zu sein; ebenso \"Meine Liebe zur Fotografie\" auf /ueber-mich/ (20 px, underline, kein Link). Unterstrichene Überschriften wirken wie Links.",
+      "recommendation": "Text-decoration bei Überschriften entfernen; Titel auf zwei Stufen (30 px bzw. 56 px) und eine Farbe vereinheitlichen."
+    },
+    {
+      "id": "UI4-09",
+      "severity": "low",
+      "criterion": "bilder",
+      "page": "/liebe-worte/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 93,
+        "y": 2745,
+        "width": 542,
+        "height": 417
+      },
+      "title": "Letztes Kundenfoto größer und 8 px nach links versetzt",
+      "detail": "Die fünf ersten Fotos stehen bei x = 101 mit 534 x 347-357 px, das sechste (C&T, Schwarzweiß) bei x = 93 mit 542 x 417 px: 8 px weiter links und 60-70 px höher als die übrigen (anderes Seitenverhältnis 1,30 gegenüber 1,52).",
+      "recommendation": "Alle Fotos gleich breit (534 px) und im Seitenverhältnis 3:2 zuschneiden (object-fit: cover)."
+    },
+    {
+      "id": "UI4-10",
+      "severity": "low",
+      "criterion": "bilder",
+      "page": "/ueber-mich/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 195,
+        "y": 1357,
+        "width": 431,
+        "height": 300
+      },
+      "title": "Bildpaar unter dem Zitat: zwei Fotos in verschiedenen Größen und Höhen",
+      "detail": "Foto 1: 225 x 300 px bei y = 1357, Foto 2: 179 x 239 px bei y = 1380 (23 px tiefer, 20 % kleiner), zusätzlich Abstand 27 px; das Paar wirkt wie ein Versehen statt gewollter Collage, daneben rechts bleiben 600 px leer.",
+      "recommendation": "Beide Fotos gleiche Höhe (z. B. 300 px) und Oberkante oder bewusste Collage mit größerem Versatz."
+    },
+    {
+      "id": "UI4-11",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/ueber-mich/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 870,
+        "y": 1540,
+        "width": 300,
+        "height": 90
+      },
+      "title": "Button \"Jetzt anfragen\" klebt 8 px unter dem Text",
+      "detail": "Der letzte Absatz endet bei y = 1566 und die Button-Fläche beginnt bei y = 1569 (ca. 8 px sichtbarer Abstand), während Absätze 27 px Zeilenabstand und andere Buttons der Seite mindestens 48 px Luft haben.",
+      "recommendation": "margin-top: 32-48 px über dem Button."
+    },
+    {
+      "id": "UI4-12",
+      "severity": "low",
+      "criterion": "responsive",
+      "page": "/",
+      "viewport": "tablet-1024",
+      "rect": {
+        "x": 347,
+        "y": 1530,
+        "width": 340,
+        "height": 650
+      },
+      "title": "Tablet 1024: Fließtext in 340 px schmaler Spalte, Startseite 12 100 px hoch",
+      "detail": "Bei 1024 px (iPad quer) bleibt die gestapelte Mobil-Ansicht: der Haupttext steht in einer 340 px breiten Spalte (x 347-680, ca. 35 Zeichen je Zeile) mit 340 px leerem Rand beidseitig; die Startseite ist 12 133 px hoch (Laptop 6 860 px, Mobil 9 742 px). Die Seite wirkt dadurch gestreckt, besonders zwischen den Abschnitten (ca. 200 px Leerraum).",
+      "recommendation": "Textspalte bei 768-1199 px auf 560-640 px verbreitern und Abschnittsabstände begrenzen."
+    },
+    {
+      "id": "UI4-13",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/haeufige-fragen/",
+      "viewport": "mobile-390",
+      "rect": {
+        "x": 17,
+        "y": 1209,
+        "width": 315,
+        "height": 44
+      },
+      "title": "FAQ mobil: Hinweistext 14 px weiter links als Antwort und Fragenliste",
+      "detail": "Antworttext und Fragen beginnen bei x = 31, der Hinweis \"Für weitere Fragen\" bei x = 17 und das Hero-Bild bei x = 14; drei verschiedene linke Kanten auf einer Seite.",
+      "recommendation": "Alle drei Elemente auf denselben Seitenrand (z. B. 24 px) legen."
+    },
+    {
+      "id": "UI4-14",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/gallery/familien/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 124,
+        "y": 268,
+        "width": 840,
+        "height": 41
+      },
+      "title": "Galerie-Navigation 23 px eingerückt gegenüber dem Bildraster",
+      "detail": "\"← Alle Galerien\" beginnt bei x = 124, das Raster bei x = 101 (bei 1024 px: 66 gegen 55); die Linkzeile hat keinen Bezug zur Raster- oder Zentrierachse (Überschrift zentriert, Links linksbündig versetzt).",
+      "recommendation": "Linkzeile bei x = 101 beginnen lassen oder zentrieren."
+    },
+    {
+      "id": "UI4-15",
+      "severity": "low",
+      "criterion": "layout_abstaende",
+      "page": "/ablauf/",
+      "viewport": "laptop-1440",
+      "rect": {
+        "x": 127,
+        "y": 620,
+        "width": 1180,
+        "height": 200
+      },
+      "title": "Ablauf: dritte Spalte sitzt 5-7 px höher als Spalte 1 und 2",
+      "detail": "Nummernsymbole y = 638 / 636 / 631, Titel y = 752 / 752 / 747, Texte y = 827 / 826 / 821: die dritte Spalte beginnt 5-7 px höher; bei den drei gleichen Spalten fällt es an den Titeln auf.",
+      "recommendation": "Spalten auf gleichen Abstand oben (align-items: flex-start, gleiche Paddings)."
+    }
+  ],
+  "round3_verification": [
+    {
+      "id": "UI3-01",
+      "status": "behoben",
+      "evidence": "a.hs-skip-link--gallery liegt ohne Fokus als 1-px-Streifen (Rect 152,9 x 1 px, clip) auf allen 3 Viewports; /gallery/familien/ zeigt keine dunkle Fläche mehr über dem Menü. Mit Fokus erscheint er fixiert bei x = 16, y = 120 (192,9 x 42 px, #4F4D49/weiß) unter der Kopfzeile."
+    },
+    {
+      "id": "UI3-02",
+      "status": "behoben",
+      "evidence": "Logo mittig bei 768/1024/390 (Screenshots: Mitte 384/512/195), Burger 48 x 54 px bei x = 713-761 (768) bzw. 969-1017 (1024), 7 px vom rechten Rand; Mobil 340-388 bei y = 8. Hero (41-727) bleibt schmaler als die Kopfzeile, aber ohne störenden Versatz."
+    },
+    {
+      "id": "UI3-03",
+      "status": "behoben",
+      "evidence": "Galerien bei 1024 px dreispaltig, Spalten ca. 296 px, /gallery/familien/ 15 288 px hoch (Runde 3: 115 554 px), bei 768 px 11 938 px; Laptop 17 857 px."
+    },
+    {
+      "id": "UI3-04",
+      "status": "behoben",
+      "evidence": "sizes \"(min-width: 600px) 33vw, 100vw\"; geladene Variante 683 px für 383 px (Laptop) und für 296 px (Tablet), Hochskalierungsfaktor überall unter 1; in einer vollständigen Prüfung von 8 Seiten x 4 Viewports kein Bild mit natürlicher Breite unter 90 % der Anzeigebreite."
+    },
+    {
+      "id": "UI3-05",
+      "status": "behoben",
+      "evidence": "Beide Menühälften bei 1440 px mit Oberkante y = 33 (Über mich/Galerie/Preise/Ablauf und Liebe Worte/FAQ/Kontakt, Höhe 28/29 px), bei 1920 px 44 gegen 46 px (nicht sichtbar). Navigation x = 65-1357 gegen Inhalt 101-1339 bleibt, ist aber nicht störend."
+    },
+    {
+      "id": "UI3-06",
+      "status": "behoben",
+      "evidence": "Alle zweizeiligen Teaser-Titel haben Zeilenhöhe 1,3 (mobil 19,8 px/1,3, 768/1024: 26,1 px/1,3; Laptop einzeilig); Screenshot Startseite 390/768/1024: Ober- und Unterlängen berühren sich nicht."
+    },
+    {
+      "id": "UI3-07",
+      "status": "behoben",
+      "evidence": "Startseite bei 768 und 1024 px: alle Teaser- und Collagebilder mit mindestens 1,0-facher Auflösung (Teaser 336 px mit 683-px-Datei), keine 146-200-px-Dateien mehr."
+    },
+    {
+      "id": "UI3-08",
+      "status": "teilweise",
+      "evidence": "Behoben: Kicker \"Die Person hinter der Kamera\" 12 px, FAQ-Fragen mobil 13 px. Offen: Hero-Zähler 10,1 px (Laptop) / 9,4 px (mobil), Genre-Labels Startseite mobil 11,4 px, Ablauf-Nummern mobil 11,4 px (siehe UI4-01)."
+    },
+    {
+      "id": "UI3-09",
+      "status": "teilweise",
+      "evidence": "Formular-Button jetzt Nunito Sans 14 px (Padding 28 px, 48 px hoch). Builder-Buttons unverändert: 205 x 64, 178 x 42, 197 x 47, 214 x 59 px, Innenabstand 3-49 px (siehe UI4-02)."
+    },
+    {
+      "id": "UI3-10",
+      "status": "behoben",
+      "evidence": "H1 \"Datenschutzerklärung für die Webseite...\" bei x = 360, Breite 720 px, exakt in der Textspalte (Screenshot Laptop)."
+    },
+    {
+      "id": "UI3-11",
+      "status": "teilweise",
+      "evidence": "Antworttexte jetzt #4F4D49, Überschrift #272521 (keine #121C22 mehr auf der Seite). Hinweis \"Für weitere Fragen\" weiter #324B58 (siehe UI4-03)."
+    },
+    {
+      "id": "UI3-12",
+      "status": "behoben",
+      "evidence": "Tablet 1024: Button-Unterkante y = 426, Trennlinie y = 454 (28 px Abstand); 768 px 28 px (Screenshot)."
+    },
+    {
+      "id": "UI3-13",
+      "status": "teilweise",
+      "evidence": "Fußzeile in Open Sans 12 px (Mobil 14 px), Orts-Links 36 px hoch (mobil 44 px). \"Nach oben\" noch Cormorant 12 px Versalien, 14 px hoch (siehe UI4-05)."
+    },
+    {
+      "id": "UI3-14",
+      "status": "offen",
+      "evidence": "Mobil-Hero weiter 328 px breit (x = 31-359), Titel (3 Zeilen, y 215-281) auf dem Gesicht des Vaters, Zähler 9,4 px (siehe UI4-06)."
+    },
+    {
+      "id": "UI3-15",
+      "status": "offen",
+      "evidence": "Antwort endet y = 730, Hinweis beginnt y = 916 (186 px Leerfläche, Runde 3: 190 px) (siehe UI4-04)."
+    }
+  ]
+}
